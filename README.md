@@ -1,6 +1,6 @@
 # Nant client
 
-Тот самый циганский клиент для [тестового задания](https://github.com/tada-team/nane)
+Тот самый цыганский клиент для [тестового задания](https://github.com/tada-team/nane)
 
 ## Features
 

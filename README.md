@@ -6,10 +6,10 @@
 
 | Android | iOS |
 |---------|-------|
-|![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/android/chats.png)    | ![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/ios/chats.png) |
-|![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/android/chat.png)    | ![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/ios/chat.png) |
-|![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/android/new_chat.png)    | ![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/ios/new_chat.png) |
-|![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/android/profile.png)    | ![](https://github.com/Maksimka101/nant_chat/tree/master/assets/screenshots/ios/profile.png) |
+|![chats screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/chats.png?raw=true)    | ![chats screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/chats.png?raw=true) |
+|![chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/chat.png?raw=true)    | ![chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/chat.png?raw=true) |
+|![new chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/new_chat.png?raw=true)    | ![new chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/new_chat.png?raw=true) |
+|![profile screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/profile.png?raw=true)    | ![profile screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/profile.png?raw=true) |
 
 ## Features
 

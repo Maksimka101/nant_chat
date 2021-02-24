@@ -1,0 +1,53 @@
+name: nant_client
+description: Тот самый циганский клиент для тестового задания
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: <=1.2.0
+  dio: <=3.0.10
+  get_it: <=5.0.6
+  google_nav_bar: <=4.1.0
+  dash_chat: <=1.2.0
+  worker_manager: <=3.2.0
+  logger: <=0.9.4
+  flutter_bloc: <=6.1.1
+  freezed_annotation: <=0.12.0
+  hive: <=1.4.5
+  keyboard_dismisser: <=1.0.2
+  path_provider: <=1.6.27
+  web_socket_channel: <=1.2.0
+  pedantic: <=1.10.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: <=1.11.1
+  freezed: <=0.12.7
+  hive_generator: <=0.8.2
+  flutter_launcher_icons: <=0.8.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/flags/
+
+flutter_intl:
+  enabled: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icon/icon.png"

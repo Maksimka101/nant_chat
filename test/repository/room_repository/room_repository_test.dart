@@ -59,6 +59,11 @@ void main() {
         sender: sender,
       );
       mockWebRoomsRepository.onLoadRoomMessages = (room) => [initMessage];
+      mockWebSocketRepository.onAdd = (map) => map.cast<String, dynamic>()
+        ..addAll(<String, dynamic>{
+          'created': createRoom.initMessage.createdAt.toString(),
+          "sender": {"username": sender.name},
+        });
 
       final roomsFuture = roomsRepository.dataStream.first;
       await roomsRepository.createRoom(createRoom);

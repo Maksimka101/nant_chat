@@ -77,6 +77,7 @@ class CommonRoomsRepository extends RoomsRepository {
   @override
   Future<void> createRoom(CreateRoom createRoom) async {
     try {
+      await messagesRepository.subscribeOnWebMessages();
       await messagesRepository.sendMessage(
         room: createRoom.name,
         createMessage: createRoom.initMessage,

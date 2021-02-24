@@ -31,10 +31,6 @@ class NaneMessagesRepository extends MessagesRepository {
   }
 
   void _listenForNewMessages(Map response) {
-    assert(
-      _newMessagesSubscription != null,
-      "Don't forget to call initialize()",
-    );
     if (response.containsKey('text')) {
       final receivedMessage = ReceivedMessage(
         room: response['room'] as String,
@@ -49,10 +45,7 @@ class NaneMessagesRepository extends MessagesRepository {
     String room,
     CreateMessage createMessage,
   }) async {
-    assert(
-      _newMessagesSubscription != null,
-      "Don't forget to call initialize()",
-    );
+    assertInitialized(_newMessagesSubscription != null);
     final date = createMessage.createdAt;
     final message = Message(
       sender: ChatUser(name: userRepository.data.name),

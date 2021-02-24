@@ -22,49 +22,30 @@ class MessageLookup extends MessageLookupByLibrary {
   static m0(error) => "Не удалось создать пользователя: ${error}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => <String, Function>{
-        "authorization": MessageLookupByLibrary.simpleMessage("Авторизация"),
-        "createRoom": MessageLookupByLibrary.simpleMessage("Создать комнату"),
-        "currentLanguage":
-            MessageLookupByLibrary.simpleMessage("Текущий язык:"),
-        "enableDarkTheme":
-            MessageLookupByLibrary.simpleMessage("Включить темную тему"),
-        "english": MessageLookupByLibrary.simpleMessage("Английский"),
-        "enterFirstMessage":
-            MessageLookupByLibrary.simpleMessage("Первое сообщение"),
-        "enterYourMessage":
-            MessageLookupByLibrary.simpleMessage("Введите сообщение"),
-        "enterYourName":
-            MessageLookupByLibrary.simpleMessage("Введите свое имя"),
-        "enterYourRoomName":
-            MessageLookupByLibrary.simpleMessage("Название комнаты"),
-        "failedToCreateUserDueToError": m0,
-        "looksLikeYouAreHereFirstTime": MessageLookupByLibrary.simpleMessage(
-            "Похоже вы здесь впервые.\nКак вас зовут?"),
-        "nameMustHaveNoMoreThan16Character":
-            MessageLookupByLibrary.simpleMessage(
-                "Имя должно содержать не более 16-ти символов"),
-        "nantChat": MessageLookupByLibrary.simpleMessage("Nant Chat"),
-        "pleaseEnterRoomName":
-            MessageLookupByLibrary.simpleMessage("Введите название комнаты"),
-        "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
-        "roomMustHaveNoMoreThan16Character":
-            MessageLookupByLibrary.simpleMessage(
-                "Комната должна содержать не более 25-ти символов"),
-        "roomNameMustHaveAtLeast4Character":
-            MessageLookupByLibrary.simpleMessage(
-                "Комната должна содержать не менее 4-х символов"),
-        "rooms": MessageLookupByLibrary.simpleMessage("Комнаты"),
-        "russian": MessageLookupByLibrary.simpleMessage("Русский"),
-        "signOut": MessageLookupByLibrary.simpleMessage("Выйти"),
-        "tapToChangeLanguage":
-            MessageLookupByLibrary.simpleMessage("Нажмите для смены языка"),
-        "toCreateANewRoomYouNeedTo": MessageLookupByLibrary.simpleMessage(
-            "Для создания комнаты определитесь с ее именем и напишите первое сообщение"),
-        "userNameMustHaveAtLeast4Character":
-            MessageLookupByLibrary.simpleMessage(
-                "Имя должно содержать не менее 4-х символов"),
-        "waitASecondPlease":
-            MessageLookupByLibrary.simpleMessage("Подождите немного")
-      };
+  static _notInlinedMessages(_) => <String, Function> {
+    "authorization" : MessageLookupByLibrary.simpleMessage("Авторизация"),
+    "createRoom" : MessageLookupByLibrary.simpleMessage("Создать комнату"),
+    "currentLanguage" : MessageLookupByLibrary.simpleMessage("Текущий язык:"),
+    "enableDarkTheme" : MessageLookupByLibrary.simpleMessage("Включить темную тему"),
+    "english" : MessageLookupByLibrary.simpleMessage("Английский"),
+    "enterFirstMessage" : MessageLookupByLibrary.simpleMessage("Первое сообщение"),
+    "enterYourMessage" : MessageLookupByLibrary.simpleMessage("Введите сообщение"),
+    "enterYourName" : MessageLookupByLibrary.simpleMessage("Введите свое имя"),
+    "enterYourRoomName" : MessageLookupByLibrary.simpleMessage("Название комнаты"),
+    "failedToCreateUserDueToError" : m0,
+    "looksLikeYouAreHereFirstTime" : MessageLookupByLibrary.simpleMessage("Похоже вы здесь впервые.\nКак вас зовут?"),
+    "nameMustHaveNoMoreThan16Character" : MessageLookupByLibrary.simpleMessage("Имя должно содержать не более 16-ти символов"),
+    "nantChat" : MessageLookupByLibrary.simpleMessage("Nant Chat"),
+    "pleaseEnterRoomName" : MessageLookupByLibrary.simpleMessage("Введите название комнаты"),
+    "profile" : MessageLookupByLibrary.simpleMessage("Профиль"),
+    "roomMustHaveNoMoreThan16Character" : MessageLookupByLibrary.simpleMessage("Комната должна содержать не более 25-ти символов"),
+    "roomNameMustHaveAtLeast4Character" : MessageLookupByLibrary.simpleMessage("Комната должна содержать не менее 4-х символов"),
+    "rooms" : MessageLookupByLibrary.simpleMessage("Комнаты"),
+    "russian" : MessageLookupByLibrary.simpleMessage("Русский"),
+    "signOut" : MessageLookupByLibrary.simpleMessage("Выйти"),
+    "tapToChangeLanguage" : MessageLookupByLibrary.simpleMessage("Нажмите для смены языка"),
+    "toCreateANewRoomYouNeedTo" : MessageLookupByLibrary.simpleMessage("Для создания комнаты определитесь с ее именем и напишите первое сообщение"),
+    "userNameMustHaveAtLeast4Character" : MessageLookupByLibrary.simpleMessage("Имя должно содержать не менее 4-х символов"),
+    "waitASecondPlease" : MessageLookupByLibrary.simpleMessage("Подождите немного")
+  };
 }

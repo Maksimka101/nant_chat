@@ -40,7 +40,7 @@ Future<void> initializeRequiredRepositories() async {
     hostName: "https://nane.tada.team/api",
     webSocketHostName: "wss://nane.tada.team/ws",
     defaultLocale: Locale('en'),
-    defaultAppTheme: AppLightTheme(),
+    defaultAppTheme: AppDarkTheme(),
     supportedLocales: [Locale('ru'), Locale('en')],
   );
   final localizationRepository = HiveLocalizationRepository(

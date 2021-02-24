@@ -18,7 +18,6 @@ dependencies:
   cupertino_icons: <=1.2.0
   dio: <=3.0.10
   get_it: <=5.0.6
-  google_nav_bar: <=4.1.0
   dash_chat: <=1.2.0
   worker_manager: <=3.2.0
   logger: <=0.9.4

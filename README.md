@@ -10,6 +10,13 @@ Chat client for [test task](https://github.com/tada-team/nane)
 - Chat pagination
 - Adaptive design for mobile and desktop
 
+## Differences between mobile and desktop design and UX
+
+- Replace navigation bar with navigation rail
+- Merge rooms list screen with chat screen
+- Minimized app bar
+- System controls integrated into UI (disabled title bar on macOS)
+
 ## Under the hood
 
 - flutter bloc
@@ -35,6 +42,7 @@ Chat client for [test task](https://github.com/tada-team/nane)
 - Run on ios, android or macOS (other platform not tested)
 
 ## Install
+
 Install [android](https://drive.google.com/file/d/1WU4PWDDrFPFc9fQAsNBdrAriDEezSFnH/view?usp=sharing) 
 or [Mac Os](https://drive.google.com/file/d/1g4vnG8h7GbHcTWZ2c_GkfOWq1xfFz06Q/view?usp=sharing) version
 

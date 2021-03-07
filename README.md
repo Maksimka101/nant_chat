@@ -47,6 +47,8 @@ or [Mac Os](https://drive.google.com/file/d/1g4vnG8h7GbHcTWZ2c_GkfOWq1xfFz06Q/vi
 | ![new chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/new_chat.png?raw=true) |![new chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/new_chat.png?raw=true)   |
 | ![profile screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/profile.png?raw=true) |  ![profile screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/profile.png?raw=true)    |
 
+It should be noted that I am not a designer
+
 | Mac Os dark theme | Mac Os light theme |
 |---------|-------|
 | ![selected chat dark](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/mac_os/selected_chat_dark.png?raw=true) |![all chats light](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/mac_os/all_chats_light.png?raw=true)       |

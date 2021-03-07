@@ -22,7 +22,7 @@ import 'package:nant_client/ui/widgets/app_builder/app_builder.dart';
 import 'package:nant_client/utils/dio/default_dio.dart';
 import 'package:nant_client/utils/get_it/get_it.dart';
 import 'package:nant_client/utils/hive/hive_initializer.dart';
-import 'package:nant_client/utils/isolate_manager/executor_isolate_manager/executor_isolate_manager.dart';
+import 'package:nant_client/utils/isolate_manager/isolate_manager_factory.dart';
 import 'package:nant_client/utils/platform_info/platform_info.dart';
 import 'package:nant_client/utils/platform_info/platform_info_default_implementation.dart';
 
@@ -46,14 +46,15 @@ Future<void> initializeRequiredRepositories() async {
   final localizationRepository = HiveLocalizationRepository(
     appConfig.defaultLocale,
   );
+  final platformInfo = DefaultPlatformInfo();
   final themeRepository = HiveThemeRepository(
     defaultTheme: appConfig.defaultAppTheme,
   );
-  await HiveInitializer.initializeHive();
+  await HiveInitializer.initializeHive(platformInfo);
   await localizationRepository.initialize();
   await themeRepository.initialize();
   getIt
-    ..registerSingleton<PlatformInfo>(DefaultPlatformInfo())
+    ..registerSingleton<PlatformInfo>(platformInfo)
     ..registerSingleton<AppConfig>(appConfig)
     ..registerSingletonBloc(
       LocalizationBloc(
@@ -75,7 +76,8 @@ Future<void> initializeRepositories() async {
   final dio = getDefaultDio();
   final webSocketFactory = WebSocketChannelRepositoryFactory();
   final userRepository = HiveUserRepository();
-  final isolateManager = ExecutorIsolateManager();
+  final platformInfo = getIt.get<PlatformInfo>();
+  final isolateManager = IsolateManagerFactory(platformInfo).create();
   final roomsRepository = CommonRoomsRepository(
     paginationSize: appConfig.chatPagination,
     webRepository: NaneWebRoomsRepository(

@@ -1,40 +1,42 @@
 # Nant client
 
-Тот самый цыганский клиент для [тестового задания](https://github.com/tada-team/nane)
+Chat client for [test task](https://github.com/tada-team/nane)
 
 ## Features
 
-- Темная тема
-- Локализация
-- Гибкая архитектура
-- Разбиение сообщений на страницы и подгрузка по страницам
+- Dark and light theme
+- Localization
+- Flexible architecture
+- Chat pagination
+- Adaptive design for mobile and desktop
 
 ## Under the hood
 
 - flutter bloc
-- freezed для моделей
-- hive для кэша
-- dio для http
-- web_socket_channel для работы с веб сокетами
-- pedantic + собственные правила для анализатора
-- get_it для работы с зависимостями в UI
-- logger для логирования
-- worker_manager для работы с изолятами
-- intl_utils для локализации
-- keyboard_dismisser для корректного скрытия клавиатуры на iOS
-- Несколько тестов стандартными средствами flutter
-- Некоторое количество собственных utils классов, репозиториев и extension-ов
-- Работа с темой стандартными средствами flutter
-- dash_chat для интерфейса чата
+- freezed for models
+- hive for cache
+- dio as http client
+- web_socket_channel for work with web socket
+- pedantic and custom rules for analyzer
+- get_it for di in UI
+- logger for logging
+- worker_manager for work with Isolates
+- intl_utils for localization
+- keyboard_dismisser to hide keyboard correctly on iOS
+- Few tests with use of standard flutter tools
+- Number of custom utils methods, repositories and extensions
+- Work with themes using standard flutter Theme
+- dash_chat for chat UI
 
 ## How to build
 
-- Переключиться на stable (v1.22)
-- Сделать pub get
-- Запустить на android в любом режиме, на iOS тестировал только debug
+- Checkout on flutter stable (v2.01)
+- Do pub get
+- Run on ios, android or macOS (other platform not tested)
 
 ## Install
-Можно скачать [apk](https://drive.google.com/file/d/136nBApv28C66jnHEOOXNVrnb51btNzb_/view?usp=sharing)
+Install [android](https://drive.google.com/file/d/1WU4PWDDrFPFc9fQAsNBdrAriDEezSFnH/view?usp=sharing) 
+or [Mac Os](https://drive.google.com/file/d/1g4vnG8h7GbHcTWZ2c_GkfOWq1xfFz06Q/view?usp=sharing) version
 
 ## Screenshots
 
@@ -44,3 +46,9 @@
 | ![chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/chat.png?raw=true)|![chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/chat.png?raw=true)    |
 | ![new chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/new_chat.png?raw=true) |![new chat screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/new_chat.png?raw=true)   |
 | ![profile screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/ios/profile.png?raw=true) |  ![profile screen](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/android/profile.png?raw=true)    |
+
+| Mac Os dark theme | Mac Os light theme |
+|---------|-------|
+| ![selected chat dark](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/mac_os/selected_chat_dark.png?raw=true) |![all chats light](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/mac_os/all_chats_light.png?raw=true)       |
+| ![create room dark](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/mac_os/create_room_dark.png?raw=true)   |  ![profile screen light](https://github.com/Maksimka101/nant_chat/blob/master/assets/screenshots/mac_os/profile_light.png?raw=true)       |
+

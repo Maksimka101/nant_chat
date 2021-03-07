@@ -87,7 +87,7 @@ class EditRoomBloc extends Bloc<EditRoomBlocEvent, EditRoomBlocState> {
   ) async* {
     unawaited(
       roomsRepository.loadNextPage(event.roomName).catchError((e, st) {
-        logger.d("Failed to load full room", e, st as StackTrace);
+        logger.d("Failed to load more messages", e, st as StackTrace);
       }),
     );
   }

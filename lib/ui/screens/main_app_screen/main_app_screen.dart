@@ -1,74 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nant_client/bloc/user_bloc/user_bloc.dart';
-import 'package:nant_client/generated/l10n.dart';
-import 'package:nant_client/ui/screens/profile_screen/profile_screen.dart';
-import 'package:nant_client/ui/screens/rooms_screen/rooms_screen.dart';
-import 'package:nant_client/ui/widgets/common/circle_user_avatar.dart';
-import 'package:nant_client/ui/widgets/layouts/safe_scaffold.dart';
-import 'package:nant_client/utils/get_it/get_it.dart';
+import 'package:nant_client/ui/screens/main_app_screen/main_desktop_app_screen.dart';
+import 'package:nant_client/ui/screens/main_app_screen/main_mobile_app_screen.dart';
+import 'package:nant_client/ui/widgets/layouts/adaptive_layout_builder.dart';
 
 /// Main app screen with list of rooms
-class MainAppScreen extends StatefulWidget {
-  const MainAppScreen({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  _MainAppScreenState createState() => _MainAppScreenState();
-}
-
-class _MainAppScreenState extends State<MainAppScreen> {
-  var _tabIndex = 0;
-
-  void _onTapSelected(int index) {
-    if (_tabIndex != index) {
-      _tabIndex = index;
-      setState(() {});
-    }
-  }
+class MainAppScreen extends StatelessWidget {
+  const MainAppScreen();
 
   @override
   Widget build(BuildContext context) {
-    final localization = S.of(context);
-    return SafeScaffold(
-      body: Stack(
-        children: [
-          Offstage(
-            offstage: _tabIndex != 0,
-            child: const RoomsScreen(),
-          ),
-          Offstage(
-            offstage: _tabIndex != 1,
-            child: const ProfileScreen(),
-          )
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _onTapSelected,
-        currentIndex: _tabIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.message_rounded, size: 30),
-            label: localization.rooms,
-          ),
-          BottomNavigationBarItem(
-            icon: BlocBuilder<UserBloc, UserBlocState>(
-              cubit: getIt.get<UserBloc>(),
-              builder: (context, state) {
-                return state.maybeMap(
-                  loaded: (loaded) => CircleUserAvatar(
-                    name: loaded.user.name,
-                    radius: 15,
-                  ),
-                  orElse: () => const Icon(Icons.account_circle_rounded),
-                );
-              },
-            ),
-            label: localization.profile,
-          ),
-        ],
-      ),
+    return DesktopLayoutBuilder(
+      builder: (context, desktop) {
+        if (desktop) {
+          return MainDesktopAppScreen();
+        } else {
+          return MainMobileAppScreen();
+        }
+      },
     );
   }
 }

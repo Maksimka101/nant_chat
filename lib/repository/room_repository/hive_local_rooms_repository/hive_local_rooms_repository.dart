@@ -105,6 +105,11 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
   Future<void> loadNextPage(String room) async {
     assertInitialized(_roomInfoBox != null);
     final currentRoom = _roomsMap[room];
+
+    if (currentRoom == null) {
+      return;
+    }
+
     final currentMessagesCount = currentRoom.messages.length;
     final hiveRoom = _roomInfoBox.get(room.toHiveKey());
     final newMessages = await _loadMessages(
@@ -177,14 +182,16 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
     List<Message> messages,
   }) async {
     assertInitialized(_roomInfoBox != null);
+    final hiveRoom = _roomInfoBox.get(room);
     await _roomInfoBox.put(
       room.toHiveKey(),
       HiveRoom(name: room, messagesCount: messages.length),
     );
-    var messagesBox = await _getMessagesBox(room);
-    await messagesBox.deleteFromDisk();
-    _messagesBoxMap[room] = null;
-    messagesBox = await _getMessagesBox(room);
+    final messagesBox = await _getMessagesBox(room);
+    // Delete all old messages
+    for (var i = 0; i < (hiveRoom?.messagesCount ?? 0); i++) {
+      await messagesBox.deleteAt(0);
+    }
     await messagesBox.addAll(messages);
     _roomsMap[room] = Room(
       messages: messages,

@@ -13,17 +13,20 @@ class RoomItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lastMessage = room.messages.first;
+    final lastMessage = room.messages.firstWhere(
+      (element) => true,
+      orElse: () => null,
+    );
     return ListTile(
       leading: CircleUserAvatar(name: room.name.split(" ").first),
       title: Text(room.name),
       subtitle: Text.rich(
         TextSpan(
-          text: "${lastMessage.sender.name}: ",
+          text: "${lastMessage?.sender?.name}: ",
           style: const TextStyle(fontWeight: FontWeight.w700),
           children: [
             TextSpan(
-              text: lastMessage.text,
+              text: lastMessage?.text,
               style: const TextStyle(fontWeight: FontWeight.w400),
             )
           ],

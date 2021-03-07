@@ -5,6 +5,7 @@ import 'package:nant_client/bloc/user_bloc/user_bloc.dart';
 import 'package:nant_client/generated/l10n.dart';
 import 'package:nant_client/models/user/user.dart';
 import 'package:nant_client/ui/widgets/common/circle_user_avatar.dart';
+import 'package:nant_client/ui/widgets/layouts/adaptive_app_bar.dart';
 import 'package:nant_client/ui/widgets/layouts/safe_scaffold.dart';
 import 'package:nant_client/ui/widgets/profile_screen/language_picker.dart';
 import 'package:nant_client/ui/widgets/profile_screen/theme_switcher.dart';
@@ -19,17 +20,23 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final localization = S.of(context);
     return SafeScaffold(
-      appBar: AppBar(
-        title: Text(localization.profile),
-      ),
-      body: BlocBuilder<UserBloc, UserBlocState>(
-        cubit: getIt.get<UserBloc>(),
-        builder: (context, state) {
-          return state.maybeMap(
-            loaded: (loaded) => _ProfileScreenBody(user: loaded.user),
-            orElse: () => const SizedBox.shrink(),
-          );
-        },
+      body: Column(
+        children: [
+          AdaptiveAppBar(
+            title: Text(localization.profile),
+          ),
+          Flexible(
+            child: BlocBuilder<UserBloc, UserBlocState>(
+              cubit: getIt.get<UserBloc>(),
+              builder: (context, state) {
+                return state.maybeMap(
+                  loaded: (loaded) => _ProfileScreenBody(user: loaded.user),
+                  orElse: () => const SizedBox.shrink(),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -49,6 +56,7 @@ class _ProfileScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.zero,
       children: [
         const SizedBox(height: 8),
         ListTile(

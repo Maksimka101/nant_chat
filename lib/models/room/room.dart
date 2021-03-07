@@ -4,7 +4,7 @@ import 'package:nant_client/models/message/message.dart';
 part 'room.freezed.dart';
 
 /// Chat room model
-/// Messages are loading lazy and [allMessagesCount] is not equal to the [messages].length
+/// Messages are loading lazy and [messagesCount] is not equal to the [messages].length
 @freezed
 abstract class Room with _$Room {
   const factory Room({

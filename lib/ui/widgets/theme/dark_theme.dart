@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 final accentColor = Colors.greenAccent;
 final textColor = Colors.grey[400];
+const appBarColor = Color(0xFF212121);
 
 ThemeData get darkTheme {
   return ThemeData(
@@ -12,7 +13,11 @@ ThemeData get darkTheme {
       color: accentColor,
     ),
     appBarTheme: const AppBarTheme(
+      color: appBarColor,
       elevation: 1,
+    ),
+    navigationRailTheme: NavigationRailThemeData(
+      selectedIconTheme: IconThemeData(color: accentColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(color: accentColor),

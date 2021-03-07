@@ -5,6 +5,8 @@ import 'package:nant_client/bloc/theme_bloc/theme_bloc.dart';
 import 'package:nant_client/generated/l10n.dart';
 import 'package:nant_client/models/user/user.dart';
 import 'package:nant_client/ui/widgets/authorization_widgets/authorization_loading_widget.dart';
+import 'package:nant_client/ui/widgets/layouts/adaptive_app_bar.dart';
+import 'package:nant_client/ui/widgets/layouts/adaptive_layout_builder.dart';
 import 'package:nant_client/ui/widgets/layouts/safe_scaffold.dart';
 import 'package:nant_client/ui/widgets/padding/paddings.dart';
 import 'package:nant_client/ui/widgets/profile_screen/language_picker.dart';
@@ -27,20 +29,24 @@ class AuthorizationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeScaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).authorization),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.g_translate),
-            onPressed: () => _onPickLanguage(context),
+      body: Column(
+        children: [
+          AdaptiveAppBar(
+            title: Text(S.of(context).authorization),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.g_translate),
+                onPressed: () => _onPickLanguage(context),
+              ),
+              IconButton(
+                icon: const Icon(Icons.lightbulb_outline),
+                onPressed: _onChangeTheme,
+              )
+            ],
           ),
-          IconButton(
-            icon: const Icon(Icons.lightbulb_outline),
-            onPressed: _onChangeTheme,
-          )
+          const Flexible(child: _AuthScreenBody()),
         ],
       ),
-      body: const _AuthScreenBody(),
     );
   }
 }
@@ -56,9 +62,19 @@ class _AuthScreenBody extends StatefulWidget {
 
 class __AuthScreenBodyState extends State<_AuthScreenBody> {
   final _formKey = GlobalKey<FormState>();
-
+  final _nameFocus = FocusNode();
   final _authValidator = AuthorizationValidator();
+  var _focusRequested = false;
   var _showNextButton = false;
+
+  @override
+  void didChangeDependencies() {
+    if (!_focusRequested) {
+      _focusRequested = true;
+      FocusScope.of(context).requestFocus(_nameFocus);
+    }
+    super.didChangeDependencies();
+  }
 
   void _onNameChanged(String name) {
     if (name.length > 3 && !_showNextButton) {
@@ -81,7 +97,7 @@ class __AuthScreenBodyState extends State<_AuthScreenBody> {
   void _listenForUserState(BuildContext context, EditUserBlocState state) {
     state.maybeMap(
       error: (error) {
-        Scaffold.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(error.msg),
           duration: const Duration(seconds: 5),
         ));
@@ -96,44 +112,65 @@ class __AuthScreenBodyState extends State<_AuthScreenBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<EditUserBloc, EditUserBlocState>(
-      listener: _listenForUserState,
-      cubit: getIt.get<EditUserBloc>(),
-      child: Form(
-        key: _formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        onWillPop: () async => false,
-        child: Column(
-          children: [
-            const AuthorizationLoadingWidget(),
-            const Spacer(),
-            Text(
-              S.of(context).looksLikeYouAreHereFirstTime,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: bodyPaddingValue),
-              child: TextFormField(
-                onChanged: _onNameChanged,
-                validator: _authValidator.validateUserName,
-                textCapitalization: TextCapitalization.words,
-                decoration: InputDecoration(
-                  labelText: S.of(context).enterYourName,
+    return Stack(
+      alignment: Alignment.bottomRight,
+      children: [
+        DesktopLayoutBuilder(
+          builder: (context, desktop) {
+            return Row(
+              children: [
+                if (desktop) const Spacer(),
+                Expanded(
+                  flex: 2,
+                  child: BlocListener<EditUserBloc, EditUserBlocState>(
+                    listener: _listenForUserState,
+                    cubit: getIt.get<EditUserBloc>(),
+                    child: Form(
+                      key: _formKey,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      onWillPop: () async => false,
+                      child: Column(
+                        children: [
+                          const AuthorizationLoadingWidget(),
+                          const Spacer(),
+                          Text(
+                            S.of(context).looksLikeYouAreHereFirstTime,
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: bodyPaddingValue,
+                            ),
+                            child: TextFormField(
+                              focusNode: _nameFocus,
+                              onChanged: _onNameChanged,
+                              validator: _authValidator.validateUserName,
+                              textCapitalization: TextCapitalization.words,
+                              decoration: InputDecoration(
+                                labelText: S.of(context).enterYourName,
+                              ),
+                              onFieldSubmitted: (_) => _onCreateUser(),
+                            ),
+                          ),
+                          const Spacer(),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: bodyPaddingValue),
-              child: _NextButton(
-                onTap: _showNextButton ? _onCreateUser : null,
-              ),
-            ),
-            const SizedBox(height: 20),
-          ],
+                if (desktop) const Spacer(),
+              ],
+            );
+          },
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.all(bodyPaddingValue),
+          child: _NextButton(
+            onTap: _showNextButton ? _onCreateUser : null,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -148,13 +185,10 @@ class _NextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Align(
-      alignment: Alignment.centerRight,
-      child: FloatingActionButton(
-        onPressed: onTap,
-        backgroundColor: onTap == null ? theme.disabledColor : null,
-        child: const Icon(Icons.navigate_next),
-      ),
+    return FloatingActionButton(
+      onPressed: onTap,
+      backgroundColor: onTap == null ? theme.disabledColor : null,
+      child: const Icon(Icons.navigate_next),
     );
   }
 }

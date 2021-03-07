@@ -82,9 +82,11 @@ class CommonRoomsRepository extends RoomsRepository {
         room: createRoom.name,
         createMessage: createRoom.initMessage,
       );
-      await messagesRepository.dataStream.firstWhere(
-        (element) => element.room == createRoom.name,
-      );
+
+      // Wait for data appear in cache
+      await localRepository.dataStream.firstWhere((rooms) => rooms.any(
+            (room) => room.name == createRoom.name,
+          ));
     } catch (e, st) {
       logger.e("Can't create room", e, st);
       rethrow;
@@ -137,7 +139,7 @@ class CommonRoomsRepository extends RoomsRepository {
         }
       }
     } catch (e, st) {
-      logger.e("Can't load full room", e, st);
+      logger.e("Can't load next page", e, st);
       rethrow;
     }
   }

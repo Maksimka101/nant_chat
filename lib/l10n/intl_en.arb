@@ -22,5 +22,6 @@
   "currentLanguage": "Current language:",
   "tapToChangeLanguage": "Tap to change language",
   "english": "English",
-  "russian": "Russian"
+  "russian": "Russian",
+  "pleaseSelectRoom": "Please select room"
 }

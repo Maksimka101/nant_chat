@@ -13,7 +13,11 @@ ThemeData get lightTheme {
     ),
     appBarTheme: AppBarTheme(
       elevation: 1,
+      shadowColor: Colors.transparent,
       color: accentColor,
+    ),
+    navigationRailTheme: NavigationRailThemeData(
+      selectedIconTheme: IconThemeData(color: accentColor),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(color: accentColor),

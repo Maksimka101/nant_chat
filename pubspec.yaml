@@ -17,7 +17,7 @@ dependencies:
 
   responsive_framework: <=0.0.15
   cupertino_icons: <=1.2.0
-  dio: <=4.0.0-beta4
+  dio: ">=3.0.0 <4.0.0-beta4"
   get_it: <=6.0.0
   dash_chat:
     git:

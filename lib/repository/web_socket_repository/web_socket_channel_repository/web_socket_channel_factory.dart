@@ -4,8 +4,8 @@ import 'package:nant_client/repository/web_socket_repository/web_socket_reposito
 
 class WebSocketChannelRepositoryFactory extends WebSocketRepositoryFactory {
   @override
-  WebSocketRepository<T> createRepository<T>({String url}) {
-    final repository = WebSocketChannelRepository<T>(url);
+  WebSocketRepository<T> createRepository<T>({String url, bool tryToRestoreConnection = true}) {
+    final repository = WebSocketChannelRepository<T>(url, tryToRestoreConnection);
     return repository;
   }
 }

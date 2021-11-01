@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nant_client/bloc/user_bloc/user_bloc.dart';
+import 'package:nant_client/generated/l10n.dart';
 import 'package:nant_client/ui/screens/profile_screen/profile_screen.dart';
 import 'package:nant_client/ui/screens/rooms_screen/rooms_screen.dart';
 import 'package:nant_client/ui/widgets/common/circle_user_avatar.dart';
 import 'package:nant_client/ui/widgets/layouts/safe_scaffold.dart';
 import 'package:nant_client/utils/get_it/get_it.dart';
-import 'package:nant_client/generated/l10n.dart';
 
 class MainDesktopAppScreen extends StatefulWidget {
   @override

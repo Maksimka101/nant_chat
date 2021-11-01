@@ -17,7 +17,7 @@ import 'package:nant_client/utils/hive/hive_initializer.dart';
 void main() {
   group("Test room repository", () {
     RoomsRepository roomsRepository;
-    final mockWebSocketRepository = MockWebSocketRepository<Map>('');
+    final mockWebSocketRepository = MockWebSocketRepository<Map>('', false);
     final mockWebSocketRepositoryFactory = MockWebSocketRepositoryFactory(
       mockWebSocketRepository: mockWebSocketRepository,
     );

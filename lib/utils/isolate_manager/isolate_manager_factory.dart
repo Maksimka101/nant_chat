@@ -1,5 +1,5 @@
 import 'package:nant_client/utils/isolate_manager/blank_isolate_manager/blank_isolate_manager.dart';
-import 'package:nant_client/utils/isolate_manager/executor_isolate_manager/executor_isolate_manager.dart';
+import 'package:nant_client/utils/isolate_manager/compute_isolate_manager/compute_isolate_manager.dart';
 import 'package:nant_client/utils/isolate_manager/isolate_manager.dart';
 import 'package:nant_client/utils/platform_info/platform_info.dart';
 
@@ -12,7 +12,8 @@ class IsolateManagerFactory {
     if (platformInfo.isWeb) {
       return BlankIsolateManager();
     } else {
-      return ExecutorIsolateManager();
+      // return ExecutorIsolateManager();
+      return ComputeIsolateManager();
     }
   }
 }

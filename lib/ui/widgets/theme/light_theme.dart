@@ -5,7 +5,7 @@ final textColor = Colors.black87;
 
 ThemeData get lightTheme {
   return ThemeData(
-    accentColor: accentColor,
+    colorScheme: ColorScheme.light(secondary: accentColor),
     primaryColorLight: accentColor,
     primaryColorDark: accentColor,
     iconTheme: IconThemeData(

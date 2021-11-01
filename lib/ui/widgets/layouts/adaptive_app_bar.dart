@@ -45,7 +45,7 @@ class AdaptiveAppBar extends StatelessWidget {
     final addSpaceUnderAppBar = _addSpaceUnderAppBar(platformInfo, leading);
 
     return ColoredBox(
-      color: theme.appBarTheme.color,
+      color: theme.appBarTheme.backgroundColor,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

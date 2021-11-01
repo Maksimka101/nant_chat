@@ -19,9 +19,7 @@ dependencies:
   cupertino_icons: <=1.2.0
   dio: ">=3.0.0 <4.0.0-beta4"
   get_it: <=6.0.0
-  dash_chat:
-    git:
-      url: git://github.com/diegogarciar/dash_chat.git
+  dash_chat: ^1.1.16
   worker_manager: <=3.2.0
   logger: <=0.9.4
   flutter_bloc: <=6.1.1

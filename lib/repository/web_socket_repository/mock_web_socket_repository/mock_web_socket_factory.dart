@@ -9,7 +9,6 @@ class MockWebSocketRepositoryFactory extends WebSocketRepositoryFactory {
 
   @override
   WebSocketRepository<T> createRepository<T>({String url}) {
-    return mockWebSocketRepository as WebSocketRepository<T> ??
-        MockWebSocketRepository<T>(url);
+    return mockWebSocketRepository as WebSocketRepository<T> ?? MockWebSocketRepository<T>(url, false);
   }
 }

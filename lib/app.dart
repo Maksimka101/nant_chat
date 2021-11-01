@@ -37,8 +37,10 @@ Future<void> initializeRequiredRepositories() async {
   WidgetsFlutterBinding.ensureInitialized();
   const appConfig = AppConfig(
     chatPagination: 30,
-    hostName: "https://nane.tada.team/api",
-    webSocketHostName: "wss://nane.tada.team/ws",
+    hostName: "http://127.0.0.1:8080/api",
+    // hostName: "https://nane.tada.team/api",
+    webSocketHostName: "ws://127.0.0.1:8080/ws",
+    // webSocketHostName: "wss://nane.tada.team/ws",
     defaultLocale: Locale('en'),
     defaultAppTheme: AppDarkTheme(),
     supportedLocales: [Locale('ru'), Locale('en')],

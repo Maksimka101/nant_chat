@@ -27,7 +27,7 @@ class NaneMessagesRepository extends MessagesRepository {
       url: "$wsHost?username=${userRepository.data.name}",
     );
     await _newMessagesSubscription?.cancel();
-    _newMessagesSubscription = _webSocket.listen(_listenForNewMessages);
+    _newMessagesSubscription = _webSocket.stream.listen(_listenForNewMessages);
   }
 
   void _listenForNewMessages(Map response) {

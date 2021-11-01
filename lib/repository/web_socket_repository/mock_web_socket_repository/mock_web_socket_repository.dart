@@ -4,9 +4,10 @@ import 'package:nant_client/repository/web_socket_repository/web_socket_reposito
 
 class MockWebSocketRepository<T> extends WebSocketRepository<T> {
   MockWebSocketRepository(
-    String url, {
+    String url,
+    bool tryToReconnect, {
     this.onAdd,
-  }) : super(url);
+  }) : super(url, tryToReconnect);
   T Function(T data) onAdd;
   final _dataStreamController = StreamController<T>.broadcast();
 
@@ -19,19 +20,7 @@ class MockWebSocketRepository<T> extends WebSocketRepository<T> {
   }
 
   @override
-  StreamSubscription<T> listen(
-    void Function(T event) onData, {
-    Function onError,
-    void Function() onDone,
-    bool cancelOnError,
-  }) {
-    return _dataStreamController.stream.listen(
-      onData,
-      onError: onError,
-      onDone: onDone,
-      cancelOnError: cancelOnError,
-    );
-  }
+  Stream<T> get stream => throw UnimplementedError();
 
   @override
   Future<void> close() async {

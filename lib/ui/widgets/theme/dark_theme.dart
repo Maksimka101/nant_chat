@@ -6,7 +6,7 @@ const appBarColor = Color(0xFF212121);
 
 ThemeData get darkTheme {
   return ThemeData(
-    accentColor: accentColor,
+    colorScheme: ColorScheme.dark(secondary: accentColor),
     primaryColorLight: accentColor,
     primaryColorDark: accentColor,
     iconTheme: IconThemeData(

@@ -6,11 +6,11 @@ import 'package:nant_client/bloc/edit_room_bloc/edit_room_bloc.dart';
 import 'package:nant_client/bloc/rooms_bloc/rooms_bloc.dart';
 import 'package:nant_client/bloc/theme_bloc/theme_bloc.dart';
 import 'package:nant_client/bloc/user_bloc/user_bloc.dart';
+import 'package:nant_client/generated/l10n.dart';
 import 'package:nant_client/models/message/message.dart';
 import 'package:nant_client/models/room/room.dart';
 import 'package:nant_client/utils/dash_chat_utils/mappers.dart';
 import 'package:nant_client/utils/get_it/get_it.dart';
-import 'package:nant_client/generated/l10n.dart';
 import 'package:nant_client/utils/layout_info/layout_info.dart';
 import 'package:nant_client/utils/logger/logger.dart';
 
@@ -130,12 +130,12 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
                   if (_isDarkTheme) {
                     return BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
-                      color: isUser ? theme.cardColor : theme.accentColor,
+                      color: isUser ? theme.cardColor : theme.colorScheme.secondary,
                     );
                   } else {
                     return BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
-                      color: isUser ? theme.accentColor : theme.cardColor,
+                      color: isUser ? theme.colorScheme.secondary : theme.cardColor,
                     );
                   }
                 },

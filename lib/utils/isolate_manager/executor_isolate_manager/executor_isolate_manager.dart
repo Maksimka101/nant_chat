@@ -11,7 +11,7 @@ class ExecutorIsolateManager extends IsolateManager {
   Future<void> initialize() async {
     if (!_initialized) {
       _executor = Executor();
-      await _executor.warmUp();
+      await _executor.warmUp(log: true);
       _initialized = true;
     }
     return super.initialize();

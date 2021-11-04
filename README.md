@@ -1,6 +1,6 @@
 # Nant client
 
-Chat client for [test task](https://github.com/tada-team/nane)
+Chat client for the [test task](https://github.com/tada-team/nane)
 
 ## Features
 

@@ -39,7 +39,7 @@ Chat client for [test task](https://github.com/tada-team/nane)
 
 - Checkout on flutter stable (v2.01)
 - Do pub get
-- Run on ios, android or macOS (other platform not tested)
+- Run on ios, android or macOS (other platforms are not tested)
 
 ## Install
 

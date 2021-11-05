@@ -10,6 +10,8 @@ import 'package:nant_client/ui/widgets/layouts/safe_scaffold.dart';
 import 'package:nant_client/utils/get_it/get_it.dart';
 
 class MainDesktopAppScreen extends StatefulWidget {
+  const MainDesktopAppScreen({Key? key}) : super(key: key);
+
   @override
   _MainDesktopAppScreenState createState() => _MainDesktopAppScreenState();
 }
@@ -39,7 +41,7 @@ class _MainDesktopAppScreenState extends State<MainDesktopAppScreen> {
               ),
               NavigationRailDestination(
                 icon: BlocBuilder<UserBloc, UserBlocState>(
-                  cubit: getIt.get<UserBloc>(),
+                  bloc: getIt.get<UserBloc>(),
                   builder: (context, state) {
                     return state.maybeMap(
                       loaded: (loaded) => CircleUserAvatar(

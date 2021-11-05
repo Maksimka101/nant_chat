@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'initialize_bloc.dart';
 
@@ -9,24 +10,24 @@ part of 'initialize_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$InitializeBlocEventTearOff {
   const _$InitializeBlocEventTearOff();
 
-// ignore: unused_element
   InitializationStarted initializationStarted() {
     return const InitializationStarted();
   }
 
-// ignore: unused_element
-  UserLoaded userLoaded(@nullable User user) {
+  UserLoaded userLoaded(User? user) {
     return UserLoaded(
       user,
     );
   }
 
-// ignore: unused_element
-  RoomsLoaded roomsLoaded(@nullable List<Room> rooms) {
+  RoomsLoaded roomsLoaded(List<Room> rooms) {
     return RoomsLoaded(
       rooms,
     );
@@ -34,37 +35,55 @@ class _$InitializeBlocEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $InitializeBlocEvent = _$InitializeBlocEventTearOff();
 
 /// @nodoc
 mixin _$InitializeBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializationStarted(),
-    @required TResult userLoaded(@nullable User user),
-    @required TResult roomsLoaded(@nullable List<Room> rooms),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializationStarted,
+    required TResult Function(User? user) userLoaded,
+    required TResult Function(List<Room> rooms) roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializationStarted(),
-    TResult userLoaded(@nullable User user),
-    TResult roomsLoaded(@nullable List<Room> rooms),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializationStarted(InitializationStarted value),
-    @required TResult userLoaded(UserLoaded value),
-    @required TResult roomsLoaded(RoomsLoaded value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializationStarted(InitializationStarted value),
-    TResult userLoaded(UserLoaded value),
-    TResult roomsLoaded(RoomsLoaded value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializationStarted value)
+        initializationStarted,
+    required TResult Function(UserLoaded value) userLoaded,
+    required TResult Function(RoomsLoaded value) roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -104,6 +123,7 @@ class _$InitializationStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$InitializationStarted implements InitializationStarted {
   const _$InitializationStarted();
 
@@ -114,7 +134,8 @@ class _$InitializationStarted implements InitializationStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitializationStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is InitializationStarted);
   }
 
   @override
@@ -122,26 +143,32 @@ class _$InitializationStarted implements InitializationStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializationStarted(),
-    @required TResult userLoaded(@nullable User user),
-    @required TResult roomsLoaded(@nullable List<Room> rooms),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializationStarted,
+    required TResult Function(User? user) userLoaded,
+    required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    assert(initializationStarted != null);
-    assert(userLoaded != null);
-    assert(roomsLoaded != null);
     return initializationStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializationStarted(),
-    TResult userLoaded(@nullable User user),
-    TResult roomsLoaded(@nullable List<Room> rooms),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return initializationStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (initializationStarted != null) {
       return initializationStarted();
     }
@@ -150,26 +177,33 @@ class _$InitializationStarted implements InitializationStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializationStarted(InitializationStarted value),
-    @required TResult userLoaded(UserLoaded value),
-    @required TResult roomsLoaded(RoomsLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializationStarted value)
+        initializationStarted,
+    required TResult Function(UserLoaded value) userLoaded,
+    required TResult Function(RoomsLoaded value) roomsLoaded,
   }) {
-    assert(initializationStarted != null);
-    assert(userLoaded != null);
-    assert(roomsLoaded != null);
     return initializationStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializationStarted(InitializationStarted value),
-    TResult userLoaded(UserLoaded value),
-    TResult roomsLoaded(RoomsLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return initializationStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (initializationStarted != null) {
       return initializationStarted(this);
     }
@@ -186,9 +220,9 @@ abstract class $UserLoadedCopyWith<$Res> {
   factory $UserLoadedCopyWith(
           UserLoaded value, $Res Function(UserLoaded) then) =
       _$UserLoadedCopyWithImpl<$Res>;
-  $Res call({@nullable User user});
+  $Res call({User? user});
 
-  $UserCopyWith<$Res> get user;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -203,31 +237,35 @@ class _$UserLoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object user = freezed,
+    Object? user = freezed,
   }) {
     return _then(UserLoaded(
-      user == freezed ? _value.user : user as User,
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 
   @override
-  $UserCopyWith<$Res> get user {
+  $UserCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
-    return $UserCopyWith<$Res>(_value.user, (value) {
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
 }
 
 /// @nodoc
+
 class _$UserLoaded implements UserLoaded {
-  const _$UserLoaded(@nullable this.user);
+  const _$UserLoaded(this.user);
 
   @override
-  @nullable
-  final User user;
+  final User? user;
 
   @override
   String toString() {
@@ -237,14 +275,13 @@ class _$UserLoaded implements UserLoaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UserLoaded &&
-            (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)));
+        (other.runtimeType == runtimeType &&
+            other is UserLoaded &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+  int get hashCode => Object.hash(runtimeType, user);
 
   @JsonKey(ignore: true)
   @override
@@ -253,26 +290,32 @@ class _$UserLoaded implements UserLoaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializationStarted(),
-    @required TResult userLoaded(@nullable User user),
-    @required TResult roomsLoaded(@nullable List<Room> rooms),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializationStarted,
+    required TResult Function(User? user) userLoaded,
+    required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    assert(initializationStarted != null);
-    assert(userLoaded != null);
-    assert(roomsLoaded != null);
     return userLoaded(user);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializationStarted(),
-    TResult userLoaded(@nullable User user),
-    TResult roomsLoaded(@nullable List<Room> rooms),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return userLoaded?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (userLoaded != null) {
       return userLoaded(user);
     }
@@ -281,26 +324,33 @@ class _$UserLoaded implements UserLoaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializationStarted(InitializationStarted value),
-    @required TResult userLoaded(UserLoaded value),
-    @required TResult roomsLoaded(RoomsLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializationStarted value)
+        initializationStarted,
+    required TResult Function(UserLoaded value) userLoaded,
+    required TResult Function(RoomsLoaded value) roomsLoaded,
   }) {
-    assert(initializationStarted != null);
-    assert(userLoaded != null);
-    assert(roomsLoaded != null);
     return userLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializationStarted(InitializationStarted value),
-    TResult userLoaded(UserLoaded value),
-    TResult roomsLoaded(RoomsLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return userLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (userLoaded != null) {
       return userLoaded(this);
     }
@@ -309,12 +359,12 @@ class _$UserLoaded implements UserLoaded {
 }
 
 abstract class UserLoaded implements InitializeBlocEvent {
-  const factory UserLoaded(@nullable User user) = _$UserLoaded;
+  const factory UserLoaded(User? user) = _$UserLoaded;
 
-  @nullable
-  User get user;
+  User? get user;
   @JsonKey(ignore: true)
-  $UserLoadedCopyWith<UserLoaded> get copyWith;
+  $UserLoadedCopyWith<UserLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -322,7 +372,7 @@ abstract class $RoomsLoadedCopyWith<$Res> {
   factory $RoomsLoadedCopyWith(
           RoomsLoaded value, $Res Function(RoomsLoaded) then) =
       _$RoomsLoadedCopyWithImpl<$Res>;
-  $Res call({@nullable List<Room> rooms});
+  $Res call({List<Room> rooms});
 }
 
 /// @nodoc
@@ -338,20 +388,23 @@ class _$RoomsLoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object rooms = freezed,
+    Object? rooms = freezed,
   }) {
     return _then(RoomsLoaded(
-      rooms == freezed ? _value.rooms : rooms as List<Room>,
+      rooms == freezed
+          ? _value.rooms
+          : rooms // ignore: cast_nullable_to_non_nullable
+              as List<Room>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$RoomsLoaded implements RoomsLoaded {
-  const _$RoomsLoaded(@nullable this.rooms);
+  const _$RoomsLoaded(this.rooms);
 
   @override
-  @nullable
   final List<Room> rooms;
 
   @override
@@ -362,14 +415,14 @@ class _$RoomsLoaded implements RoomsLoaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is RoomsLoaded &&
-            (identical(other.rooms, rooms) ||
-                const DeepCollectionEquality().equals(other.rooms, rooms)));
+        (other.runtimeType == runtimeType &&
+            other is RoomsLoaded &&
+            const DeepCollectionEquality().equals(other.rooms, rooms));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(rooms);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rooms));
 
   @JsonKey(ignore: true)
   @override
@@ -378,26 +431,32 @@ class _$RoomsLoaded implements RoomsLoaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializationStarted(),
-    @required TResult userLoaded(@nullable User user),
-    @required TResult roomsLoaded(@nullable List<Room> rooms),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializationStarted,
+    required TResult Function(User? user) userLoaded,
+    required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    assert(initializationStarted != null);
-    assert(userLoaded != null);
-    assert(roomsLoaded != null);
     return roomsLoaded(rooms);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializationStarted(),
-    TResult userLoaded(@nullable User user),
-    TResult roomsLoaded(@nullable List<Room> rooms),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return roomsLoaded?.call(rooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializationStarted,
+    TResult Function(User? user)? userLoaded,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (roomsLoaded != null) {
       return roomsLoaded(rooms);
     }
@@ -406,26 +465,33 @@ class _$RoomsLoaded implements RoomsLoaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializationStarted(InitializationStarted value),
-    @required TResult userLoaded(UserLoaded value),
-    @required TResult roomsLoaded(RoomsLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializationStarted value)
+        initializationStarted,
+    required TResult Function(UserLoaded value) userLoaded,
+    required TResult Function(RoomsLoaded value) roomsLoaded,
   }) {
-    assert(initializationStarted != null);
-    assert(userLoaded != null);
-    assert(roomsLoaded != null);
     return roomsLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializationStarted(InitializationStarted value),
-    TResult userLoaded(UserLoaded value),
-    TResult roomsLoaded(RoomsLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return roomsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializationStarted value)? initializationStarted,
+    TResult Function(UserLoaded value)? userLoaded,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (roomsLoaded != null) {
       return roomsLoaded(this);
     }
@@ -434,57 +500,70 @@ class _$RoomsLoaded implements RoomsLoaded {
 }
 
 abstract class RoomsLoaded implements InitializeBlocEvent {
-  const factory RoomsLoaded(@nullable List<Room> rooms) = _$RoomsLoaded;
+  const factory RoomsLoaded(List<Room> rooms) = _$RoomsLoaded;
 
-  @nullable
   List<Room> get rooms;
   @JsonKey(ignore: true)
-  $RoomsLoadedCopyWith<RoomsLoaded> get copyWith;
+  $RoomsLoadedCopyWith<RoomsLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$InitializeBlocStateTearOff {
   const _$InitializeBlocStateTearOff();
 
-// ignore: unused_element
   Initialized initialized() {
     return const Initialized();
   }
 
-// ignore: unused_element
   UnInitialized unInitialized() {
     return const UnInitialized();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $InitializeBlocState = _$InitializeBlocStateTearOff();
 
 /// @nodoc
 mixin _$InitializeBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult unInitialized(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() unInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult unInitialized(),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? unInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult unInitialized(UnInitialized value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? unInitialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult unInitialized(UnInitialized value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(UnInitialized value) unInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(UnInitialized value)? unInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(UnInitialized value)? unInitialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -524,6 +603,7 @@ class _$InitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initialized implements Initialized {
   const _$Initialized();
 
@@ -534,7 +614,8 @@ class _$Initialized implements Initialized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initialized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initialized);
   }
 
   @override
@@ -542,23 +623,29 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult unInitialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() unInitialized,
   }) {
-    assert(initialized != null);
-    assert(unInitialized != null);
     return initialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult unInitialized(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? unInitialized,
   }) {
-    assert(orElse != null);
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? unInitialized,
+    required TResult orElse(),
+  }) {
     if (initialized != null) {
       return initialized();
     }
@@ -567,23 +654,29 @@ class _$Initialized implements Initialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult unInitialized(UnInitialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(UnInitialized value) unInitialized,
   }) {
-    assert(initialized != null);
-    assert(unInitialized != null);
     return initialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult unInitialized(UnInitialized value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(UnInitialized value)? unInitialized,
   }) {
-    assert(orElse != null);
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(UnInitialized value)? unInitialized,
+    required TResult orElse(),
+  }) {
     if (initialized != null) {
       return initialized(this);
     }
@@ -615,6 +708,7 @@ class _$UnInitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UnInitialized implements UnInitialized {
   const _$UnInitialized();
 
@@ -625,7 +719,8 @@ class _$UnInitialized implements UnInitialized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UnInitialized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UnInitialized);
   }
 
   @override
@@ -633,23 +728,29 @@ class _$UnInitialized implements UnInitialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initialized(),
-    @required TResult unInitialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function() unInitialized,
   }) {
-    assert(initialized != null);
-    assert(unInitialized != null);
     return unInitialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initialized(),
-    TResult unInitialized(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? unInitialized,
   }) {
-    assert(orElse != null);
+    return unInitialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function()? unInitialized,
+    required TResult orElse(),
+  }) {
     if (unInitialized != null) {
       return unInitialized();
     }
@@ -658,23 +759,29 @@ class _$UnInitialized implements UnInitialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initialized(Initialized value),
-    @required TResult unInitialized(UnInitialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialized value) initialized,
+    required TResult Function(UnInitialized value) unInitialized,
   }) {
-    assert(initialized != null);
-    assert(unInitialized != null);
     return unInitialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initialized(Initialized value),
-    TResult unInitialized(UnInitialized value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(UnInitialized value)? unInitialized,
   }) {
-    assert(orElse != null);
+    return unInitialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialized value)? initialized,
+    TResult Function(UnInitialized value)? unInitialized,
+    required TResult orElse(),
+  }) {
     if (unInitialized != null) {
       return unInitialized(this);
     }

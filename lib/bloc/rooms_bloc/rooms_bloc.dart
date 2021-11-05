@@ -9,15 +9,15 @@ import 'package:nant_client/utils/logger/logger.dart';
 part 'rooms_bloc.freezed.dart';
 
 @freezed
-abstract class RoomsBlocEvent with _$RoomsBlocEvent {
+class RoomsBlocEvent with _$RoomsBlocEvent {
   const factory RoomsBlocEvent.roomsLoadStarted() = RoomsLoadStarted;
 
-  const factory RoomsBlocEvent.roomsLoaded(@nullable List<Room> rooms) =
+  const factory RoomsBlocEvent.roomsLoaded(List<Room> rooms) =
       RoomsLoadedEvent;
 }
 
 @freezed
-abstract class RoomsBlocState with _$RoomsBlocState {
+class RoomsBlocState with _$RoomsBlocState {
   const factory RoomsBlocState.initial() = Initial;
 
   const factory RoomsBlocState.roomsLoaded(List<Room> rooms) = RoomsLoaded;
@@ -25,11 +25,11 @@ abstract class RoomsBlocState with _$RoomsBlocState {
 
 class RoomsBloc extends Bloc<RoomsBlocEvent, RoomsBlocState> {
   RoomsBloc({
-    @required this.roomsRepository,
+    required this.roomsRepository,
   }) : super(const Initial());
 
   final RoomsRepository roomsRepository;
-  StreamSubscription<List<Room>> _roomsSubscription;
+  StreamSubscription<List<Room>>? _roomsSubscription;
 
   @override
   Stream<RoomsBlocState> mapEventToState(RoomsBlocEvent event) async* {
@@ -42,7 +42,7 @@ class RoomsBloc extends Bloc<RoomsBlocEvent, RoomsBlocState> {
   Stream<RoomsBlocState> _onRoomsLoadedEvent(
     RoomsLoadedEvent event,
   ) async* {
-    yield RoomsLoaded(event.rooms ?? []);
+    yield RoomsLoaded(event.rooms);
   }
 
   Stream<RoomsBlocState> _onRoomsLoadStartedEvent(

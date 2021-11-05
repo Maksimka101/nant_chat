@@ -9,25 +9,28 @@ import 'package:nant_client/utils/get_it/get_it.dart';
 
 class AppInitializationScreen extends StatelessWidget {
   const AppInitializationScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InitializeBloc, InitializeBlocState>(
-      cubit: getIt.get<InitializeBloc>(),
+      bloc: getIt.get<InitializeBloc>(),
       builder: (context, state) {
         return state.map(
           initialized: (_) => BlocConsumer<UserBloc, UserBlocState>(
-            cubit: getIt.get<UserBloc>(),
+            bloc: getIt<UserBloc>(),
             listener: (context, state) {
               // If user is un authorized app must pop him to the root
               state.maybeMap(
-                unAuthorized: (_) => Navigator.popUntil(
-                  context,
-                  ModalRoute.withName('/'),
-                ),
-                orElse: () {},
+                unAuthorized: (_) {
+                  Navigator.popUntil(
+                    context,
+                    ModalRoute.withName('/'),
+                  );
+                  return const Object();
+                },
+                orElse: () => const Object(),
               );
             },
             builder: (context, userState) {

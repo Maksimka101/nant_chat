@@ -39,10 +39,11 @@ class HiveInitializer {
   }
 
   static void _registerAdapters() {
-    Hive.registerAdapter<Message>(MessageAdapter());
-    Hive.registerAdapter<ChatUser>(ChatUserAdapter());
-    Hive.registerAdapter<HiveRoom>(HiveRoomAdapter());
-    Hive.registerAdapter<User>(UserAdapter());
-    Hive.registerAdapter<Locale>(LocaleAdapter());
+    Hive
+      ..registerAdapter<Message>(MessageAdapter())
+      ..registerAdapter<ChatUser>(ChatUserAdapter())
+      ..registerAdapter<HiveRoom>(HiveRoomAdapter())
+      ..registerAdapter<User>(UserAdapter())
+      ..registerAdapter<Locale>(LocaleAdapter());
   }
 }

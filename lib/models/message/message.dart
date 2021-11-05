@@ -8,25 +8,26 @@ part 'message.g.dart';
 
 @HiveType(typeId: 0)
 @freezed
-abstract class Message with _$Message {
-  const factory Message(
-      {@HiveField(0) @required String text,
-      @HiveField(1) @required DateTime createdAt,
-      @HiveField(2) @required ChatUser sender}) = _Message;
+class Message with _$Message {
+  const factory Message({
+    @HiveField(0) required String text,
+    @HiveField(1) required DateTime createdAt,
+    @HiveField(2) required ChatUser sender,
+  }) = _Message;
 }
 
 @freezed
-abstract class ReceivedMessage with _$ReceivedMessage {
+class ReceivedMessage with _$ReceivedMessage {
   const factory ReceivedMessage({
-    @required String room,
-    @required Message message,
+    required String room,
+    required Message message,
   }) = _ReceivedMessage;
 }
 
 @freezed
-abstract class CreateMessage with _$CreateMessage {
+class CreateMessage with _$CreateMessage {
   const factory CreateMessage({
-    @required String text,
-    @required DateTime createdAt,
+    required String text,
+    required DateTime createdAt,
   }) = _CreateMessage;
 }

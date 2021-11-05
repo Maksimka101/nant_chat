@@ -4,8 +4,8 @@ import 'package:nant_client/utils/isolate_manager/isolate_manager.dart';
 
 class BlankIsolateManager extends IsolateManager {
   @override
-  Future jsonDecode(String string) async {
-    return convert.jsonDecode(string);
+  Future jsonDecode(String? string) async {
+    return convert.jsonDecode(string!);
   }
 
   @override

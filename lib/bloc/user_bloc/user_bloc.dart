@@ -10,14 +10,14 @@ import 'package:nant_client/utils/logger/logger.dart';
 part 'user_bloc.freezed.dart';
 
 @freezed
-abstract class UserBlocEvent with _$UserBlocEvent {
+class UserBlocEvent with _$UserBlocEvent {
   const factory UserBlocEvent.loadUserStarted() = LoadUserStarted;
 
-  const factory UserBlocEvent.userLoaded(@nullable User user) = UserLoadedEvent;
+  const factory UserBlocEvent.userLoaded(User? user) = UserLoadedEvent;
 }
 
 @freezed
-abstract class UserBlocState with _$UserBlocState {
+class UserBlocState with _$UserBlocState {
   const factory UserBlocState.initial() = Initial;
 
   const factory UserBlocState.loaded(User user) = Loaded;
@@ -28,10 +28,10 @@ abstract class UserBlocState with _$UserBlocState {
 /// This bloc is used to get user
 /// To work with user use [EditUserBloc]
 class UserBloc extends Bloc<UserBlocEvent, UserBlocState> {
-  UserBloc({@required this.userRepository}) : super(const Initial());
+  UserBloc({required this.userRepository}) : super(const Initial());
 
   final UserRepository userRepository;
-  StreamSubscription<User> _userSubscription;
+  StreamSubscription<User?>? _userSubscription;
 
   @override
   Stream<UserBlocState> mapEventToState(UserBlocEvent event) async* {
@@ -45,7 +45,7 @@ class UserBloc extends Bloc<UserBlocEvent, UserBlocState> {
     if (event.user == null) {
       yield const UnAuthrized();
     } else {
-      yield Loaded(event.user);
+      yield Loaded(event.user!);
     }
   }
 

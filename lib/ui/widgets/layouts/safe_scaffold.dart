@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 /// Нужен очень часто, поэтому вынесен в отдельный виджет
 class SafeScaffold extends StatelessWidget {
   const SafeScaffold({
-    Key key,
+    Key? key,
     this.appBar,
     this.bottomNavigationBar,
     this.backgroundColor,
@@ -12,12 +12,12 @@ class SafeScaffold extends StatelessWidget {
     this.floatingActionButton,
   }) : scaffoldKey = key;
 
-  final Key scaffoldKey;
-  final PreferredSizeWidget appBar;
-  final Widget bottomNavigationBar;
-  final Color backgroundColor;
-  final Widget body;
-  final Widget floatingActionButton;
+  final Key? scaffoldKey;
+  final PreferredSizeWidget? appBar;
+  final Widget? bottomNavigationBar;
+  final Color? backgroundColor;
+  final Widget? body;
+  final Widget? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {

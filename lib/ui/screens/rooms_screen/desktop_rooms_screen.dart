@@ -15,7 +15,7 @@ class DesktopRoomsScreen extends StatefulWidget {
 }
 
 class _DesktopRoomsScreenState extends State<DesktopRoomsScreen> {
-  Room _selectedRoom;
+  Room? _selectedRoom;
 
   void _onCreateNewRoomRequested(BuildContext context) {
     Navigator.pushNamed(context, CreateRoomScreen.routeName);
@@ -52,7 +52,7 @@ class _DesktopRoomsScreenState extends State<DesktopRoomsScreen> {
                   flex: 2,
                   child: _selectedRoom != null
                       ? ChatWidget(
-                          roomName: _selectedRoom.name,
+                          roomName: _selectedRoom!.name,
                         )
                       : const _UnselectedRoom(),
                 )

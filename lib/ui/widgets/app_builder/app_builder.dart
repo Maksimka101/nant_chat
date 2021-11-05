@@ -17,8 +17,8 @@ import 'package:nant_client/utils/platform_info/platform_info.dart';
 /// and [ThemeData] from [ThemeBloc]
 class AppBuilder extends StatelessWidget {
   const AppBuilder({
-    Key key,
-    @required this.home,
+    Key? key,
+    required this.home,
   }) : super(key: key);
   final Widget home;
 
@@ -33,13 +33,13 @@ class AppBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return KeyboardDismisser(
       child: BlocBuilder<LocalizationBloc, LocalizationBlocState>(
-        cubit: getIt.get<LocalizationBloc>(),
+        bloc: getIt.get<LocalizationBloc>(),
         builder: (context, localizationState) {
           return localizationState.map(
             initial: (_) => const SizedBox.shrink(),
             localeLoaded: (localeState) {
               return BlocBuilder<ThemeBloc, ThemeBlocState>(
-                cubit: getIt.get<ThemeBloc>(),
+                bloc: getIt.get<ThemeBloc>(),
                 builder: (context, appThemeState) {
                   return MaterialApp(
                     onGenerateRoute: DefaultRouter().generateRoute,
@@ -60,7 +60,7 @@ class AppBuilder extends StatelessWidget {
                     ),
                     builder: (context, child) {
                       _updateLayoutInfo(context);
-                      return child;
+                      return child!;
                     },
                     home: home,
                   );

@@ -8,7 +8,7 @@ import 'package:nant_client/utils/get_it/get_it.dart';
 
 class RoomsList extends StatelessWidget {
   const RoomsList({
-    @required this.onRoomSelected,
+    required this.onRoomSelected,
   });
 
   final void Function(Room room) onRoomSelected;
@@ -16,7 +16,7 @@ class RoomsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RoomsBloc, RoomsBlocState>(
-      cubit: getIt.get<RoomsBloc>(),
+      bloc: getIt.get<RoomsBloc>(),
       builder: (context, state) {
         return state.map(
           initial: (_) => const Center(child: PlatformLoading()),
@@ -32,9 +32,9 @@ class RoomsList extends StatelessWidget {
 
 class _RoomListBody extends StatelessWidget {
   const _RoomListBody({
-    Key key,
-    @required this.onRoomSelected,
-    @required this.rooms,
+    Key? key,
+    required this.onRoomSelected,
+    required this.rooms,
   }) : super(key: key);
   final List<Room> rooms;
   final void Function(Room room) onRoomSelected;

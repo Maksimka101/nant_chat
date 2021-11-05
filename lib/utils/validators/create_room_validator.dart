@@ -1,10 +1,10 @@
 import 'package:nant_client/generated/l10n.dart';
 
 class CreateRoomValidator {
-  String roomName;
+  String? roomName;
 
-  String validateRoomName(String roomName) {
-    if (roomName.isEmpty) {
+  String? validateRoomName(String? roomName) {
+    if (roomName!.isEmpty) {
       return S.current.pleaseEnterRoomName;
     } else if (roomName.length < 4) {
       return S.current.roomNameMustHaveAtLeast4Character;

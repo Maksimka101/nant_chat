@@ -10,23 +10,24 @@ import 'package:nant_client/utils/platform_info/platform_info.dart';
 /// implicit or explicit leading exists because it is covered by Mac Os's controls
 class AdaptiveAppBar extends StatelessWidget {
   const AdaptiveAppBar({
+    Key? key,
     this.title,
     this.actions,
     this.leading,
-  });
+  }) : super(key: key);
 
-  final Widget title;
-  final List<Widget> actions;
-  final Widget leading;
+  final Widget? title;
+  final List<Widget>? actions;
+  final Widget? leading;
 
   static const _desktopAppBarHeight = 45.0;
   static const _macOsToolBarHeight = 18.0;
 
-  bool _addSpaceUnderAppBar(PlatformInfo platformInfo, Widget leading) {
+  bool _addSpaceUnderAppBar(PlatformInfo platformInfo, Widget? leading) {
     return leading != null && platformInfo.isMacOs;
   }
 
-  Widget _buildLeading(BuildContext context) {
+  Widget? _buildLeading(BuildContext context) {
     final canPop = ModalRoute.of(context)?.canPop ?? false;
     if (canPop && leading == null) {
       return const BackButton();
@@ -45,7 +46,7 @@ class AdaptiveAppBar extends StatelessWidget {
     final addSpaceUnderAppBar = _addSpaceUnderAppBar(platformInfo, leading);
 
     return ColoredBox(
-      color: theme.appBarTheme.backgroundColor,
+      color: theme.appBarTheme.backgroundColor!,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

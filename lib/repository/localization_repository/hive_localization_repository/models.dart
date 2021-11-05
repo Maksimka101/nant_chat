@@ -6,9 +6,9 @@ part 'models.g.dart';
 
 @HiveType(typeId: 4)
 @freezed
-abstract class Locale with _$Locale {
+class Locale with _$Locale {
   const factory Locale({
-    @HiveField(0) @required String languageCode,
-    @HiveField(1) String countryCode,
+    @HiveField(0) required String languageCode,
+    @HiveField(1) String? countryCode,
   }) = _Locale;
 }

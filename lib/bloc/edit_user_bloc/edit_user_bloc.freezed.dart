@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'edit_user_bloc.dart';
 
@@ -9,62 +10,79 @@ part of 'edit_user_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$EditUserBlocEventTearOff {
   const _$EditUserBlocEventTearOff();
 
-// ignore: unused_element
-  UserCreated userCreated({@required CreateUser createUser}) {
+  UserCreated userCreated({required CreateUser createUser}) {
     return UserCreated(
       createUser: createUser,
     );
   }
 
-// ignore: unused_element
-  UserUpdated userUpdated({@required UpdateUser updateUser}) {
+  UserUpdated userUpdated({required UpdateUser updateUser}) {
     return UserUpdated(
       updateUser: updateUser,
     );
   }
 
-// ignore: unused_element
   UserDeleted userDeleted() {
     return const UserDeleted();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $EditUserBlocEvent = _$EditUserBlocEventTearOff();
 
 /// @nodoc
 mixin _$EditUserBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult userCreated(CreateUser createUser),
-    @required TResult userUpdated(UpdateUser updateUser),
-    @required TResult userDeleted(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreateUser createUser) userCreated,
+    required TResult Function(UpdateUser updateUser) userUpdated,
+    required TResult Function() userDeleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult userCreated(CreateUser createUser),
-    TResult userUpdated(UpdateUser updateUser),
-    TResult userDeleted(),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult userCreated(UserCreated value),
-    @required TResult userUpdated(UserUpdated value),
-    @required TResult userDeleted(UserDeleted value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult userCreated(UserCreated value),
-    TResult userUpdated(UserUpdated value),
-    TResult userDeleted(UserDeleted value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserCreated value) userCreated,
+    required TResult Function(UserUpdated value) userUpdated,
+    required TResult Function(UserDeleted value) userDeleted,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -107,19 +125,18 @@ class _$UserCreatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object createUser = freezed,
+    Object? createUser = freezed,
   }) {
     return _then(UserCreated(
-      createUser:
-          createUser == freezed ? _value.createUser : createUser as CreateUser,
+      createUser: createUser == freezed
+          ? _value.createUser
+          : createUser // ignore: cast_nullable_to_non_nullable
+              as CreateUser,
     ));
   }
 
   @override
   $CreateUserCopyWith<$Res> get createUser {
-    if (_value.createUser == null) {
-      return null;
-    }
     return $CreateUserCopyWith<$Res>(_value.createUser, (value) {
       return _then(_value.copyWith(createUser: value));
     });
@@ -127,8 +144,9 @@ class _$UserCreatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserCreated implements UserCreated {
-  const _$UserCreated({@required this.createUser}) : assert(createUser != null);
+  const _$UserCreated({required this.createUser});
 
   @override
   final CreateUser createUser;
@@ -141,15 +159,14 @@ class _$UserCreated implements UserCreated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UserCreated &&
+        (other.runtimeType == runtimeType &&
+            other is UserCreated &&
             (identical(other.createUser, createUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.createUser, createUser)));
+                other.createUser == createUser));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(createUser);
+  int get hashCode => Object.hash(runtimeType, createUser);
 
   @JsonKey(ignore: true)
   @override
@@ -158,26 +175,32 @@ class _$UserCreated implements UserCreated {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult userCreated(CreateUser createUser),
-    @required TResult userUpdated(UpdateUser updateUser),
-    @required TResult userDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreateUser createUser) userCreated,
+    required TResult Function(UpdateUser updateUser) userUpdated,
+    required TResult Function() userDeleted,
   }) {
-    assert(userCreated != null);
-    assert(userUpdated != null);
-    assert(userDeleted != null);
     return userCreated(createUser);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult userCreated(CreateUser createUser),
-    TResult userUpdated(UpdateUser updateUser),
-    TResult userDeleted(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
   }) {
-    assert(orElse != null);
+    return userCreated?.call(createUser);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
+    required TResult orElse(),
+  }) {
     if (userCreated != null) {
       return userCreated(createUser);
     }
@@ -186,26 +209,32 @@ class _$UserCreated implements UserCreated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult userCreated(UserCreated value),
-    @required TResult userUpdated(UserUpdated value),
-    @required TResult userDeleted(UserDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserCreated value) userCreated,
+    required TResult Function(UserUpdated value) userUpdated,
+    required TResult Function(UserDeleted value) userDeleted,
   }) {
-    assert(userCreated != null);
-    assert(userUpdated != null);
-    assert(userDeleted != null);
     return userCreated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult userCreated(UserCreated value),
-    TResult userUpdated(UserUpdated value),
-    TResult userDeleted(UserDeleted value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
   }) {
-    assert(orElse != null);
+    return userCreated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
+    required TResult orElse(),
+  }) {
     if (userCreated != null) {
       return userCreated(this);
     }
@@ -214,11 +243,12 @@ class _$UserCreated implements UserCreated {
 }
 
 abstract class UserCreated implements EditUserBlocEvent {
-  const factory UserCreated({@required CreateUser createUser}) = _$UserCreated;
+  const factory UserCreated({required CreateUser createUser}) = _$UserCreated;
 
   CreateUser get createUser;
   @JsonKey(ignore: true)
-  $UserCreatedCopyWith<UserCreated> get copyWith;
+  $UserCreatedCopyWith<UserCreated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -244,19 +274,18 @@ class _$UserUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object updateUser = freezed,
+    Object? updateUser = freezed,
   }) {
     return _then(UserUpdated(
-      updateUser:
-          updateUser == freezed ? _value.updateUser : updateUser as UpdateUser,
+      updateUser: updateUser == freezed
+          ? _value.updateUser
+          : updateUser // ignore: cast_nullable_to_non_nullable
+              as UpdateUser,
     ));
   }
 
   @override
   $UpdateUserCopyWith<$Res> get updateUser {
-    if (_value.updateUser == null) {
-      return null;
-    }
     return $UpdateUserCopyWith<$Res>(_value.updateUser, (value) {
       return _then(_value.copyWith(updateUser: value));
     });
@@ -264,8 +293,9 @@ class _$UserUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserUpdated implements UserUpdated {
-  const _$UserUpdated({@required this.updateUser}) : assert(updateUser != null);
+  const _$UserUpdated({required this.updateUser});
 
   @override
   final UpdateUser updateUser;
@@ -278,15 +308,14 @@ class _$UserUpdated implements UserUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UserUpdated &&
+        (other.runtimeType == runtimeType &&
+            other is UserUpdated &&
             (identical(other.updateUser, updateUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.updateUser, updateUser)));
+                other.updateUser == updateUser));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(updateUser);
+  int get hashCode => Object.hash(runtimeType, updateUser);
 
   @JsonKey(ignore: true)
   @override
@@ -295,26 +324,32 @@ class _$UserUpdated implements UserUpdated {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult userCreated(CreateUser createUser),
-    @required TResult userUpdated(UpdateUser updateUser),
-    @required TResult userDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreateUser createUser) userCreated,
+    required TResult Function(UpdateUser updateUser) userUpdated,
+    required TResult Function() userDeleted,
   }) {
-    assert(userCreated != null);
-    assert(userUpdated != null);
-    assert(userDeleted != null);
     return userUpdated(updateUser);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult userCreated(CreateUser createUser),
-    TResult userUpdated(UpdateUser updateUser),
-    TResult userDeleted(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
   }) {
-    assert(orElse != null);
+    return userUpdated?.call(updateUser);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
+    required TResult orElse(),
+  }) {
     if (userUpdated != null) {
       return userUpdated(updateUser);
     }
@@ -323,26 +358,32 @@ class _$UserUpdated implements UserUpdated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult userCreated(UserCreated value),
-    @required TResult userUpdated(UserUpdated value),
-    @required TResult userDeleted(UserDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserCreated value) userCreated,
+    required TResult Function(UserUpdated value) userUpdated,
+    required TResult Function(UserDeleted value) userDeleted,
   }) {
-    assert(userCreated != null);
-    assert(userUpdated != null);
-    assert(userDeleted != null);
     return userUpdated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult userCreated(UserCreated value),
-    TResult userUpdated(UserUpdated value),
-    TResult userDeleted(UserDeleted value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
   }) {
-    assert(orElse != null);
+    return userUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
+    required TResult orElse(),
+  }) {
     if (userUpdated != null) {
       return userUpdated(this);
     }
@@ -351,11 +392,12 @@ class _$UserUpdated implements UserUpdated {
 }
 
 abstract class UserUpdated implements EditUserBlocEvent {
-  const factory UserUpdated({@required UpdateUser updateUser}) = _$UserUpdated;
+  const factory UserUpdated({required UpdateUser updateUser}) = _$UserUpdated;
 
   UpdateUser get updateUser;
   @JsonKey(ignore: true)
-  $UserUpdatedCopyWith<UserUpdated> get copyWith;
+  $UserUpdatedCopyWith<UserUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -378,6 +420,7 @@ class _$UserDeletedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserDeleted implements UserDeleted {
   const _$UserDeleted();
 
@@ -388,7 +431,8 @@ class _$UserDeleted implements UserDeleted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserDeleted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserDeleted);
   }
 
   @override
@@ -396,26 +440,32 @@ class _$UserDeleted implements UserDeleted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult userCreated(CreateUser createUser),
-    @required TResult userUpdated(UpdateUser updateUser),
-    @required TResult userDeleted(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(CreateUser createUser) userCreated,
+    required TResult Function(UpdateUser updateUser) userUpdated,
+    required TResult Function() userDeleted,
   }) {
-    assert(userCreated != null);
-    assert(userUpdated != null);
-    assert(userDeleted != null);
     return userDeleted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult userCreated(CreateUser createUser),
-    TResult userUpdated(UpdateUser updateUser),
-    TResult userDeleted(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
   }) {
-    assert(orElse != null);
+    return userDeleted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(CreateUser createUser)? userCreated,
+    TResult Function(UpdateUser updateUser)? userUpdated,
+    TResult Function()? userDeleted,
+    required TResult orElse(),
+  }) {
     if (userDeleted != null) {
       return userDeleted();
     }
@@ -424,26 +474,32 @@ class _$UserDeleted implements UserDeleted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult userCreated(UserCreated value),
-    @required TResult userUpdated(UserUpdated value),
-    @required TResult userDeleted(UserDeleted value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserCreated value) userCreated,
+    required TResult Function(UserUpdated value) userUpdated,
+    required TResult Function(UserDeleted value) userDeleted,
   }) {
-    assert(userCreated != null);
-    assert(userUpdated != null);
-    assert(userDeleted != null);
     return userDeleted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult userCreated(UserCreated value),
-    TResult userUpdated(UserUpdated value),
-    TResult userDeleted(UserDeleted value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
   }) {
-    assert(orElse != null);
+    return userDeleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserCreated value)? userCreated,
+    TResult Function(UserUpdated value)? userUpdated,
+    TResult Function(UserDeleted value)? userDeleted,
+    required TResult orElse(),
+  }) {
     if (userDeleted != null) {
       return userDeleted(this);
     }
@@ -459,37 +515,30 @@ abstract class UserDeleted implements EditUserBlocEvent {
 class _$EditUserBlocStateTearOff {
   const _$EditUserBlocStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return const Initial();
   }
 
-// ignore: unused_element
   UserUpdatedSuccessfully userUpdatedSuccessfully() {
     return const UserUpdatedSuccessfully();
   }
 
-// ignore: unused_element
   UserCreatedSuccessfully userCreatedSuccessfully() {
     return const UserCreatedSuccessfully();
   }
 
-// ignore: unused_element
   UserCreationStarted userCreationStarted() {
     return const UserCreationStarted();
   }
 
-// ignore: unused_element
   UserUpdateStarted userUpdateStarted() {
     return const UserUpdateStarted();
   }
 
-// ignore: unused_element
   UserDeletingStarted userDeletingStarted() {
     return const UserDeletingStarted();
   }
 
-// ignore: unused_element
   ErrorUserState error(String msg) {
     return ErrorUserState(
       msg,
@@ -498,53 +547,80 @@ class _$EditUserBlocStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $EditUserBlocState = _$EditUserBlocStateTearOff();
 
 /// @nodoc
 mixin _$EditUserBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -581,6 +657,7 @@ class _$InitialCopyWithImpl<$Res> extends _$EditUserBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -591,7 +668,8 @@ class _$Initial implements Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
@@ -599,38 +677,44 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
   }) {
-    assert(orElse != null);
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial();
     }
@@ -639,38 +723,46 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -702,6 +794,7 @@ class _$UserUpdatedSuccessfullyCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserUpdatedSuccessfully implements UserUpdatedSuccessfully {
   const _$UserUpdatedSuccessfully();
 
@@ -712,7 +805,8 @@ class _$UserUpdatedSuccessfully implements UserUpdatedSuccessfully {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserUpdatedSuccessfully);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserUpdatedSuccessfully);
   }
 
   @override
@@ -720,38 +814,44 @@ class _$UserUpdatedSuccessfully implements UserUpdatedSuccessfully {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userUpdatedSuccessfully();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
   }) {
-    assert(orElse != null);
+    return userUpdatedSuccessfully?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) {
     if (userUpdatedSuccessfully != null) {
       return userUpdatedSuccessfully();
     }
@@ -760,38 +860,46 @@ class _$UserUpdatedSuccessfully implements UserUpdatedSuccessfully {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userUpdatedSuccessfully(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
   }) {
-    assert(orElse != null);
+    return userUpdatedSuccessfully?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) {
     if (userUpdatedSuccessfully != null) {
       return userUpdatedSuccessfully(this);
     }
@@ -823,6 +931,7 @@ class _$UserCreatedSuccessfullyCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserCreatedSuccessfully implements UserCreatedSuccessfully {
   const _$UserCreatedSuccessfully();
 
@@ -833,7 +942,8 @@ class _$UserCreatedSuccessfully implements UserCreatedSuccessfully {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserCreatedSuccessfully);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserCreatedSuccessfully);
   }
 
   @override
@@ -841,38 +951,44 @@ class _$UserCreatedSuccessfully implements UserCreatedSuccessfully {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userCreatedSuccessfully();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
   }) {
-    assert(orElse != null);
+    return userCreatedSuccessfully?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) {
     if (userCreatedSuccessfully != null) {
       return userCreatedSuccessfully();
     }
@@ -881,38 +997,46 @@ class _$UserCreatedSuccessfully implements UserCreatedSuccessfully {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userCreatedSuccessfully(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
   }) {
-    assert(orElse != null);
+    return userCreatedSuccessfully?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) {
     if (userCreatedSuccessfully != null) {
       return userCreatedSuccessfully(this);
     }
@@ -944,6 +1068,7 @@ class _$UserCreationStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserCreationStarted implements UserCreationStarted {
   const _$UserCreationStarted();
 
@@ -954,7 +1079,8 @@ class _$UserCreationStarted implements UserCreationStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserCreationStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserCreationStarted);
   }
 
   @override
@@ -962,38 +1088,44 @@ class _$UserCreationStarted implements UserCreationStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userCreationStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
   }) {
-    assert(orElse != null);
+    return userCreationStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) {
     if (userCreationStarted != null) {
       return userCreationStarted();
     }
@@ -1002,38 +1134,46 @@ class _$UserCreationStarted implements UserCreationStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userCreationStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
   }) {
-    assert(orElse != null);
+    return userCreationStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) {
     if (userCreationStarted != null) {
       return userCreationStarted(this);
     }
@@ -1065,6 +1205,7 @@ class _$UserUpdateStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserUpdateStarted implements UserUpdateStarted {
   const _$UserUpdateStarted();
 
@@ -1075,7 +1216,8 @@ class _$UserUpdateStarted implements UserUpdateStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserUpdateStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserUpdateStarted);
   }
 
   @override
@@ -1083,38 +1225,44 @@ class _$UserUpdateStarted implements UserUpdateStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userUpdateStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
   }) {
-    assert(orElse != null);
+    return userUpdateStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) {
     if (userUpdateStarted != null) {
       return userUpdateStarted();
     }
@@ -1123,38 +1271,46 @@ class _$UserUpdateStarted implements UserUpdateStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userUpdateStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
   }) {
-    assert(orElse != null);
+    return userUpdateStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) {
     if (userUpdateStarted != null) {
       return userUpdateStarted(this);
     }
@@ -1186,6 +1342,7 @@ class _$UserDeletingStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserDeletingStarted implements UserDeletingStarted {
   const _$UserDeletingStarted();
 
@@ -1196,7 +1353,8 @@ class _$UserDeletingStarted implements UserDeletingStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserDeletingStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserDeletingStarted);
   }
 
   @override
@@ -1204,38 +1362,44 @@ class _$UserDeletingStarted implements UserDeletingStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userDeletingStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
   }) {
-    assert(orElse != null);
+    return userDeletingStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) {
     if (userDeletingStarted != null) {
       return userDeletingStarted();
     }
@@ -1244,38 +1408,46 @@ class _$UserDeletingStarted implements UserDeletingStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return userDeletingStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
   }) {
-    assert(orElse != null);
+    return userDeletingStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) {
     if (userDeletingStarted != null) {
       return userDeletingStarted(this);
     }
@@ -1308,17 +1480,21 @@ class _$ErrorUserStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object msg = freezed,
+    Object? msg = freezed,
   }) {
     return _then(ErrorUserState(
-      msg == freezed ? _value.msg : msg as String,
+      msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$ErrorUserState implements ErrorUserState {
-  const _$ErrorUserState(this.msg) : assert(msg != null);
+  const _$ErrorUserState(this.msg);
 
   @override
   final String msg;
@@ -1331,14 +1507,13 @@ class _$ErrorUserState implements ErrorUserState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ErrorUserState &&
-            (identical(other.msg, msg) ||
-                const DeepCollectionEquality().equals(other.msg, msg)));
+        (other.runtimeType == runtimeType &&
+            other is ErrorUserState &&
+            (identical(other.msg, msg) || other.msg == msg));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(msg);
+  int get hashCode => Object.hash(runtimeType, msg);
 
   @JsonKey(ignore: true)
   @override
@@ -1347,38 +1522,44 @@ class _$ErrorUserState implements ErrorUserState {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult userUpdatedSuccessfully(),
-    @required TResult userCreatedSuccessfully(),
-    @required TResult userCreationStarted(),
-    @required TResult userUpdateStarted(),
-    @required TResult userDeletingStarted(),
-    @required TResult error(String msg),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userUpdatedSuccessfully,
+    required TResult Function() userCreatedSuccessfully,
+    required TResult Function() userCreationStarted,
+    required TResult Function() userUpdateStarted,
+    required TResult Function() userDeletingStarted,
+    required TResult Function(String msg) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return error(msg);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult userUpdatedSuccessfully(),
-    TResult userCreatedSuccessfully(),
-    TResult userCreationStarted(),
-    TResult userUpdateStarted(),
-    TResult userDeletingStarted(),
-    TResult error(String msg),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userUpdatedSuccessfully,
+    TResult Function()? userCreatedSuccessfully,
+    TResult Function()? userCreationStarted,
+    TResult Function()? userUpdateStarted,
+    TResult Function()? userDeletingStarted,
+    TResult Function(String msg)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(msg);
     }
@@ -1387,38 +1568,46 @@ class _$ErrorUserState implements ErrorUserState {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    @required TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    @required TResult userCreationStarted(UserCreationStarted value),
-    @required TResult userUpdateStarted(UserUpdateStarted value),
-    @required TResult userDeletingStarted(UserDeletingStarted value),
-    @required TResult error(ErrorUserState value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(UserUpdatedSuccessfully value)
+        userUpdatedSuccessfully,
+    required TResult Function(UserCreatedSuccessfully value)
+        userCreatedSuccessfully,
+    required TResult Function(UserCreationStarted value) userCreationStarted,
+    required TResult Function(UserUpdateStarted value) userUpdateStarted,
+    required TResult Function(UserDeletingStarted value) userDeletingStarted,
+    required TResult Function(ErrorUserState value) error,
   }) {
-    assert(initial != null);
-    assert(userUpdatedSuccessfully != null);
-    assert(userCreatedSuccessfully != null);
-    assert(userCreationStarted != null);
-    assert(userUpdateStarted != null);
-    assert(userDeletingStarted != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult userUpdatedSuccessfully(UserUpdatedSuccessfully value),
-    TResult userCreatedSuccessfully(UserCreatedSuccessfully value),
-    TResult userCreationStarted(UserCreationStarted value),
-    TResult userUpdateStarted(UserUpdateStarted value),
-    TResult userDeletingStarted(UserDeletingStarted value),
-    TResult error(ErrorUserState value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(UserUpdatedSuccessfully value)? userUpdatedSuccessfully,
+    TResult Function(UserCreatedSuccessfully value)? userCreatedSuccessfully,
+    TResult Function(UserCreationStarted value)? userCreationStarted,
+    TResult Function(UserUpdateStarted value)? userUpdateStarted,
+    TResult Function(UserDeletingStarted value)? userDeletingStarted,
+    TResult Function(ErrorUserState value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -1431,5 +1620,6 @@ abstract class ErrorUserState implements EditUserBlocState {
 
   String get msg;
   @JsonKey(ignore: true)
-  $ErrorUserStateCopyWith<ErrorUserState> get copyWith;
+  $ErrorUserStateCopyWith<ErrorUserState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

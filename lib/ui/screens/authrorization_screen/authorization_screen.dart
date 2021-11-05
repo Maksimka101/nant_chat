@@ -15,7 +15,7 @@ import 'package:nant_client/utils/validators/auth_validator.dart';
 
 class AuthorizationScreen extends StatelessWidget {
   const AuthorizationScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   void _onPickLanguage(BuildContext context) {
@@ -53,7 +53,7 @@ class AuthorizationScreen extends StatelessWidget {
 
 class _AuthScreenBody extends StatefulWidget {
   const _AuthScreenBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -87,26 +87,28 @@ class __AuthScreenBodyState extends State<_AuthScreenBody> {
   }
 
   void _onCreateUser() {
-    if (_formKey.currentState.validate()) {
-      getIt
-          .get<EditUserBloc>()
-          .add(UserCreated(createUser: CreateUser(name: _authValidator.name)));
+    if (_formKey.currentState!.validate()) {
+      getIt.get<EditUserBloc>().add(UserCreated(createUser: CreateUser(name: _authValidator.name!)));
     }
   }
 
   void _listenForUserState(BuildContext context, EditUserBlocState state) {
     state.maybeMap(
       error: (error) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(error.msg),
-          duration: const Duration(seconds: 5),
-        ));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(error.msg),
+            duration: const Duration(seconds: 5),
+          ),
+        );
+        return const Object();
       },
       userCreatedSuccessfully: (_) {
         // Close all screens which may be opened while registration
         Navigator.popUntil(context, ModalRoute.withName('/'));
+        return const Object();
       },
-      orElse: () {},
+      orElse: () => const Object(),
     );
   }
 
@@ -124,7 +126,7 @@ class __AuthScreenBodyState extends State<_AuthScreenBody> {
                   flex: 2,
                   child: BlocListener<EditUserBloc, EditUserBlocState>(
                     listener: _listenForUserState,
-                    cubit: getIt.get<EditUserBloc>(),
+                    bloc: getIt.get<EditUserBloc>(),
                     child: Form(
                       key: _formKey,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -177,10 +179,10 @@ class __AuthScreenBodyState extends State<_AuthScreenBody> {
 
 class _NextButton extends StatelessWidget {
   const _NextButton({
-    Key key,
-    @required this.onTap,
+    Key? key,
+    required this.onTap,
   }) : super(key: key);
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {

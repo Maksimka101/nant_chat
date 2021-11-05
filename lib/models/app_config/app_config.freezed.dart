@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'app_config.dart';
 
@@ -9,18 +10,20 @@ part of 'app_config.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AppConfigTearOff {
   const _$AppConfigTearOff();
 
-// ignore: unused_element
   _AppConfig call(
-      {@required String hostName,
-      @required String webSocketHostName,
-      @required Locale defaultLocale,
-      @required AppTheme defaultAppTheme,
-      @required List<Locale> supportedLocales,
-      @required int chatPagination}) {
+      {required String hostName,
+      required String webSocketHostName,
+      required Locale defaultLocale,
+      required AppTheme defaultAppTheme,
+      required List<Locale> supportedLocales,
+      required int chatPagination}) {
     return _AppConfig(
       hostName: hostName,
       webSocketHostName: webSocketHostName,
@@ -33,20 +36,20 @@ class _$AppConfigTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AppConfig = _$AppConfigTearOff();
 
 /// @nodoc
 mixin _$AppConfig {
-  String get hostName;
-  String get webSocketHostName;
-  Locale get defaultLocale;
-  AppTheme get defaultAppTheme;
-  List<Locale> get supportedLocales;
-  int get chatPagination;
+  String get hostName => throw _privateConstructorUsedError;
+  String get webSocketHostName => throw _privateConstructorUsedError;
+  Locale get defaultLocale => throw _privateConstructorUsedError;
+  AppTheme get defaultAppTheme => throw _privateConstructorUsedError;
+  List<Locale> get supportedLocales => throw _privateConstructorUsedError;
+  int get chatPagination => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AppConfigCopyWith<AppConfig> get copyWith;
+  $AppConfigCopyWith<AppConfig> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -74,38 +77,43 @@ class _$AppConfigCopyWithImpl<$Res> implements $AppConfigCopyWith<$Res> {
 
   @override
   $Res call({
-    Object hostName = freezed,
-    Object webSocketHostName = freezed,
-    Object defaultLocale = freezed,
-    Object defaultAppTheme = freezed,
-    Object supportedLocales = freezed,
-    Object chatPagination = freezed,
+    Object? hostName = freezed,
+    Object? webSocketHostName = freezed,
+    Object? defaultLocale = freezed,
+    Object? defaultAppTheme = freezed,
+    Object? supportedLocales = freezed,
+    Object? chatPagination = freezed,
   }) {
     return _then(_value.copyWith(
-      hostName: hostName == freezed ? _value.hostName : hostName as String,
+      hostName: hostName == freezed
+          ? _value.hostName
+          : hostName // ignore: cast_nullable_to_non_nullable
+              as String,
       webSocketHostName: webSocketHostName == freezed
           ? _value.webSocketHostName
-          : webSocketHostName as String,
+          : webSocketHostName // ignore: cast_nullable_to_non_nullable
+              as String,
       defaultLocale: defaultLocale == freezed
           ? _value.defaultLocale
-          : defaultLocale as Locale,
+          : defaultLocale // ignore: cast_nullable_to_non_nullable
+              as Locale,
       defaultAppTheme: defaultAppTheme == freezed
           ? _value.defaultAppTheme
-          : defaultAppTheme as AppTheme,
+          : defaultAppTheme // ignore: cast_nullable_to_non_nullable
+              as AppTheme,
       supportedLocales: supportedLocales == freezed
           ? _value.supportedLocales
-          : supportedLocales as List<Locale>,
+          : supportedLocales // ignore: cast_nullable_to_non_nullable
+              as List<Locale>,
       chatPagination: chatPagination == freezed
           ? _value.chatPagination
-          : chatPagination as int,
+          : chatPagination // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
   @override
   $AppThemeCopyWith<$Res> get defaultAppTheme {
-    if (_value.defaultAppTheme == null) {
-      return null;
-    }
     return $AppThemeCopyWith<$Res>(_value.defaultAppTheme, (value) {
       return _then(_value.copyWith(defaultAppTheme: value));
     });
@@ -141,49 +149,52 @@ class __$AppConfigCopyWithImpl<$Res> extends _$AppConfigCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object hostName = freezed,
-    Object webSocketHostName = freezed,
-    Object defaultLocale = freezed,
-    Object defaultAppTheme = freezed,
-    Object supportedLocales = freezed,
-    Object chatPagination = freezed,
+    Object? hostName = freezed,
+    Object? webSocketHostName = freezed,
+    Object? defaultLocale = freezed,
+    Object? defaultAppTheme = freezed,
+    Object? supportedLocales = freezed,
+    Object? chatPagination = freezed,
   }) {
     return _then(_AppConfig(
-      hostName: hostName == freezed ? _value.hostName : hostName as String,
+      hostName: hostName == freezed
+          ? _value.hostName
+          : hostName // ignore: cast_nullable_to_non_nullable
+              as String,
       webSocketHostName: webSocketHostName == freezed
           ? _value.webSocketHostName
-          : webSocketHostName as String,
+          : webSocketHostName // ignore: cast_nullable_to_non_nullable
+              as String,
       defaultLocale: defaultLocale == freezed
           ? _value.defaultLocale
-          : defaultLocale as Locale,
+          : defaultLocale // ignore: cast_nullable_to_non_nullable
+              as Locale,
       defaultAppTheme: defaultAppTheme == freezed
           ? _value.defaultAppTheme
-          : defaultAppTheme as AppTheme,
+          : defaultAppTheme // ignore: cast_nullable_to_non_nullable
+              as AppTheme,
       supportedLocales: supportedLocales == freezed
           ? _value.supportedLocales
-          : supportedLocales as List<Locale>,
+          : supportedLocales // ignore: cast_nullable_to_non_nullable
+              as List<Locale>,
       chatPagination: chatPagination == freezed
           ? _value.chatPagination
-          : chatPagination as int,
+          : chatPagination // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AppConfig implements _AppConfig {
   const _$_AppConfig(
-      {@required this.hostName,
-      @required this.webSocketHostName,
-      @required this.defaultLocale,
-      @required this.defaultAppTheme,
-      @required this.supportedLocales,
-      @required this.chatPagination})
-      : assert(hostName != null),
-        assert(webSocketHostName != null),
-        assert(defaultLocale != null),
-        assert(defaultAppTheme != null),
-        assert(supportedLocales != null),
-        assert(chatPagination != null);
+      {required this.hostName,
+      required this.webSocketHostName,
+      required this.defaultLocale,
+      required this.defaultAppTheme,
+      required this.supportedLocales,
+      required this.chatPagination});
 
   @override
   final String hostName;
@@ -206,36 +217,31 @@ class _$_AppConfig implements _AppConfig {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppConfig &&
+        (other.runtimeType == runtimeType &&
+            other is _AppConfig &&
             (identical(other.hostName, hostName) ||
-                const DeepCollectionEquality()
-                    .equals(other.hostName, hostName)) &&
+                other.hostName == hostName) &&
             (identical(other.webSocketHostName, webSocketHostName) ||
-                const DeepCollectionEquality()
-                    .equals(other.webSocketHostName, webSocketHostName)) &&
+                other.webSocketHostName == webSocketHostName) &&
             (identical(other.defaultLocale, defaultLocale) ||
-                const DeepCollectionEquality()
-                    .equals(other.defaultLocale, defaultLocale)) &&
+                other.defaultLocale == defaultLocale) &&
             (identical(other.defaultAppTheme, defaultAppTheme) ||
-                const DeepCollectionEquality()
-                    .equals(other.defaultAppTheme, defaultAppTheme)) &&
-            (identical(other.supportedLocales, supportedLocales) ||
-                const DeepCollectionEquality()
-                    .equals(other.supportedLocales, supportedLocales)) &&
+                other.defaultAppTheme == defaultAppTheme) &&
+            const DeepCollectionEquality()
+                .equals(other.supportedLocales, supportedLocales) &&
             (identical(other.chatPagination, chatPagination) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatPagination, chatPagination)));
+                other.chatPagination == chatPagination));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(hostName) ^
-      const DeepCollectionEquality().hash(webSocketHostName) ^
-      const DeepCollectionEquality().hash(defaultLocale) ^
-      const DeepCollectionEquality().hash(defaultAppTheme) ^
-      const DeepCollectionEquality().hash(supportedLocales) ^
-      const DeepCollectionEquality().hash(chatPagination);
+  int get hashCode => Object.hash(
+      runtimeType,
+      hostName,
+      webSocketHostName,
+      defaultLocale,
+      defaultAppTheme,
+      const DeepCollectionEquality().hash(supportedLocales),
+      chatPagination);
 
   @JsonKey(ignore: true)
   @override
@@ -245,12 +251,12 @@ class _$_AppConfig implements _AppConfig {
 
 abstract class _AppConfig implements AppConfig {
   const factory _AppConfig(
-      {@required String hostName,
-      @required String webSocketHostName,
-      @required Locale defaultLocale,
-      @required AppTheme defaultAppTheme,
-      @required List<Locale> supportedLocales,
-      @required int chatPagination}) = _$_AppConfig;
+      {required String hostName,
+      required String webSocketHostName,
+      required Locale defaultLocale,
+      required AppTheme defaultAppTheme,
+      required List<Locale> supportedLocales,
+      required int chatPagination}) = _$_AppConfig;
 
   @override
   String get hostName;
@@ -266,5 +272,6 @@ abstract class _AppConfig implements AppConfig {
   int get chatPagination;
   @override
   @JsonKey(ignore: true)
-  _$AppConfigCopyWith<_AppConfig> get copyWith;
+  _$AppConfigCopyWith<_AppConfig> get copyWith =>
+      throw _privateConstructorUsedError;
 }

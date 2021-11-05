@@ -11,21 +11,20 @@ import 'package:nant_client/utils/logger/logger.dart';
 part 'initialize_bloc.freezed.dart';
 
 @freezed
-abstract class InitializeBlocEvent with _$InitializeBlocEvent {
-  const factory InitializeBlocEvent.initializationStarted() =
-      InitializationStarted;
+class InitializeBlocEvent with _$InitializeBlocEvent {
+  const factory InitializeBlocEvent.initializationStarted() = InitializationStarted;
 
   const factory InitializeBlocEvent.userLoaded(
-    @nullable User user,
+    User? user,
   ) = UserLoaded;
 
   const factory InitializeBlocEvent.roomsLoaded(
-    @nullable List<Room> rooms,
+    List<Room> rooms,
   ) = RoomsLoaded;
 }
 
 @freezed
-abstract class InitializeBlocState with _$InitializeBlocState {
+class InitializeBlocState with _$InitializeBlocState {
   const factory InitializeBlocState.initialized() = Initialized;
 
   const factory InitializeBlocState.unInitialized() = UnInitialized;
@@ -35,13 +34,13 @@ abstract class InitializeBlocState with _$InitializeBlocState {
 /// If user loaded but it is null then app is considered initialized
 class InitializeBloc extends Bloc<InitializeBlocEvent, InitializeBlocState> {
   InitializeBloc({
-    @required this.userBloc,
-    @required this.roomsBloc,
+    required this.userBloc,
+    required this.roomsBloc,
   }) : super(const UnInitialized());
   final UserBloc userBloc;
   final RoomsBloc roomsBloc;
-  StreamSubscription<UserBlocState> _userSubscription;
-  StreamSubscription<RoomsBlocState> _roomsSubscription;
+  StreamSubscription<UserBlocState>? _userSubscription;
+  StreamSubscription<RoomsBlocState>? _roomsSubscription;
 
   @override
   Stream<InitializeBlocState> mapEventToState(
@@ -59,14 +58,16 @@ class InitializeBloc extends Bloc<InitializeBlocEvent, InitializeBlocState> {
   ) async* {
     try {
       await _userSubscription?.cancel();
-      _userSubscription = userBloc.listen((event) {
+      _userSubscription = userBloc.stream.listen((event) {
         event.map(
-          initial: (_) {},
+          initial: (_) => Object(),
           unAuthorized: (_) {
             add(const UserLoaded(null));
+            return Object();
           },
           loaded: (loaded) {
             add(UserLoaded(loaded.user));
+            return Object();
           },
         );
       });
@@ -92,11 +93,12 @@ class InitializeBloc extends Bloc<InitializeBlocEvent, InitializeBlocState> {
     } else {
       try {
         await _roomsSubscription?.cancel();
-        _roomsSubscription = roomsBloc.listen((state) {
+        _roomsSubscription = roomsBloc.stream.listen((state) {
           state.map(
-            initial: (_) {},
+            initial: (_) => const Object(),
             roomsLoaded: (loaded) {
               add(RoomsLoaded(loaded.rooms));
+              return const Object();
             },
           );
         });

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'message.dart';
 
@@ -9,15 +10,17 @@ part of 'message.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$MessageTearOff {
   const _$MessageTearOff();
 
-// ignore: unused_element
   _Message call(
-      {@required @HiveField(0) String text,
-      @required @HiveField(1) DateTime createdAt,
-      @required @HiveField(2) ChatUser sender}) {
+      {@HiveField(0) required String text,
+      @HiveField(1) required DateTime createdAt,
+      @HiveField(2) required ChatUser sender}) {
     return _Message(
       text: text,
       createdAt: createdAt,
@@ -27,20 +30,19 @@ class _$MessageTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Message = _$MessageTearOff();
 
 /// @nodoc
 mixin _$Message {
   @HiveField(0)
-  String get text;
+  String get text => throw _privateConstructorUsedError;
   @HiveField(1)
-  DateTime get createdAt;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @HiveField(2)
-  ChatUser get sender;
+  ChatUser get sender => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $MessageCopyWith<Message> get copyWith;
+  $MessageCopyWith<Message> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,23 +67,28 @@ class _$MessageCopyWithImpl<$Res> implements $MessageCopyWith<$Res> {
 
   @override
   $Res call({
-    Object text = freezed,
-    Object createdAt = freezed,
-    Object sender = freezed,
+    Object? text = freezed,
+    Object? createdAt = freezed,
+    Object? sender = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed ? _value.text : text as String,
-      createdAt:
-          createdAt == freezed ? _value.createdAt : createdAt as DateTime,
-      sender: sender == freezed ? _value.sender : sender as ChatUser,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      sender: sender == freezed
+          ? _value.sender
+          : sender // ignore: cast_nullable_to_non_nullable
+              as ChatUser,
     ));
   }
 
   @override
   $ChatUserCopyWith<$Res> get sender {
-    if (_value.sender == null) {
-      return null;
-    }
     return $ChatUserCopyWith<$Res>(_value.sender, (value) {
       return _then(_value.copyWith(sender: value));
     });
@@ -113,28 +120,34 @@ class __$MessageCopyWithImpl<$Res> extends _$MessageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object createdAt = freezed,
-    Object sender = freezed,
+    Object? text = freezed,
+    Object? createdAt = freezed,
+    Object? sender = freezed,
   }) {
     return _then(_Message(
-      text: text == freezed ? _value.text : text as String,
-      createdAt:
-          createdAt == freezed ? _value.createdAt : createdAt as DateTime,
-      sender: sender == freezed ? _value.sender : sender as ChatUser,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      sender: sender == freezed
+          ? _value.sender
+          : sender // ignore: cast_nullable_to_non_nullable
+              as ChatUser,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Message implements _Message {
   const _$_Message(
-      {@required @HiveField(0) this.text,
-      @required @HiveField(1) this.createdAt,
-      @required @HiveField(2) this.sender})
-      : assert(text != null),
-        assert(createdAt != null),
-        assert(sender != null);
+      {@HiveField(0) required this.text,
+      @HiveField(1) required this.createdAt,
+      @HiveField(2) required this.sender});
 
   @override
   @HiveField(0)
@@ -154,22 +167,16 @@ class _$_Message implements _Message {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Message &&
-            (identical(other.text, text) ||
-                const DeepCollectionEquality().equals(other.text, text)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Message &&
+            (identical(other.text, text) || other.text == text) &&
             (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.sender, sender) ||
-                const DeepCollectionEquality().equals(other.sender, sender)));
+                other.createdAt == createdAt) &&
+            (identical(other.sender, sender) || other.sender == sender));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(text) ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(sender);
+  int get hashCode => Object.hash(runtimeType, text, createdAt, sender);
 
   @JsonKey(ignore: true)
   @override
@@ -179,9 +186,9 @@ class _$_Message implements _Message {
 
 abstract class _Message implements Message {
   const factory _Message(
-      {@required @HiveField(0) String text,
-      @required @HiveField(1) DateTime createdAt,
-      @required @HiveField(2) ChatUser sender}) = _$_Message;
+      {@HiveField(0) required String text,
+      @HiveField(1) required DateTime createdAt,
+      @HiveField(2) required ChatUser sender}) = _$_Message;
 
   @override
   @HiveField(0)
@@ -194,15 +201,15 @@ abstract class _Message implements Message {
   ChatUser get sender;
   @override
   @JsonKey(ignore: true)
-  _$MessageCopyWith<_Message> get copyWith;
+  _$MessageCopyWith<_Message> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$ReceivedMessageTearOff {
   const _$ReceivedMessageTearOff();
 
-// ignore: unused_element
-  _ReceivedMessage call({@required String room, @required Message message}) {
+  _ReceivedMessage call({required String room, required Message message}) {
     return _ReceivedMessage(
       room: room,
       message: message,
@@ -211,16 +218,16 @@ class _$ReceivedMessageTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ReceivedMessage = _$ReceivedMessageTearOff();
 
 /// @nodoc
 mixin _$ReceivedMessage {
-  String get room;
-  Message get message;
+  String get room => throw _privateConstructorUsedError;
+  Message get message => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ReceivedMessageCopyWith<ReceivedMessage> get copyWith;
+  $ReceivedMessageCopyWith<ReceivedMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -244,20 +251,23 @@ class _$ReceivedMessageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object room = freezed,
-    Object message = freezed,
+    Object? room = freezed,
+    Object? message = freezed,
   }) {
     return _then(_value.copyWith(
-      room: room == freezed ? _value.room : room as String,
-      message: message == freezed ? _value.message : message as Message,
+      room: room == freezed
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Message,
     ));
   }
 
   @override
   $MessageCopyWith<$Res> get message {
-    if (_value.message == null) {
-      return null;
-    }
     return $MessageCopyWith<$Res>(_value.message, (value) {
       return _then(_value.copyWith(message: value));
     });
@@ -290,21 +300,26 @@ class __$ReceivedMessageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object room = freezed,
-    Object message = freezed,
+    Object? room = freezed,
+    Object? message = freezed,
   }) {
     return _then(_ReceivedMessage(
-      room: room == freezed ? _value.room : room as String,
-      message: message == freezed ? _value.message : message as Message,
+      room: room == freezed
+          ? _value.room
+          : room // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as Message,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_ReceivedMessage implements _ReceivedMessage {
-  const _$_ReceivedMessage({@required this.room, @required this.message})
-      : assert(room != null),
-        assert(message != null);
+  const _$_ReceivedMessage({required this.room, required this.message});
 
   @override
   final String room;
@@ -319,18 +334,14 @@ class _$_ReceivedMessage implements _ReceivedMessage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReceivedMessage &&
-            (identical(other.room, room) ||
-                const DeepCollectionEquality().equals(other.room, room)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is _ReceivedMessage &&
+            (identical(other.room, room) || other.room == room) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(room) ^
-      const DeepCollectionEquality().hash(message);
+  int get hashCode => Object.hash(runtimeType, room, message);
 
   @JsonKey(ignore: true)
   @override
@@ -340,7 +351,7 @@ class _$_ReceivedMessage implements _ReceivedMessage {
 
 abstract class _ReceivedMessage implements ReceivedMessage {
   const factory _ReceivedMessage(
-      {@required String room, @required Message message}) = _$_ReceivedMessage;
+      {required String room, required Message message}) = _$_ReceivedMessage;
 
   @override
   String get room;
@@ -348,15 +359,15 @@ abstract class _ReceivedMessage implements ReceivedMessage {
   Message get message;
   @override
   @JsonKey(ignore: true)
-  _$ReceivedMessageCopyWith<_ReceivedMessage> get copyWith;
+  _$ReceivedMessageCopyWith<_ReceivedMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$CreateMessageTearOff {
   const _$CreateMessageTearOff();
 
-// ignore: unused_element
-  _CreateMessage call({@required String text, @required DateTime createdAt}) {
+  _CreateMessage call({required String text, required DateTime createdAt}) {
     return _CreateMessage(
       text: text,
       createdAt: createdAt,
@@ -365,16 +376,16 @@ class _$CreateMessageTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateMessage = _$CreateMessageTearOff();
 
 /// @nodoc
 mixin _$CreateMessage {
-  String get text;
-  DateTime get createdAt;
+  String get text => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CreateMessageCopyWith<CreateMessage> get copyWith;
+  $CreateMessageCopyWith<CreateMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -396,13 +407,18 @@ class _$CreateMessageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object createdAt = freezed,
+    Object? text = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
-      text: text == freezed ? _value.text : text as String,
-      createdAt:
-          createdAt == freezed ? _value.createdAt : createdAt as DateTime,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -430,22 +446,26 @@ class __$CreateMessageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object text = freezed,
-    Object createdAt = freezed,
+    Object? text = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_CreateMessage(
-      text: text == freezed ? _value.text : text as String,
-      createdAt:
-          createdAt == freezed ? _value.createdAt : createdAt as DateTime,
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CreateMessage implements _CreateMessage {
-  const _$_CreateMessage({@required this.text, @required this.createdAt})
-      : assert(text != null),
-        assert(createdAt != null);
+  const _$_CreateMessage({required this.text, required this.createdAt});
 
   @override
   final String text;
@@ -460,19 +480,15 @@ class _$_CreateMessage implements _CreateMessage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CreateMessage &&
-            (identical(other.text, text) ||
-                const DeepCollectionEquality().equals(other.text, text)) &&
+        (other.runtimeType == runtimeType &&
+            other is _CreateMessage &&
+            (identical(other.text, text) || other.text == text) &&
             (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)));
+                other.createdAt == createdAt));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(text) ^
-      const DeepCollectionEquality().hash(createdAt);
+  int get hashCode => Object.hash(runtimeType, text, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -482,7 +498,7 @@ class _$_CreateMessage implements _CreateMessage {
 
 abstract class _CreateMessage implements CreateMessage {
   const factory _CreateMessage(
-      {@required String text, @required DateTime createdAt}) = _$_CreateMessage;
+      {required String text, required DateTime createdAt}) = _$_CreateMessage;
 
   @override
   String get text;
@@ -490,5 +506,6 @@ abstract class _CreateMessage implements CreateMessage {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$CreateMessageCopyWith<_CreateMessage> get copyWith;
+  _$CreateMessageCopyWith<_CreateMessage> get copyWith =>
+      throw _privateConstructorUsedError;
 }

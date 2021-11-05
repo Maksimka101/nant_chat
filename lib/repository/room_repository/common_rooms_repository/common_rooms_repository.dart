@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:nant_client/models/message/message.dart';
 import 'package:nant_client/models/room/room.dart';
 import 'package:nant_client/repository/new_messages_repository/new_messages_repository.dart';
@@ -11,10 +11,10 @@ import 'package:nant_client/utils/logger/logger.dart';
 
 class CommonRoomsRepository extends RoomsRepository {
   CommonRoomsRepository({
-    @required WebRoomsRepository webRepository,
-    @required LocalRoomsRepository localRepository,
-    @required MessagesRepository messagesRepository,
-    @required int paginationSize,
+    required WebRoomsRepository webRepository,
+    required LocalRoomsRepository localRepository,
+    required MessagesRepository messagesRepository,
+    required int paginationSize,
   }) : super(
           messagesRepository: messagesRepository,
           webRepository: webRepository,
@@ -22,8 +22,8 @@ class CommonRoomsRepository extends RoomsRepository {
           paginationSize: paginationSize,
         );
   var _initialized = false;
-  StreamSubscription<List<Room>> _localRoomsSubscription;
-  StreamSubscription<ReceivedMessage> _receivedMessagesStream;
+  StreamSubscription<List<Room>>? _localRoomsSubscription;
+  StreamSubscription<ReceivedMessage>? _receivedMessagesStream;
 
   @override
   Future<void> initialize() async {
@@ -43,10 +43,8 @@ class CommonRoomsRepository extends RoomsRepository {
       await _localRoomsSubscription?.cancel();
       await _receivedMessagesStream?.cancel();
       await messagesRepository.subscribeOnWebMessages();
-      _localRoomsSubscription =
-          localRepository.dataStream.listen(_listenForRoomsFromCache);
-      _receivedMessagesStream =
-          messagesRepository.dataStream.listen(_listenForNewMessages);
+      _localRoomsSubscription = localRepository.dataStream.listen(_listenForRoomsFromCache);
+      _receivedMessagesStream = messagesRepository.dataStream.listen(_listenForNewMessages);
       final localRoomsFuture = localRepository.dataStream.first;
       await localRepository.loadRooms();
       final localRooms = await localRoomsFuture;
@@ -84,9 +82,11 @@ class CommonRoomsRepository extends RoomsRepository {
       );
 
       // Wait for data appear in cache
-      await localRepository.dataStream.firstWhere((rooms) => rooms.any(
-            (room) => room.name == createRoom.name,
-          ));
+      await localRepository.dataStream.firstWhere(
+        (rooms) => rooms.any(
+          (room) => room.name == createRoom.name,
+        ),
+      );
     } catch (e, st) {
       logger.e("Can't create room", e, st);
       rethrow;
@@ -99,20 +99,21 @@ class CommonRoomsRepository extends RoomsRepository {
       final localRoomsFuture = localRepository.dataStream.first;
       await localRepository.loadNextPage(room);
       final localRooms = await localRoomsFuture;
-      final localRoom = localRooms.firstWhere(
+      final localRoom = localRooms.firstWhereOrNull(
         (element) => element.name == room,
-        orElse: () => null,
       );
       // Messages may loading for about 15 seconds so i need to update localRoom
       final webMessages = await webRepository.loadRoomMessages(room);
 
       // Create room
       if (localRoom == null) {
-        await localRepository.saveRoom(Room(
-          messagesCount: webMessages.length,
-          messages: webMessages,
-          name: room,
-        ));
+        await localRepository.saveRoom(
+          Room(
+            messagesCount: webMessages.length,
+            messages: webMessages,
+            name: room,
+          ),
+        );
         return;
       }
 
@@ -145,7 +146,7 @@ class CommonRoomsRepository extends RoomsRepository {
   }
 
   @override
-  Future<void> sendMessage({String room, CreateMessage createMessage}) async {
+  Future<void> sendMessage({String? room, CreateMessage? createMessage}) async {
     try {
       await messagesRepository.sendMessage(
         room: room,

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'theme_bloc.dart';
 
@@ -9,21 +10,21 @@ part of 'theme_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ThemeBlocEventTearOff {
   const _$ThemeBlocEventTearOff();
 
-// ignore: unused_element
   ThemeLoadStarted themeLoadStarted() {
     return const ThemeLoadStarted();
   }
 
-// ignore: unused_element
   ThemeSwitched themeSwitched() {
     return const ThemeSwitched();
   }
 
-// ignore: unused_element
   ThemeLoadedEvent themeLoaded(AppTheme theme) {
     return ThemeLoadedEvent(
       theme,
@@ -32,37 +33,54 @@ class _$ThemeBlocEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ThemeBlocEvent = _$ThemeBlocEventTearOff();
 
 /// @nodoc
 mixin _$ThemeBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult themeLoadStarted(),
-    @required TResult themeSwitched(),
-    @required TResult themeLoaded(AppTheme theme),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() themeLoadStarted,
+    required TResult Function() themeSwitched,
+    required TResult Function(AppTheme theme) themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult themeLoadStarted(),
-    TResult themeSwitched(),
-    TResult themeLoaded(AppTheme theme),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult themeLoadStarted(ThemeLoadStarted value),
-    @required TResult themeSwitched(ThemeSwitched value),
-    @required TResult themeLoaded(ThemeLoadedEvent value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult themeLoadStarted(ThemeLoadStarted value),
-    TResult themeSwitched(ThemeSwitched value),
-    TResult themeLoaded(ThemeLoadedEvent value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(ThemeLoadStarted value) themeLoadStarted,
+    required TResult Function(ThemeSwitched value) themeSwitched,
+    required TResult Function(ThemeLoadedEvent value) themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -102,6 +120,7 @@ class _$ThemeLoadStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ThemeLoadStarted implements ThemeLoadStarted {
   const _$ThemeLoadStarted();
 
@@ -112,7 +131,8 @@ class _$ThemeLoadStarted implements ThemeLoadStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ThemeLoadStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ThemeLoadStarted);
   }
 
   @override
@@ -120,26 +140,32 @@ class _$ThemeLoadStarted implements ThemeLoadStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult themeLoadStarted(),
-    @required TResult themeSwitched(),
-    @required TResult themeLoaded(AppTheme theme),
+  TResult when<TResult extends Object?>({
+    required TResult Function() themeLoadStarted,
+    required TResult Function() themeSwitched,
+    required TResult Function(AppTheme theme) themeLoaded,
   }) {
-    assert(themeLoadStarted != null);
-    assert(themeSwitched != null);
-    assert(themeLoaded != null);
     return themeLoadStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult themeLoadStarted(),
-    TResult themeSwitched(),
-    TResult themeLoaded(AppTheme theme),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeLoadStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeLoadStarted != null) {
       return themeLoadStarted();
     }
@@ -148,26 +174,32 @@ class _$ThemeLoadStarted implements ThemeLoadStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult themeLoadStarted(ThemeLoadStarted value),
-    @required TResult themeSwitched(ThemeSwitched value),
-    @required TResult themeLoaded(ThemeLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ThemeLoadStarted value) themeLoadStarted,
+    required TResult Function(ThemeSwitched value) themeSwitched,
+    required TResult Function(ThemeLoadedEvent value) themeLoaded,
   }) {
-    assert(themeLoadStarted != null);
-    assert(themeSwitched != null);
-    assert(themeLoaded != null);
     return themeLoadStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult themeLoadStarted(ThemeLoadStarted value),
-    TResult themeSwitched(ThemeSwitched value),
-    TResult themeLoaded(ThemeLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeLoadStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeLoadStarted != null) {
       return themeLoadStarted(this);
     }
@@ -199,6 +231,7 @@ class _$ThemeSwitchedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ThemeSwitched implements ThemeSwitched {
   const _$ThemeSwitched();
 
@@ -209,7 +242,8 @@ class _$ThemeSwitched implements ThemeSwitched {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ThemeSwitched);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ThemeSwitched);
   }
 
   @override
@@ -217,26 +251,32 @@ class _$ThemeSwitched implements ThemeSwitched {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult themeLoadStarted(),
-    @required TResult themeSwitched(),
-    @required TResult themeLoaded(AppTheme theme),
+  TResult when<TResult extends Object?>({
+    required TResult Function() themeLoadStarted,
+    required TResult Function() themeSwitched,
+    required TResult Function(AppTheme theme) themeLoaded,
   }) {
-    assert(themeLoadStarted != null);
-    assert(themeSwitched != null);
-    assert(themeLoaded != null);
     return themeSwitched();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult themeLoadStarted(),
-    TResult themeSwitched(),
-    TResult themeLoaded(AppTheme theme),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeSwitched?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeSwitched != null) {
       return themeSwitched();
     }
@@ -245,26 +285,32 @@ class _$ThemeSwitched implements ThemeSwitched {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult themeLoadStarted(ThemeLoadStarted value),
-    @required TResult themeSwitched(ThemeSwitched value),
-    @required TResult themeLoaded(ThemeLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ThemeLoadStarted value) themeLoadStarted,
+    required TResult Function(ThemeSwitched value) themeSwitched,
+    required TResult Function(ThemeLoadedEvent value) themeLoaded,
   }) {
-    assert(themeLoadStarted != null);
-    assert(themeSwitched != null);
-    assert(themeLoaded != null);
     return themeSwitched(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult themeLoadStarted(ThemeLoadStarted value),
-    TResult themeSwitched(ThemeSwitched value),
-    TResult themeLoaded(ThemeLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeSwitched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeSwitched != null) {
       return themeSwitched(this);
     }
@@ -299,18 +345,18 @@ class _$ThemeLoadedEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object theme = freezed,
+    Object? theme = freezed,
   }) {
     return _then(ThemeLoadedEvent(
-      theme == freezed ? _value.theme : theme as AppTheme,
+      theme == freezed
+          ? _value.theme
+          : theme // ignore: cast_nullable_to_non_nullable
+              as AppTheme,
     ));
   }
 
   @override
   $AppThemeCopyWith<$Res> get theme {
-    if (_value.theme == null) {
-      return null;
-    }
     return $AppThemeCopyWith<$Res>(_value.theme, (value) {
       return _then(_value.copyWith(theme: value));
     });
@@ -318,8 +364,9 @@ class _$ThemeLoadedEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ThemeLoadedEvent implements ThemeLoadedEvent {
-  const _$ThemeLoadedEvent(this.theme) : assert(theme != null);
+  const _$ThemeLoadedEvent(this.theme);
 
   @override
   final AppTheme theme;
@@ -332,14 +379,13 @@ class _$ThemeLoadedEvent implements ThemeLoadedEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ThemeLoadedEvent &&
-            (identical(other.theme, theme) ||
-                const DeepCollectionEquality().equals(other.theme, theme)));
+        (other.runtimeType == runtimeType &&
+            other is ThemeLoadedEvent &&
+            (identical(other.theme, theme) || other.theme == theme));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(theme);
+  int get hashCode => Object.hash(runtimeType, theme);
 
   @JsonKey(ignore: true)
   @override
@@ -348,26 +394,32 @@ class _$ThemeLoadedEvent implements ThemeLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult themeLoadStarted(),
-    @required TResult themeSwitched(),
-    @required TResult themeLoaded(AppTheme theme),
+  TResult when<TResult extends Object?>({
+    required TResult Function() themeLoadStarted,
+    required TResult Function() themeSwitched,
+    required TResult Function(AppTheme theme) themeLoaded,
   }) {
-    assert(themeLoadStarted != null);
-    assert(themeSwitched != null);
-    assert(themeLoaded != null);
     return themeLoaded(theme);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult themeLoadStarted(),
-    TResult themeSwitched(),
-    TResult themeLoaded(AppTheme theme),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeLoaded?.call(theme);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? themeLoadStarted,
+    TResult Function()? themeSwitched,
+    TResult Function(AppTheme theme)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeLoaded != null) {
       return themeLoaded(theme);
     }
@@ -376,26 +428,32 @@ class _$ThemeLoadedEvent implements ThemeLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult themeLoadStarted(ThemeLoadStarted value),
-    @required TResult themeSwitched(ThemeSwitched value),
-    @required TResult themeLoaded(ThemeLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ThemeLoadStarted value) themeLoadStarted,
+    required TResult Function(ThemeSwitched value) themeSwitched,
+    required TResult Function(ThemeLoadedEvent value) themeLoaded,
   }) {
-    assert(themeLoadStarted != null);
-    assert(themeSwitched != null);
-    assert(themeLoaded != null);
     return themeLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult themeLoadStarted(ThemeLoadStarted value),
-    TResult themeSwitched(ThemeSwitched value),
-    TResult themeLoaded(ThemeLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ThemeLoadStarted value)? themeLoadStarted,
+    TResult Function(ThemeSwitched value)? themeSwitched,
+    TResult Function(ThemeLoadedEvent value)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeLoaded != null) {
       return themeLoaded(this);
     }
@@ -408,19 +466,18 @@ abstract class ThemeLoadedEvent implements ThemeBlocEvent {
 
   AppTheme get theme;
   @JsonKey(ignore: true)
-  $ThemeLoadedEventCopyWith<ThemeLoadedEvent> get copyWith;
+  $ThemeLoadedEventCopyWith<ThemeLoadedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$ThemeBlocStateTearOff {
   const _$ThemeBlocStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return const Initial();
   }
 
-// ignore: unused_element
   ThemeLoaded themeLoaded(AppTheme appTheme) {
     return ThemeLoaded(
       appTheme,
@@ -429,33 +486,48 @@ class _$ThemeBlocStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ThemeBlocState = _$ThemeBlocStateTearOff();
 
 /// @nodoc
 mixin _$ThemeBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult themeLoaded(AppTheme appTheme),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(AppTheme appTheme) themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult themeLoaded(AppTheme appTheme),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(AppTheme appTheme)? themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult themeLoaded(ThemeLoaded value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(AppTheme appTheme)? themeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult themeLoaded(ThemeLoaded value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(ThemeLoaded value) themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ThemeLoaded value)? themeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ThemeLoaded value)? themeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -492,6 +564,7 @@ class _$InitialCopyWithImpl<$Res> extends _$ThemeBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -502,7 +575,8 @@ class _$Initial implements Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
@@ -510,23 +584,29 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult themeLoaded(AppTheme appTheme),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(AppTheme appTheme) themeLoaded,
   }) {
-    assert(initial != null);
-    assert(themeLoaded != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult themeLoaded(AppTheme appTheme),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(AppTheme appTheme)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(AppTheme appTheme)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial();
     }
@@ -535,23 +615,29 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult themeLoaded(ThemeLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(ThemeLoaded value) themeLoaded,
   }) {
-    assert(initial != null);
-    assert(themeLoaded != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult themeLoaded(ThemeLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ThemeLoaded value)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ThemeLoaded value)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -585,18 +671,18 @@ class _$ThemeLoadedCopyWithImpl<$Res> extends _$ThemeBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object appTheme = freezed,
+    Object? appTheme = freezed,
   }) {
     return _then(ThemeLoaded(
-      appTheme == freezed ? _value.appTheme : appTheme as AppTheme,
+      appTheme == freezed
+          ? _value.appTheme
+          : appTheme // ignore: cast_nullable_to_non_nullable
+              as AppTheme,
     ));
   }
 
   @override
   $AppThemeCopyWith<$Res> get appTheme {
-    if (_value.appTheme == null) {
-      return null;
-    }
     return $AppThemeCopyWith<$Res>(_value.appTheme, (value) {
       return _then(_value.copyWith(appTheme: value));
     });
@@ -604,8 +690,9 @@ class _$ThemeLoadedCopyWithImpl<$Res> extends _$ThemeBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ThemeLoaded implements ThemeLoaded {
-  const _$ThemeLoaded(this.appTheme) : assert(appTheme != null);
+  const _$ThemeLoaded(this.appTheme);
 
   @override
   final AppTheme appTheme;
@@ -618,15 +705,14 @@ class _$ThemeLoaded implements ThemeLoaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ThemeLoaded &&
+        (other.runtimeType == runtimeType &&
+            other is ThemeLoaded &&
             (identical(other.appTheme, appTheme) ||
-                const DeepCollectionEquality()
-                    .equals(other.appTheme, appTheme)));
+                other.appTheme == appTheme));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(appTheme);
+  int get hashCode => Object.hash(runtimeType, appTheme);
 
   @JsonKey(ignore: true)
   @override
@@ -635,23 +721,29 @@ class _$ThemeLoaded implements ThemeLoaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult themeLoaded(AppTheme appTheme),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(AppTheme appTheme) themeLoaded,
   }) {
-    assert(initial != null);
-    assert(themeLoaded != null);
     return themeLoaded(appTheme);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult themeLoaded(AppTheme appTheme),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(AppTheme appTheme)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeLoaded?.call(appTheme);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(AppTheme appTheme)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeLoaded != null) {
       return themeLoaded(appTheme);
     }
@@ -660,23 +752,29 @@ class _$ThemeLoaded implements ThemeLoaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult themeLoaded(ThemeLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(ThemeLoaded value) themeLoaded,
   }) {
-    assert(initial != null);
-    assert(themeLoaded != null);
     return themeLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult themeLoaded(ThemeLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ThemeLoaded value)? themeLoaded,
   }) {
-    assert(orElse != null);
+    return themeLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(ThemeLoaded value)? themeLoaded,
+    required TResult orElse(),
+  }) {
     if (themeLoaded != null) {
       return themeLoaded(this);
     }
@@ -689,5 +787,6 @@ abstract class ThemeLoaded implements ThemeBlocState {
 
   AppTheme get appTheme;
   @JsonKey(ignore: true)
-  $ThemeLoadedCopyWith<ThemeLoaded> get copyWith;
+  $ThemeLoadedCopyWith<ThemeLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

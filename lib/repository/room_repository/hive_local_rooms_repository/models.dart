@@ -6,10 +6,10 @@ part 'models.freezed.dart';
 part 'models.g.dart';
 
 @freezed
-abstract class HiveRoom with _$HiveRoom {
+class HiveRoom with _$HiveRoom {
   @HiveType(typeId: 2)
   const factory HiveRoom({
-    @HiveField(0) @required String name,
-    @HiveField(1) @required int messagesCount,
+    @HiveField(0) required String name,
+    @HiveField(1) required int messagesCount,
   }) = _HiveRoom;
 }

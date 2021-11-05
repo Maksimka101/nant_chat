@@ -10,12 +10,11 @@ import 'package:nant_client/utils/logger/logger.dart';
 part 'localization_bloc.freezed.dart';
 
 @freezed
-abstract class LocalizationBlocEvent with _$LocalizationBlocEvent {
-  const factory LocalizationBlocEvent.localizationLoadStarted() =
-      LocalizationLoadStarted;
+class LocalizationBlocEvent with _$LocalizationBlocEvent {
+  const factory LocalizationBlocEvent.localizationLoadStarted() = LocalizationLoadStarted;
 
   const factory LocalizationBlocEvent.localeChanged({
-    @required Locale locale,
+    required Locale locale,
   }) = LocaleChanged;
 
   /// This event usually called from bloc when localization loaded.
@@ -25,25 +24,22 @@ abstract class LocalizationBlocEvent with _$LocalizationBlocEvent {
 }
 
 @freezed
-abstract class LocalizationBlocState with _$LocalizationBlocState {
+class LocalizationBlocState with _$LocalizationBlocState {
   const factory LocalizationBlocState.initial() = Initial;
 
-  const factory LocalizationBlocState.localeLoaded(Locale locale) =
-      LocaleLoaded;
+  const factory LocalizationBlocState.localeLoaded(Locale locale) = LocaleLoaded;
 }
 
-class LocalizationBloc
-    extends Bloc<LocalizationBlocEvent, LocalizationBlocState> {
+class LocalizationBloc extends Bloc<LocalizationBlocEvent, LocalizationBlocState> {
   LocalizationBloc({
-    @required this.localizationRepository,
+    required this.localizationRepository,
   }) : super(const Initial());
 
   final LocalizationRepository localizationRepository;
-  StreamSubscription<Locale> _localeSubscription;
+  StreamSubscription<Locale>? _localeSubscription;
 
   @override
-  Stream<LocalizationBlocState> mapEventToState(
-      LocalizationBlocEvent event) async* {
+  Stream<LocalizationBlocState> mapEventToState(LocalizationBlocEvent event) async* {
     yield* event.map(
       localeLoaded: (loaded) => Stream.value(LocaleLoaded(loaded.locale)),
       localeChanged: _onLocaleChangedEvent,
@@ -55,8 +51,7 @@ class LocalizationBloc
     LocalizationLoadStarted event,
   ) async* {
     await _localeSubscription?.cancel();
-    _localeSubscription =
-        localizationRepository.dataStream.listen((locale) async {
+    _localeSubscription = localizationRepository.dataStream.listen((locale) async {
       await S.load(locale);
       add(LocaleLoadedEvent(locale));
     });

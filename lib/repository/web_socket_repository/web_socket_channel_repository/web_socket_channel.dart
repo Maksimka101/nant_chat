@@ -5,12 +5,13 @@ import 'package:nant_client/repository/web_socket_repository/web_socket_reposito
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
-  WebSocketChannelRepository(String url, bool tryToRestoreConnection) : super(url, tryToRestoreConnection) {
+  WebSocketChannelRepository(String? url, {required bool tryToRestoreConnection})
+      : super(url, tryToRestoreConnection: tryToRestoreConnection) {
     _connect();
   }
 
-  WebSocketChannel _webSocketChannel;
-  final _webSocketDataController = StreamController<T>.broadcast();
+  late WebSocketChannel _webSocketChannel;
+  final StreamController<T> _webSocketDataController = StreamController<T>.broadcast();
   static const _retryDuration = Duration(seconds: 4);
 
   @override
@@ -29,8 +30,8 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
   }
 
   void _connect() {
-    _webSocketChannel?.sink?.close();
-    _webSocketChannel = WebSocketChannel.connect(Uri.parse(url));
+    _webSocketChannel.sink.close();
+    _webSocketChannel = WebSocketChannel.connect(Uri.parse(url!));
 
     _listenForWebSocket();
   }
@@ -45,19 +46,20 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
         return event as T;
       }
     }).listen(
-        (data) {
-          for (final interceptor in interceptors) {
-            interceptor.onReceive?.call(data);
-          }
-          _webSocketDataController.add(data);
-        },
-        onError: (e) async {},
-        onDone: () async {
-          if (tryToRestoreConnection) {
-            await Future.delayed(_retryDuration);
-            _connect();
-          }
-        });
+      (data) {
+        for (final interceptor in interceptors) {
+          interceptor.onReceive?.call(data);
+        }
+        _webSocketDataController.add(data);
+      },
+      onError: (e) async {},
+      onDone: () async {
+        if (tryToRestoreConnection) {
+          await Future.delayed(_retryDuration);
+          _connect();
+        }
+      },
+    );
   }
 
   @override

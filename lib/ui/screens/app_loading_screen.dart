@@ -6,7 +6,7 @@ import 'package:nant_client/ui/widgets/platform_loading.dart';
 
 class AppLoadingScreen extends StatelessWidget {
   const AppLoadingScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'edit_room_bloc.dart';
 
@@ -9,28 +10,28 @@ part of 'edit_room_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$EditRoomBlocEventTearOff {
   const _$EditRoomBlocEventTearOff();
 
-// ignore: unused_element
-  NextPageRequested nextPageRequested({@required String roomName}) {
+  NextPageRequested nextPageRequested({required String roomName}) {
     return NextPageRequested(
       roomName: roomName,
     );
   }
 
-// ignore: unused_element
   MessageSent messageSent(
-      {@required String roomName, @required CreateMessage createMessage}) {
+      {required String roomName, required CreateMessage createMessage}) {
     return MessageSent(
       roomName: roomName,
       createMessage: createMessage,
     );
   }
 
-// ignore: unused_element
-  NewRoomCreated newRoomCreated({@required CreateRoom createRoom}) {
+  NewRoomCreated newRoomCreated({required CreateRoom createRoom}) {
     return NewRoomCreated(
       createRoom: createRoom,
     );
@@ -38,37 +39,55 @@ class _$EditRoomBlocEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $EditRoomBlocEvent = _$EditRoomBlocEventTearOff();
 
 /// @nodoc
 mixin _$EditRoomBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult nextPageRequested(String roomName),
-    @required TResult messageSent(String roomName, CreateMessage createMessage),
-    @required TResult newRoomCreated(CreateRoom createRoom),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(String roomName) nextPageRequested,
+    required TResult Function(String roomName, CreateMessage createMessage)
+        messageSent,
+    required TResult Function(CreateRoom createRoom) newRoomCreated,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult nextPageRequested(String roomName),
-    TResult messageSent(String roomName, CreateMessage createMessage),
-    TResult newRoomCreated(CreateRoom createRoom),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult nextPageRequested(NextPageRequested value),
-    @required TResult messageSent(MessageSent value),
-    @required TResult newRoomCreated(NewRoomCreated value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult nextPageRequested(NextPageRequested value),
-    TResult messageSent(MessageSent value),
-    TResult newRoomCreated(NewRoomCreated value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(NextPageRequested value) nextPageRequested,
+    required TResult Function(MessageSent value) messageSent,
+    required TResult Function(NewRoomCreated value) newRoomCreated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -109,18 +128,21 @@ class _$NextPageRequestedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object roomName = freezed,
+    Object? roomName = freezed,
   }) {
     return _then(NextPageRequested(
-      roomName: roomName == freezed ? _value.roomName : roomName as String,
+      roomName: roomName == freezed
+          ? _value.roomName
+          : roomName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$NextPageRequested implements NextPageRequested {
-  const _$NextPageRequested({@required this.roomName})
-      : assert(roomName != null);
+  const _$NextPageRequested({required this.roomName});
 
   @override
   final String roomName;
@@ -133,15 +155,14 @@ class _$NextPageRequested implements NextPageRequested {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is NextPageRequested &&
+        (other.runtimeType == runtimeType &&
+            other is NextPageRequested &&
             (identical(other.roomName, roomName) ||
-                const DeepCollectionEquality()
-                    .equals(other.roomName, roomName)));
+                other.roomName == roomName));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(roomName);
+  int get hashCode => Object.hash(runtimeType, roomName);
 
   @JsonKey(ignore: true)
   @override
@@ -150,26 +171,33 @@ class _$NextPageRequested implements NextPageRequested {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult nextPageRequested(String roomName),
-    @required TResult messageSent(String roomName, CreateMessage createMessage),
-    @required TResult newRoomCreated(CreateRoom createRoom),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String roomName) nextPageRequested,
+    required TResult Function(String roomName, CreateMessage createMessage)
+        messageSent,
+    required TResult Function(CreateRoom createRoom) newRoomCreated,
   }) {
-    assert(nextPageRequested != null);
-    assert(messageSent != null);
-    assert(newRoomCreated != null);
     return nextPageRequested(roomName);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult nextPageRequested(String roomName),
-    TResult messageSent(String roomName, CreateMessage createMessage),
-    TResult newRoomCreated(CreateRoom createRoom),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
   }) {
-    assert(orElse != null);
+    return nextPageRequested?.call(roomName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
+    required TResult orElse(),
+  }) {
     if (nextPageRequested != null) {
       return nextPageRequested(roomName);
     }
@@ -178,26 +206,32 @@ class _$NextPageRequested implements NextPageRequested {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult nextPageRequested(NextPageRequested value),
-    @required TResult messageSent(MessageSent value),
-    @required TResult newRoomCreated(NewRoomCreated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NextPageRequested value) nextPageRequested,
+    required TResult Function(MessageSent value) messageSent,
+    required TResult Function(NewRoomCreated value) newRoomCreated,
   }) {
-    assert(nextPageRequested != null);
-    assert(messageSent != null);
-    assert(newRoomCreated != null);
     return nextPageRequested(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult nextPageRequested(NextPageRequested value),
-    TResult messageSent(MessageSent value),
-    TResult newRoomCreated(NewRoomCreated value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
   }) {
-    assert(orElse != null);
+    return nextPageRequested?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
+    required TResult orElse(),
+  }) {
     if (nextPageRequested != null) {
       return nextPageRequested(this);
     }
@@ -206,12 +240,13 @@ class _$NextPageRequested implements NextPageRequested {
 }
 
 abstract class NextPageRequested implements EditRoomBlocEvent {
-  const factory NextPageRequested({@required String roomName}) =
+  const factory NextPageRequested({required String roomName}) =
       _$NextPageRequested;
 
   String get roomName;
   @JsonKey(ignore: true)
-  $NextPageRequestedCopyWith<NextPageRequested> get copyWith;
+  $NextPageRequestedCopyWith<NextPageRequested> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -237,22 +272,23 @@ class _$MessageSentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object roomName = freezed,
-    Object createMessage = freezed,
+    Object? roomName = freezed,
+    Object? createMessage = freezed,
   }) {
     return _then(MessageSent(
-      roomName: roomName == freezed ? _value.roomName : roomName as String,
+      roomName: roomName == freezed
+          ? _value.roomName
+          : roomName // ignore: cast_nullable_to_non_nullable
+              as String,
       createMessage: createMessage == freezed
           ? _value.createMessage
-          : createMessage as CreateMessage,
+          : createMessage // ignore: cast_nullable_to_non_nullable
+              as CreateMessage,
     ));
   }
 
   @override
   $CreateMessageCopyWith<$Res> get createMessage {
-    if (_value.createMessage == null) {
-      return null;
-    }
     return $CreateMessageCopyWith<$Res>(_value.createMessage, (value) {
       return _then(_value.copyWith(createMessage: value));
     });
@@ -260,10 +296,9 @@ class _$MessageSentCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$MessageSent implements MessageSent {
-  const _$MessageSent({@required this.roomName, @required this.createMessage})
-      : assert(roomName != null),
-        assert(createMessage != null);
+  const _$MessageSent({required this.roomName, required this.createMessage});
 
   @override
   final String roomName;
@@ -278,20 +313,16 @@ class _$MessageSent implements MessageSent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is MessageSent &&
+        (other.runtimeType == runtimeType &&
+            other is MessageSent &&
             (identical(other.roomName, roomName) ||
-                const DeepCollectionEquality()
-                    .equals(other.roomName, roomName)) &&
+                other.roomName == roomName) &&
             (identical(other.createMessage, createMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.createMessage, createMessage)));
+                other.createMessage == createMessage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(roomName) ^
-      const DeepCollectionEquality().hash(createMessage);
+  int get hashCode => Object.hash(runtimeType, roomName, createMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -300,26 +331,33 @@ class _$MessageSent implements MessageSent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult nextPageRequested(String roomName),
-    @required TResult messageSent(String roomName, CreateMessage createMessage),
-    @required TResult newRoomCreated(CreateRoom createRoom),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String roomName) nextPageRequested,
+    required TResult Function(String roomName, CreateMessage createMessage)
+        messageSent,
+    required TResult Function(CreateRoom createRoom) newRoomCreated,
   }) {
-    assert(nextPageRequested != null);
-    assert(messageSent != null);
-    assert(newRoomCreated != null);
     return messageSent(roomName, createMessage);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult nextPageRequested(String roomName),
-    TResult messageSent(String roomName, CreateMessage createMessage),
-    TResult newRoomCreated(CreateRoom createRoom),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
   }) {
-    assert(orElse != null);
+    return messageSent?.call(roomName, createMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
+    required TResult orElse(),
+  }) {
     if (messageSent != null) {
       return messageSent(roomName, createMessage);
     }
@@ -328,26 +366,32 @@ class _$MessageSent implements MessageSent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult nextPageRequested(NextPageRequested value),
-    @required TResult messageSent(MessageSent value),
-    @required TResult newRoomCreated(NewRoomCreated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NextPageRequested value) nextPageRequested,
+    required TResult Function(MessageSent value) messageSent,
+    required TResult Function(NewRoomCreated value) newRoomCreated,
   }) {
-    assert(nextPageRequested != null);
-    assert(messageSent != null);
-    assert(newRoomCreated != null);
     return messageSent(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult nextPageRequested(NextPageRequested value),
-    TResult messageSent(MessageSent value),
-    TResult newRoomCreated(NewRoomCreated value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
   }) {
-    assert(orElse != null);
+    return messageSent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
+    required TResult orElse(),
+  }) {
     if (messageSent != null) {
       return messageSent(this);
     }
@@ -357,13 +401,14 @@ class _$MessageSent implements MessageSent {
 
 abstract class MessageSent implements EditRoomBlocEvent {
   const factory MessageSent(
-      {@required String roomName,
-      @required CreateMessage createMessage}) = _$MessageSent;
+      {required String roomName,
+      required CreateMessage createMessage}) = _$MessageSent;
 
   String get roomName;
   CreateMessage get createMessage;
   @JsonKey(ignore: true)
-  $MessageSentCopyWith<MessageSent> get copyWith;
+  $MessageSentCopyWith<MessageSent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -389,19 +434,18 @@ class _$NewRoomCreatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object createRoom = freezed,
+    Object? createRoom = freezed,
   }) {
     return _then(NewRoomCreated(
-      createRoom:
-          createRoom == freezed ? _value.createRoom : createRoom as CreateRoom,
+      createRoom: createRoom == freezed
+          ? _value.createRoom
+          : createRoom // ignore: cast_nullable_to_non_nullable
+              as CreateRoom,
     ));
   }
 
   @override
   $CreateRoomCopyWith<$Res> get createRoom {
-    if (_value.createRoom == null) {
-      return null;
-    }
     return $CreateRoomCopyWith<$Res>(_value.createRoom, (value) {
       return _then(_value.copyWith(createRoom: value));
     });
@@ -409,9 +453,9 @@ class _$NewRoomCreatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$NewRoomCreated implements NewRoomCreated {
-  const _$NewRoomCreated({@required this.createRoom})
-      : assert(createRoom != null);
+  const _$NewRoomCreated({required this.createRoom});
 
   @override
   final CreateRoom createRoom;
@@ -424,15 +468,14 @@ class _$NewRoomCreated implements NewRoomCreated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is NewRoomCreated &&
+        (other.runtimeType == runtimeType &&
+            other is NewRoomCreated &&
             (identical(other.createRoom, createRoom) ||
-                const DeepCollectionEquality()
-                    .equals(other.createRoom, createRoom)));
+                other.createRoom == createRoom));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(createRoom);
+  int get hashCode => Object.hash(runtimeType, createRoom);
 
   @JsonKey(ignore: true)
   @override
@@ -441,26 +484,33 @@ class _$NewRoomCreated implements NewRoomCreated {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult nextPageRequested(String roomName),
-    @required TResult messageSent(String roomName, CreateMessage createMessage),
-    @required TResult newRoomCreated(CreateRoom createRoom),
+  TResult when<TResult extends Object?>({
+    required TResult Function(String roomName) nextPageRequested,
+    required TResult Function(String roomName, CreateMessage createMessage)
+        messageSent,
+    required TResult Function(CreateRoom createRoom) newRoomCreated,
   }) {
-    assert(nextPageRequested != null);
-    assert(messageSent != null);
-    assert(newRoomCreated != null);
     return newRoomCreated(createRoom);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult nextPageRequested(String roomName),
-    TResult messageSent(String roomName, CreateMessage createMessage),
-    TResult newRoomCreated(CreateRoom createRoom),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
   }) {
-    assert(orElse != null);
+    return newRoomCreated?.call(createRoom);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String roomName)? nextPageRequested,
+    TResult Function(String roomName, CreateMessage createMessage)? messageSent,
+    TResult Function(CreateRoom createRoom)? newRoomCreated,
+    required TResult orElse(),
+  }) {
     if (newRoomCreated != null) {
       return newRoomCreated(createRoom);
     }
@@ -469,26 +519,32 @@ class _$NewRoomCreated implements NewRoomCreated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult nextPageRequested(NextPageRequested value),
-    @required TResult messageSent(MessageSent value),
-    @required TResult newRoomCreated(NewRoomCreated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NextPageRequested value) nextPageRequested,
+    required TResult Function(MessageSent value) messageSent,
+    required TResult Function(NewRoomCreated value) newRoomCreated,
   }) {
-    assert(nextPageRequested != null);
-    assert(messageSent != null);
-    assert(newRoomCreated != null);
     return newRoomCreated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult nextPageRequested(NextPageRequested value),
-    TResult messageSent(MessageSent value),
-    TResult newRoomCreated(NewRoomCreated value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
   }) {
-    assert(orElse != null);
+    return newRoomCreated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NextPageRequested value)? nextPageRequested,
+    TResult Function(MessageSent value)? messageSent,
+    TResult Function(NewRoomCreated value)? newRoomCreated,
+    required TResult orElse(),
+  }) {
     if (newRoomCreated != null) {
       return newRoomCreated(this);
     }
@@ -497,36 +553,33 @@ class _$NewRoomCreated implements NewRoomCreated {
 }
 
 abstract class NewRoomCreated implements EditRoomBlocEvent {
-  const factory NewRoomCreated({@required CreateRoom createRoom}) =
+  const factory NewRoomCreated({required CreateRoom createRoom}) =
       _$NewRoomCreated;
 
   CreateRoom get createRoom;
   @JsonKey(ignore: true)
-  $NewRoomCreatedCopyWith<NewRoomCreated> get copyWith;
+  $NewRoomCreatedCopyWith<NewRoomCreated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$EditRoomBlocStateTearOff {
   const _$EditRoomBlocStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return const Initial();
   }
 
-// ignore: unused_element
   NewRoomCreationStarted newRoomCreationStarted() {
     return const NewRoomCreationStarted();
   }
 
-// ignore: unused_element
   NewRoomCreatedSuccessful newRoomCreatedSuccessful(String roomName) {
     return NewRoomCreatedSuccessful(
       roomName,
     );
   }
 
-// ignore: unused_element
   Error error(String message) {
     return Error(
       message,
@@ -535,41 +588,62 @@ class _$EditRoomBlocStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $EditRoomBlocState = _$EditRoomBlocStateTearOff();
 
 /// @nodoc
 mixin _$EditRoomBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult newRoomCreationStarted(),
-    @required TResult newRoomCreatedSuccessful(String roomName),
-    @required TResult error(String message),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() newRoomCreationStarted,
+    required TResult Function(String roomName) newRoomCreatedSuccessful,
+    required TResult Function(String message) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult newRoomCreationStarted(),
-    TResult newRoomCreatedSuccessful(String roomName),
-    TResult error(String message),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    @required TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    @required TResult error(Error value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    TResult error(Error value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(NewRoomCreationStarted value)
+        newRoomCreationStarted,
+    required TResult Function(NewRoomCreatedSuccessful value)
+        newRoomCreatedSuccessful,
+    required TResult Function(Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -606,6 +680,7 @@ class _$InitialCopyWithImpl<$Res> extends _$EditRoomBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -616,7 +691,8 @@ class _$Initial implements Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
@@ -624,29 +700,35 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult newRoomCreationStarted(),
-    @required TResult newRoomCreatedSuccessful(String roomName),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() newRoomCreationStarted,
+    required TResult Function(String roomName) newRoomCreatedSuccessful,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult newRoomCreationStarted(),
-    TResult newRoomCreatedSuccessful(String roomName),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
   }) {
-    assert(orElse != null);
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial();
     }
@@ -655,29 +737,37 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    @required TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(NewRoomCreationStarted value)
+        newRoomCreationStarted,
+    required TResult Function(NewRoomCreatedSuccessful value)
+        newRoomCreatedSuccessful,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -709,6 +799,7 @@ class _$NewRoomCreationStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$NewRoomCreationStarted implements NewRoomCreationStarted {
   const _$NewRoomCreationStarted();
 
@@ -719,7 +810,8 @@ class _$NewRoomCreationStarted implements NewRoomCreationStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is NewRoomCreationStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is NewRoomCreationStarted);
   }
 
   @override
@@ -727,29 +819,35 @@ class _$NewRoomCreationStarted implements NewRoomCreationStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult newRoomCreationStarted(),
-    @required TResult newRoomCreatedSuccessful(String roomName),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() newRoomCreationStarted,
+    required TResult Function(String roomName) newRoomCreatedSuccessful,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return newRoomCreationStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult newRoomCreationStarted(),
-    TResult newRoomCreatedSuccessful(String roomName),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
   }) {
-    assert(orElse != null);
+    return newRoomCreationStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
     if (newRoomCreationStarted != null) {
       return newRoomCreationStarted();
     }
@@ -758,29 +856,37 @@ class _$NewRoomCreationStarted implements NewRoomCreationStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    @required TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(NewRoomCreationStarted value)
+        newRoomCreationStarted,
+    required TResult Function(NewRoomCreatedSuccessful value)
+        newRoomCreatedSuccessful,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return newRoomCreationStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
   }) {
-    assert(orElse != null);
+    return newRoomCreationStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
     if (newRoomCreationStarted != null) {
       return newRoomCreationStarted(this);
     }
@@ -814,17 +920,21 @@ class _$NewRoomCreatedSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object roomName = freezed,
+    Object? roomName = freezed,
   }) {
     return _then(NewRoomCreatedSuccessful(
-      roomName == freezed ? _value.roomName : roomName as String,
+      roomName == freezed
+          ? _value.roomName
+          : roomName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$NewRoomCreatedSuccessful implements NewRoomCreatedSuccessful {
-  const _$NewRoomCreatedSuccessful(this.roomName) : assert(roomName != null);
+  const _$NewRoomCreatedSuccessful(this.roomName);
 
   @override
   final String roomName;
@@ -837,15 +947,14 @@ class _$NewRoomCreatedSuccessful implements NewRoomCreatedSuccessful {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is NewRoomCreatedSuccessful &&
+        (other.runtimeType == runtimeType &&
+            other is NewRoomCreatedSuccessful &&
             (identical(other.roomName, roomName) ||
-                const DeepCollectionEquality()
-                    .equals(other.roomName, roomName)));
+                other.roomName == roomName));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(roomName);
+  int get hashCode => Object.hash(runtimeType, roomName);
 
   @JsonKey(ignore: true)
   @override
@@ -855,29 +964,35 @@ class _$NewRoomCreatedSuccessful implements NewRoomCreatedSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult newRoomCreationStarted(),
-    @required TResult newRoomCreatedSuccessful(String roomName),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() newRoomCreationStarted,
+    required TResult Function(String roomName) newRoomCreatedSuccessful,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return newRoomCreatedSuccessful(roomName);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult newRoomCreationStarted(),
-    TResult newRoomCreatedSuccessful(String roomName),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
   }) {
-    assert(orElse != null);
+    return newRoomCreatedSuccessful?.call(roomName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
     if (newRoomCreatedSuccessful != null) {
       return newRoomCreatedSuccessful(roomName);
     }
@@ -886,29 +1001,37 @@ class _$NewRoomCreatedSuccessful implements NewRoomCreatedSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    @required TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(NewRoomCreationStarted value)
+        newRoomCreationStarted,
+    required TResult Function(NewRoomCreatedSuccessful value)
+        newRoomCreatedSuccessful,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return newRoomCreatedSuccessful(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
   }) {
-    assert(orElse != null);
+    return newRoomCreatedSuccessful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
     if (newRoomCreatedSuccessful != null) {
       return newRoomCreatedSuccessful(this);
     }
@@ -922,7 +1045,8 @@ abstract class NewRoomCreatedSuccessful implements EditRoomBlocState {
 
   String get roomName;
   @JsonKey(ignore: true)
-  $NewRoomCreatedSuccessfulCopyWith<NewRoomCreatedSuccessful> get copyWith;
+  $NewRoomCreatedSuccessfulCopyWith<NewRoomCreatedSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -943,17 +1067,21 @@ class _$ErrorCopyWithImpl<$Res> extends _$EditRoomBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object message = freezed,
+    Object? message = freezed,
   }) {
     return _then(Error(
-      message == freezed ? _value.message : message as String,
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$Error implements Error {
-  const _$Error(this.message) : assert(message != null);
+  const _$Error(this.message);
 
   @override
   final String message;
@@ -966,14 +1094,13 @@ class _$Error implements Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Error &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(other.message, message)));
+        (other.runtimeType == runtimeType &&
+            other is Error &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(message);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -982,29 +1109,35 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult newRoomCreationStarted(),
-    @required TResult newRoomCreatedSuccessful(String roomName),
-    @required TResult error(String message),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() newRoomCreationStarted,
+    required TResult Function(String roomName) newRoomCreatedSuccessful,
+    required TResult Function(String message) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return error(message);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult newRoomCreationStarted(),
-    TResult newRoomCreatedSuccessful(String roomName),
-    TResult error(String message),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? newRoomCreationStarted,
+    TResult Function(String roomName)? newRoomCreatedSuccessful,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(message);
     }
@@ -1013,29 +1146,37 @@ class _$Error implements Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    @required TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    @required TResult error(Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(NewRoomCreationStarted value)
+        newRoomCreationStarted,
+    required TResult Function(NewRoomCreatedSuccessful value)
+        newRoomCreatedSuccessful,
+    required TResult Function(Error value) error,
   }) {
-    assert(initial != null);
-    assert(newRoomCreationStarted != null);
-    assert(newRoomCreatedSuccessful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult newRoomCreationStarted(NewRoomCreationStarted value),
-    TResult newRoomCreatedSuccessful(NewRoomCreatedSuccessful value),
-    TResult error(Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(NewRoomCreationStarted value)? newRoomCreationStarted,
+    TResult Function(NewRoomCreatedSuccessful value)? newRoomCreatedSuccessful,
+    TResult Function(Error value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -1048,5 +1189,5 @@ abstract class Error implements EditRoomBlocState {
 
   String get message;
   @JsonKey(ignore: true)
-  $ErrorCopyWith<Error> get copyWith;
+  $ErrorCopyWith<Error> get copyWith => throw _privateConstructorUsedError;
 }

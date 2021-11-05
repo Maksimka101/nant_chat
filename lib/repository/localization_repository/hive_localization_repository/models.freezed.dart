@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'models.dart';
 
@@ -9,14 +10,16 @@ part of 'models.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$LocaleTearOff {
   const _$LocaleTearOff();
 
-// ignore: unused_element
   _Locale call(
-      {@required @HiveField(0) String languageCode,
-      @HiveField(1) String countryCode}) {
+      {@HiveField(0) required String languageCode,
+      @HiveField(1) String? countryCode}) {
     return _Locale(
       languageCode: languageCode,
       countryCode: countryCode,
@@ -25,18 +28,17 @@ class _$LocaleTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Locale = _$LocaleTearOff();
 
 /// @nodoc
 mixin _$Locale {
   @HiveField(0)
-  String get languageCode;
+  String get languageCode => throw _privateConstructorUsedError;
   @HiveField(1)
-  String get countryCode;
+  String? get countryCode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LocaleCopyWith<Locale> get copyWith;
+  $LocaleCopyWith<Locale> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -44,7 +46,7 @@ abstract class $LocaleCopyWith<$Res> {
   factory $LocaleCopyWith(Locale value, $Res Function(Locale) then) =
       _$LocaleCopyWithImpl<$Res>;
   $Res call(
-      {@HiveField(0) String languageCode, @HiveField(1) String countryCode});
+      {@HiveField(0) String languageCode, @HiveField(1) String? countryCode});
 }
 
 /// @nodoc
@@ -57,15 +59,18 @@ class _$LocaleCopyWithImpl<$Res> implements $LocaleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object languageCode = freezed,
-    Object countryCode = freezed,
+    Object? languageCode = freezed,
+    Object? countryCode = freezed,
   }) {
     return _then(_value.copyWith(
       languageCode: languageCode == freezed
           ? _value.languageCode
-          : languageCode as String,
-      countryCode:
-          countryCode == freezed ? _value.countryCode : countryCode as String,
+          : languageCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      countryCode: countryCode == freezed
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -76,7 +81,7 @@ abstract class _$LocaleCopyWith<$Res> implements $LocaleCopyWith<$Res> {
       __$LocaleCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@HiveField(0) String languageCode, @HiveField(1) String countryCode});
+      {@HiveField(0) String languageCode, @HiveField(1) String? countryCode});
 }
 
 /// @nodoc
@@ -90,32 +95,35 @@ class __$LocaleCopyWithImpl<$Res> extends _$LocaleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object languageCode = freezed,
-    Object countryCode = freezed,
+    Object? languageCode = freezed,
+    Object? countryCode = freezed,
   }) {
     return _then(_Locale(
       languageCode: languageCode == freezed
           ? _value.languageCode
-          : languageCode as String,
-      countryCode:
-          countryCode == freezed ? _value.countryCode : countryCode as String,
+          : languageCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      countryCode: countryCode == freezed
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Locale implements _Locale {
   const _$_Locale(
-      {@required @HiveField(0) this.languageCode,
-      @HiveField(1) this.countryCode})
-      : assert(languageCode != null);
+      {@HiveField(0) required this.languageCode,
+      @HiveField(1) this.countryCode});
 
   @override
   @HiveField(0)
   final String languageCode;
   @override
   @HiveField(1)
-  final String countryCode;
+  final String? countryCode;
 
   @override
   String toString() {
@@ -125,20 +133,16 @@ class _$_Locale implements _Locale {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Locale &&
+        (other.runtimeType == runtimeType &&
+            other is _Locale &&
             (identical(other.languageCode, languageCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.languageCode, languageCode)) &&
+                other.languageCode == languageCode) &&
             (identical(other.countryCode, countryCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.countryCode, countryCode)));
+                other.countryCode == countryCode));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(languageCode) ^
-      const DeepCollectionEquality().hash(countryCode);
+  int get hashCode => Object.hash(runtimeType, languageCode, countryCode);
 
   @JsonKey(ignore: true)
   @override
@@ -148,16 +152,16 @@ class _$_Locale implements _Locale {
 
 abstract class _Locale implements Locale {
   const factory _Locale(
-      {@required @HiveField(0) String languageCode,
-      @HiveField(1) String countryCode}) = _$_Locale;
+      {@HiveField(0) required String languageCode,
+      @HiveField(1) String? countryCode}) = _$_Locale;
 
   @override
   @HiveField(0)
   String get languageCode;
   @override
   @HiveField(1)
-  String get countryCode;
+  String? get countryCode;
   @override
   @JsonKey(ignore: true)
-  _$LocaleCopyWith<_Locale> get copyWith;
+  _$LocaleCopyWith<_Locale> get copyWith => throw _privateConstructorUsedError;
 }

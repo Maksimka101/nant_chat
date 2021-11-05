@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'chat_user.dart';
 
@@ -9,12 +10,14 @@ part of 'chat_user.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ChatUserTearOff {
   const _$ChatUserTearOff();
 
-// ignore: unused_element
-  _ChatUser call({@required @HiveField(0) String name}) {
+  _ChatUser call({@HiveField(0) required String name}) {
     return _ChatUser(
       name: name,
     );
@@ -22,16 +25,16 @@ class _$ChatUserTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ChatUser = _$ChatUserTearOff();
 
 /// @nodoc
 mixin _$ChatUser {
   @HiveField(0)
-  String get name;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ChatUserCopyWith<ChatUser> get copyWith;
+  $ChatUserCopyWith<ChatUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,10 +54,13 @@ class _$ChatUserCopyWithImpl<$Res> implements $ChatUserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -78,17 +84,21 @@ class __$ChatUserCopyWithImpl<$Res> extends _$ChatUserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_ChatUser(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_ChatUser implements _ChatUser {
-  const _$_ChatUser({@required @HiveField(0) this.name}) : assert(name != null);
+  const _$_ChatUser({@HiveField(0) required this.name});
 
   @override
   @HiveField(0)
@@ -102,14 +112,13 @@ class _$_ChatUser implements _ChatUser {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChatUser &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _ChatUser &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
@@ -118,12 +127,13 @@ class _$_ChatUser implements _ChatUser {
 }
 
 abstract class _ChatUser implements ChatUser {
-  const factory _ChatUser({@required @HiveField(0) String name}) = _$_ChatUser;
+  const factory _ChatUser({@HiveField(0) required String name}) = _$_ChatUser;
 
   @override
   @HiveField(0)
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$ChatUserCopyWith<_ChatUser> get copyWith;
+  _$ChatUserCopyWith<_ChatUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }

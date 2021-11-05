@@ -14,7 +14,7 @@ extension LocaleToString on Locale {
     }
   }
 
-  String get flagPath {
+  String? get flagPath {
     switch (languageCode) {
       case 'ru':
         return "assets/flags/ru.png";

@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:nant_client/models/app_theme/app_theme.dart';
 import 'package:nant_client/repository/theme_repository/theme_repository.dart';
@@ -6,11 +5,11 @@ import 'package:nant_client/utils/logger/logger.dart';
 
 class HiveThemeRepository extends ThemeRepository {
   HiveThemeRepository({
-    @required AppTheme defaultTheme,
+    required AppTheme defaultTheme,
   }) : super(defaultTheme: defaultTheme);
 
   static const _themeBoxName = "ThemeBox";
-  Box<bool> _themeBox;
+  Box<bool>? _themeBox;
   var _initialized = false;
 
   @override
@@ -26,7 +25,7 @@ class HiveThemeRepository extends ThemeRepository {
   Future<void> loadTheme() async {
     assertInitialized(_themeBox != null);
     try {
-      final isDarkTheme = _themeBox.get(_themeBoxName);
+      final isDarkTheme = _themeBox!.get(_themeBoxName);
       if (isDarkTheme == null) {
         emit(defaultTheme);
       } else if (isDarkTheme) {
@@ -45,8 +44,8 @@ class HiveThemeRepository extends ThemeRepository {
     assertInitialized(_themeBox != null);
     try {
       await theme.map(
-        light: (_) => _themeBox.put(_themeBoxName, false),
-        dark: (_) => _themeBox.put(_themeBoxName, true),
+        light: (_) => _themeBox!.put(_themeBoxName, false),
+        dark: (_) => _themeBox!.put(_themeBoxName, true),
       );
       emit(theme);
     } catch (e, st) {

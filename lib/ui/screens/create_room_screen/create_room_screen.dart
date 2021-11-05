@@ -15,7 +15,7 @@ import 'package:nant_client/utils/validators/message_validator.dart';
 
 class CreateRoomScreen extends StatelessWidget {
   const CreateRoomScreen({
-    Key key,
+    Key? key,
   }) : super(key: key);
   static const routeName = "CreateRoomScreen";
 
@@ -36,7 +36,7 @@ class CreateRoomScreen extends StatelessWidget {
 
 class _CreateRoomScreenBody extends StatefulWidget {
   const _CreateRoomScreenBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -62,7 +62,7 @@ class __CreateRoomScreenBodyState extends State<_CreateRoomScreenBody> {
   }
 
   void _onChanged() {
-    final valid = _formKey.currentState.validate();
+    final valid = _formKey.currentState!.validate();
     if (valid && !_valid) {
       _valid = valid;
       setState(() {});
@@ -73,21 +73,23 @@ class __CreateRoomScreenBodyState extends State<_CreateRoomScreenBody> {
   }
 
   void _onRoomCreated() {
-    if (_formKey.currentState.validate()) {
-      getIt.get<EditRoomBloc>().add(NewRoomCreated(
-            createRoom: CreateRoom(
-              name: _roomValidator.roomName,
-              initMessage: CreateMessage(
-                text: _messageValidator.message,
-                createdAt: DateTime.now(),
+    if (_formKey.currentState!.validate()) {
+      getIt.get<EditRoomBloc>().add(
+            NewRoomCreated(
+              createRoom: CreateRoom(
+                name: _roomValidator.roomName!,
+                initMessage: CreateMessage(
+                  text: _messageValidator.message!,
+                  createdAt: DateTime.now(),
+                ),
               ),
             ),
-          ));
+          );
     }
   }
 
   void _listenForRoomBloc(BuildContext context, EditRoomBlocState state) {
-    state.maybeMap(
+    state.map(
       error: (error) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(error.message)),
@@ -98,10 +100,11 @@ class __CreateRoomScreenBodyState extends State<_CreateRoomScreenBody> {
         Navigator.pushNamed(
           context,
           ChatScreen.routeName,
-          arguments: ChatScreenArgument(_roomValidator.roomName),
+          arguments: ChatScreenArgument(_roomValidator.roomName!),
         );
       },
-      orElse: () {},
+      initial: (Initial value) {},
+      newRoomCreationStarted: (NewRoomCreationStarted value) {},
     );
   }
 
@@ -123,7 +126,7 @@ class __CreateRoomScreenBodyState extends State<_CreateRoomScreenBody> {
                 Expanded(
                   flex: 2,
                   child: BlocListener<EditRoomBloc, EditRoomBlocState>(
-                    cubit: getIt.get<EditRoomBloc>(),
+                    bloc: getIt.get<EditRoomBloc>(),
                     listener: _listenForRoomBloc,
                     child: Form(
                       onChanged: _onChanged,
@@ -196,13 +199,13 @@ class __CreateRoomScreenBodyState extends State<_CreateRoomScreenBody> {
 
 class _CreationInProgressWidget extends StatelessWidget {
   const _CreationInProgressWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<EditRoomBloc, EditRoomBlocState>(
-      cubit: getIt.get<EditRoomBloc>(),
+      bloc: getIt.get<EditRoomBloc>(),
       builder: (context, state) {
         return state.maybeMap(
           newRoomCreationStarted: (_) => Container(

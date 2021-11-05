@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'user.dart';
 
@@ -9,12 +10,14 @@ part of 'user.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$UserTearOff {
   const _$UserTearOff();
 
-// ignore: unused_element
-  _User call({@required @HiveField(0) String name}) {
+  _User call({@HiveField(0) required String name}) {
     return _User(
       name: name,
     );
@@ -22,16 +25,15 @@ class _$UserTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
   @HiveField(0)
-  String get name;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith;
+  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,10 +53,13 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -78,17 +83,21 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_User(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_User implements _User {
-  const _$_User({@required @HiveField(0) this.name}) : assert(name != null);
+  const _$_User({@HiveField(0) required this.name});
 
   @override
   @HiveField(0)
@@ -102,14 +111,13 @@ class _$_User implements _User {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _User &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _User &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
@@ -118,22 +126,21 @@ class _$_User implements _User {
 }
 
 abstract class _User implements User {
-  const factory _User({@required @HiveField(0) String name}) = _$_User;
+  const factory _User({@HiveField(0) required String name}) = _$_User;
 
   @override
   @HiveField(0)
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$UserCopyWith<_User> get copyWith;
+  _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$CreateUserTearOff {
   const _$CreateUserTearOff();
 
-// ignore: unused_element
-  _CreateUser call({@required String name}) {
+  _CreateUser call({required String name}) {
     return _CreateUser(
       name: name,
     );
@@ -141,15 +148,15 @@ class _$CreateUserTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateUser = _$CreateUserTearOff();
 
 /// @nodoc
 mixin _$CreateUser {
-  String get name;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CreateUserCopyWith<CreateUser> get copyWith;
+  $CreateUserCopyWith<CreateUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -170,10 +177,13 @@ class _$CreateUserCopyWithImpl<$Res> implements $CreateUserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -199,17 +209,21 @@ class __$CreateUserCopyWithImpl<$Res> extends _$CreateUserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_CreateUser(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CreateUser implements _CreateUser {
-  const _$_CreateUser({@required this.name}) : assert(name != null);
+  const _$_CreateUser({required this.name});
 
   @override
   final String name;
@@ -222,14 +236,13 @@ class _$_CreateUser implements _CreateUser {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CreateUser &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _CreateUser &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
@@ -238,21 +251,21 @@ class _$_CreateUser implements _CreateUser {
 }
 
 abstract class _CreateUser implements CreateUser {
-  const factory _CreateUser({@required String name}) = _$_CreateUser;
+  const factory _CreateUser({required String name}) = _$_CreateUser;
 
   @override
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$CreateUserCopyWith<_CreateUser> get copyWith;
+  _$CreateUserCopyWith<_CreateUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateUserTearOff {
   const _$UpdateUserTearOff();
 
-// ignore: unused_element
-  _UpdateUser call({@required String name}) {
+  _UpdateUser call({required String name}) {
     return _UpdateUser(
       name: name,
     );
@@ -260,15 +273,15 @@ class _$UpdateUserTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateUser = _$UpdateUserTearOff();
 
 /// @nodoc
 mixin _$UpdateUser {
-  String get name;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UpdateUserCopyWith<UpdateUser> get copyWith;
+  $UpdateUserCopyWith<UpdateUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -289,10 +302,13 @@ class _$UpdateUserCopyWithImpl<$Res> implements $UpdateUserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -318,17 +334,21 @@ class __$UpdateUserCopyWithImpl<$Res> extends _$UpdateUserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
+    Object? name = freezed,
   }) {
     return _then(_UpdateUser(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_UpdateUser implements _UpdateUser {
-  const _$_UpdateUser({@required this.name}) : assert(name != null);
+  const _$_UpdateUser({required this.name});
 
   @override
   final String name;
@@ -341,14 +361,13 @@ class _$_UpdateUser implements _UpdateUser {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateUser &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+        (other.runtimeType == runtimeType &&
+            other is _UpdateUser &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType, name);
 
   @JsonKey(ignore: true)
   @override
@@ -357,11 +376,12 @@ class _$_UpdateUser implements _UpdateUser {
 }
 
 abstract class _UpdateUser implements UpdateUser {
-  const factory _UpdateUser({@required String name}) = _$_UpdateUser;
+  const factory _UpdateUser({required String name}) = _$_UpdateUser;
 
   @override
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$UpdateUserCopyWith<_UpdateUser> get copyWith;
+  _$UpdateUserCopyWith<_UpdateUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }

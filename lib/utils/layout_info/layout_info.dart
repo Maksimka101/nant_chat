@@ -4,11 +4,11 @@ import 'package:nant_client/utils/platform_info/platform_info.dart';
 /// This class helps determine how to build widget
 class LayoutInfo {
   LayoutInfo({
-    @required this.platformInfo,
-    @required this.context,
+    required this.platformInfo,
+    required this.context,
   });
 
-  static LayoutInfo instance;
+  static late LayoutInfo instance;
 
   final PlatformInfo platformInfo;
   final BuildContext context;

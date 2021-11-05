@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 /// Circle avatar with First 2 Characters of user [name]
 class CircleUserAvatar extends StatelessWidget {
   const CircleUserAvatar({
-    Key key,
-    @required this.name,
+    Key? key,
+    required this.name,
     this.radius,
   }) : super(key: key);
   final String name;
-  final double radius;
+  final double? radius;
 
   @override
   Widget build(BuildContext context) {

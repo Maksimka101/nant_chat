@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'localization_bloc.dart';
 
@@ -9,23 +10,23 @@ part of 'localization_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$LocalizationBlocEventTearOff {
   const _$LocalizationBlocEventTearOff();
 
-// ignore: unused_element
   LocalizationLoadStarted localizationLoadStarted() {
     return const LocalizationLoadStarted();
   }
 
-// ignore: unused_element
-  LocaleChanged localeChanged({@required Locale locale}) {
+  LocaleChanged localeChanged({required Locale locale}) {
     return LocaleChanged(
       locale: locale,
     );
   }
 
-// ignore: unused_element
   LocaleLoadedEvent localeLoaded(Locale locale) {
     return LocaleLoadedEvent(
       locale,
@@ -34,37 +35,55 @@ class _$LocalizationBlocEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LocalizationBlocEvent = _$LocalizationBlocEventTearOff();
 
 /// @nodoc
 mixin _$LocalizationBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult localizationLoadStarted(),
-    @required TResult localeChanged(Locale locale),
-    @required TResult localeLoaded(Locale locale),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() localizationLoadStarted,
+    required TResult Function(Locale locale) localeChanged,
+    required TResult Function(Locale locale) localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult localizationLoadStarted(),
-    TResult localeChanged(Locale locale),
-    TResult localeLoaded(Locale locale),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult localizationLoadStarted(LocalizationLoadStarted value),
-    @required TResult localeChanged(LocaleChanged value),
-    @required TResult localeLoaded(LocaleLoadedEvent value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult localizationLoadStarted(LocalizationLoadStarted value),
-    TResult localeChanged(LocaleChanged value),
-    TResult localeLoaded(LocaleLoadedEvent value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(LocalizationLoadStarted value)
+        localizationLoadStarted,
+    required TResult Function(LocaleChanged value) localeChanged,
+    required TResult Function(LocaleLoadedEvent value) localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -104,6 +123,7 @@ class _$LocalizationLoadStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$LocalizationLoadStarted implements LocalizationLoadStarted {
   const _$LocalizationLoadStarted();
 
@@ -114,7 +134,8 @@ class _$LocalizationLoadStarted implements LocalizationLoadStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is LocalizationLoadStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LocalizationLoadStarted);
   }
 
   @override
@@ -122,26 +143,32 @@ class _$LocalizationLoadStarted implements LocalizationLoadStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult localizationLoadStarted(),
-    @required TResult localeChanged(Locale locale),
-    @required TResult localeLoaded(Locale locale),
+  TResult when<TResult extends Object?>({
+    required TResult Function() localizationLoadStarted,
+    required TResult Function(Locale locale) localeChanged,
+    required TResult Function(Locale locale) localeLoaded,
   }) {
-    assert(localizationLoadStarted != null);
-    assert(localeChanged != null);
-    assert(localeLoaded != null);
     return localizationLoadStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult localizationLoadStarted(),
-    TResult localeChanged(Locale locale),
-    TResult localeLoaded(Locale locale),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localizationLoadStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localizationLoadStarted != null) {
       return localizationLoadStarted();
     }
@@ -150,26 +177,33 @@ class _$LocalizationLoadStarted implements LocalizationLoadStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult localizationLoadStarted(LocalizationLoadStarted value),
-    @required TResult localeChanged(LocaleChanged value),
-    @required TResult localeLoaded(LocaleLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LocalizationLoadStarted value)
+        localizationLoadStarted,
+    required TResult Function(LocaleChanged value) localeChanged,
+    required TResult Function(LocaleLoadedEvent value) localeLoaded,
   }) {
-    assert(localizationLoadStarted != null);
-    assert(localeChanged != null);
-    assert(localeLoaded != null);
     return localizationLoadStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult localizationLoadStarted(LocalizationLoadStarted value),
-    TResult localeChanged(LocaleChanged value),
-    TResult localeLoaded(LocaleLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localizationLoadStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localizationLoadStarted != null) {
       return localizationLoadStarted(this);
     }
@@ -202,17 +236,21 @@ class _$LocaleChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object locale = freezed,
+    Object? locale = freezed,
   }) {
     return _then(LocaleChanged(
-      locale: locale == freezed ? _value.locale : locale as Locale,
+      locale: locale == freezed
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
     ));
   }
 }
 
 /// @nodoc
+
 class _$LocaleChanged implements LocaleChanged {
-  const _$LocaleChanged({@required this.locale}) : assert(locale != null);
+  const _$LocaleChanged({required this.locale});
 
   @override
   final Locale locale;
@@ -225,14 +263,13 @@ class _$LocaleChanged implements LocaleChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LocaleChanged &&
-            (identical(other.locale, locale) ||
-                const DeepCollectionEquality().equals(other.locale, locale)));
+        (other.runtimeType == runtimeType &&
+            other is LocaleChanged &&
+            (identical(other.locale, locale) || other.locale == locale));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(locale);
+  int get hashCode => Object.hash(runtimeType, locale);
 
   @JsonKey(ignore: true)
   @override
@@ -241,26 +278,32 @@ class _$LocaleChanged implements LocaleChanged {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult localizationLoadStarted(),
-    @required TResult localeChanged(Locale locale),
-    @required TResult localeLoaded(Locale locale),
+  TResult when<TResult extends Object?>({
+    required TResult Function() localizationLoadStarted,
+    required TResult Function(Locale locale) localeChanged,
+    required TResult Function(Locale locale) localeLoaded,
   }) {
-    assert(localizationLoadStarted != null);
-    assert(localeChanged != null);
-    assert(localeLoaded != null);
     return localeChanged(locale);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult localizationLoadStarted(),
-    TResult localeChanged(Locale locale),
-    TResult localeLoaded(Locale locale),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localeChanged?.call(locale);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localeChanged != null) {
       return localeChanged(locale);
     }
@@ -269,26 +312,33 @@ class _$LocaleChanged implements LocaleChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult localizationLoadStarted(LocalizationLoadStarted value),
-    @required TResult localeChanged(LocaleChanged value),
-    @required TResult localeLoaded(LocaleLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LocalizationLoadStarted value)
+        localizationLoadStarted,
+    required TResult Function(LocaleChanged value) localeChanged,
+    required TResult Function(LocaleLoadedEvent value) localeLoaded,
   }) {
-    assert(localizationLoadStarted != null);
-    assert(localeChanged != null);
-    assert(localeLoaded != null);
     return localeChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult localizationLoadStarted(LocalizationLoadStarted value),
-    TResult localeChanged(LocaleChanged value),
-    TResult localeLoaded(LocaleLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localeChanged != null) {
       return localeChanged(this);
     }
@@ -297,11 +347,12 @@ class _$LocaleChanged implements LocaleChanged {
 }
 
 abstract class LocaleChanged implements LocalizationBlocEvent {
-  const factory LocaleChanged({@required Locale locale}) = _$LocaleChanged;
+  const factory LocaleChanged({required Locale locale}) = _$LocaleChanged;
 
   Locale get locale;
   @JsonKey(ignore: true)
-  $LocaleChangedCopyWith<LocaleChanged> get copyWith;
+  $LocaleChangedCopyWith<LocaleChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -325,17 +376,21 @@ class _$LocaleLoadedEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object locale = freezed,
+    Object? locale = freezed,
   }) {
     return _then(LocaleLoadedEvent(
-      locale == freezed ? _value.locale : locale as Locale,
+      locale == freezed
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
     ));
   }
 }
 
 /// @nodoc
+
 class _$LocaleLoadedEvent implements LocaleLoadedEvent {
-  const _$LocaleLoadedEvent(this.locale) : assert(locale != null);
+  const _$LocaleLoadedEvent(this.locale);
 
   @override
   final Locale locale;
@@ -348,14 +403,13 @@ class _$LocaleLoadedEvent implements LocaleLoadedEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LocaleLoadedEvent &&
-            (identical(other.locale, locale) ||
-                const DeepCollectionEquality().equals(other.locale, locale)));
+        (other.runtimeType == runtimeType &&
+            other is LocaleLoadedEvent &&
+            (identical(other.locale, locale) || other.locale == locale));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(locale);
+  int get hashCode => Object.hash(runtimeType, locale);
 
   @JsonKey(ignore: true)
   @override
@@ -364,26 +418,32 @@ class _$LocaleLoadedEvent implements LocaleLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult localizationLoadStarted(),
-    @required TResult localeChanged(Locale locale),
-    @required TResult localeLoaded(Locale locale),
+  TResult when<TResult extends Object?>({
+    required TResult Function() localizationLoadStarted,
+    required TResult Function(Locale locale) localeChanged,
+    required TResult Function(Locale locale) localeLoaded,
   }) {
-    assert(localizationLoadStarted != null);
-    assert(localeChanged != null);
-    assert(localeLoaded != null);
     return localeLoaded(locale);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult localizationLoadStarted(),
-    TResult localeChanged(Locale locale),
-    TResult localeLoaded(Locale locale),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localeLoaded?.call(locale);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? localizationLoadStarted,
+    TResult Function(Locale locale)? localeChanged,
+    TResult Function(Locale locale)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localeLoaded != null) {
       return localeLoaded(locale);
     }
@@ -392,26 +452,33 @@ class _$LocaleLoadedEvent implements LocaleLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult localizationLoadStarted(LocalizationLoadStarted value),
-    @required TResult localeChanged(LocaleChanged value),
-    @required TResult localeLoaded(LocaleLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LocalizationLoadStarted value)
+        localizationLoadStarted,
+    required TResult Function(LocaleChanged value) localeChanged,
+    required TResult Function(LocaleLoadedEvent value) localeLoaded,
   }) {
-    assert(localizationLoadStarted != null);
-    assert(localeChanged != null);
-    assert(localeLoaded != null);
     return localeLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult localizationLoadStarted(LocalizationLoadStarted value),
-    TResult localeChanged(LocaleChanged value),
-    TResult localeLoaded(LocaleLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localeLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LocalizationLoadStarted value)? localizationLoadStarted,
+    TResult Function(LocaleChanged value)? localeChanged,
+    TResult Function(LocaleLoadedEvent value)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localeLoaded != null) {
       return localeLoaded(this);
     }
@@ -424,19 +491,18 @@ abstract class LocaleLoadedEvent implements LocalizationBlocEvent {
 
   Locale get locale;
   @JsonKey(ignore: true)
-  $LocaleLoadedEventCopyWith<LocaleLoadedEvent> get copyWith;
+  $LocaleLoadedEventCopyWith<LocaleLoadedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$LocalizationBlocStateTearOff {
   const _$LocalizationBlocStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return const Initial();
   }
 
-// ignore: unused_element
   LocaleLoaded localeLoaded(Locale locale) {
     return LocaleLoaded(
       locale,
@@ -445,33 +511,48 @@ class _$LocalizationBlocStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LocalizationBlocState = _$LocalizationBlocStateTearOff();
 
 /// @nodoc
 mixin _$LocalizationBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult localeLoaded(Locale locale),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Locale locale) localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult localeLoaded(Locale locale),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Locale locale)? localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult localeLoaded(LocaleLoaded value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Locale locale)? localeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult localeLoaded(LocaleLoaded value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(LocaleLoaded value) localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LocaleLoaded value)? localeLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LocaleLoaded value)? localeLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -509,6 +590,7 @@ class _$InitialCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -519,7 +601,8 @@ class _$Initial implements Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
@@ -527,23 +610,29 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult localeLoaded(Locale locale),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Locale locale) localeLoaded,
   }) {
-    assert(initial != null);
-    assert(localeLoaded != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult localeLoaded(Locale locale),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Locale locale)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Locale locale)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial();
     }
@@ -552,23 +641,29 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult localeLoaded(LocaleLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(LocaleLoaded value) localeLoaded,
   }) {
-    assert(initial != null);
-    assert(localeLoaded != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult localeLoaded(LocaleLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LocaleLoaded value)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LocaleLoaded value)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -601,17 +696,21 @@ class _$LocaleLoadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object locale = freezed,
+    Object? locale = freezed,
   }) {
     return _then(LocaleLoaded(
-      locale == freezed ? _value.locale : locale as Locale,
+      locale == freezed
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as Locale,
     ));
   }
 }
 
 /// @nodoc
+
 class _$LocaleLoaded implements LocaleLoaded {
-  const _$LocaleLoaded(this.locale) : assert(locale != null);
+  const _$LocaleLoaded(this.locale);
 
   @override
   final Locale locale;
@@ -624,14 +723,13 @@ class _$LocaleLoaded implements LocaleLoaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LocaleLoaded &&
-            (identical(other.locale, locale) ||
-                const DeepCollectionEquality().equals(other.locale, locale)));
+        (other.runtimeType == runtimeType &&
+            other is LocaleLoaded &&
+            (identical(other.locale, locale) || other.locale == locale));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(locale);
+  int get hashCode => Object.hash(runtimeType, locale);
 
   @JsonKey(ignore: true)
   @override
@@ -640,23 +738,29 @@ class _$LocaleLoaded implements LocaleLoaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult localeLoaded(Locale locale),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Locale locale) localeLoaded,
   }) {
-    assert(initial != null);
-    assert(localeLoaded != null);
     return localeLoaded(locale);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult localeLoaded(Locale locale),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Locale locale)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localeLoaded?.call(locale);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Locale locale)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localeLoaded != null) {
       return localeLoaded(locale);
     }
@@ -665,23 +769,29 @@ class _$LocaleLoaded implements LocaleLoaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult localeLoaded(LocaleLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(LocaleLoaded value) localeLoaded,
   }) {
-    assert(initial != null);
-    assert(localeLoaded != null);
     return localeLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult localeLoaded(LocaleLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LocaleLoaded value)? localeLoaded,
   }) {
-    assert(orElse != null);
+    return localeLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(LocaleLoaded value)? localeLoaded,
+    required TResult orElse(),
+  }) {
     if (localeLoaded != null) {
       return localeLoaded(this);
     }
@@ -694,5 +804,6 @@ abstract class LocaleLoaded implements LocalizationBlocState {
 
   Locale get locale;
   @JsonKey(ignore: true)
-  $LocaleLoadedCopyWith<LocaleLoaded> get copyWith;
+  $LocaleLoadedCopyWith<LocaleLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

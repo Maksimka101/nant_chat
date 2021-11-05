@@ -16,12 +16,12 @@ import 'package:nant_client/utils/hive/hive_initializer.dart';
 
 void main() {
   group("Test room repository", () {
-    RoomsRepository roomsRepository;
-    final mockWebSocketRepository = MockWebSocketRepository<Map>('', false);
+    late RoomsRepository roomsRepository;
+    final mockWebSocketRepository = MockWebSocketRepository<Map?>('', tryToRestoreConnection: true);
     final mockWebSocketRepositoryFactory = MockWebSocketRepositoryFactory(
       mockWebSocketRepository: mockWebSocketRepository,
     );
-    final MockUserRepository mockUserRepository = MockUserRepository();
+    final mockUserRepository = MockUserRepository();
     final mockWebRoomsRepository = MockWebRoomsRepository();
 
     setUp(() async {
@@ -52,14 +52,14 @@ void main() {
           createdAt: DateTime.now().toUtc(),
         ),
       );
-      final sender = ChatUser(name: mockUserRepository.data.name);
+      final sender = ChatUser(name: mockUserRepository.data!.name);
       final initMessage = Message(
         createdAt: createRoom.initMessage.createdAt,
         text: createRoom.initMessage.text,
         sender: sender,
       );
       mockWebRoomsRepository.onLoadRoomMessages = (room) => [initMessage];
-      mockWebSocketRepository.onAdd = (map) => map.cast<String, dynamic>()
+      mockWebSocketRepository.onAdd = (map) => map!.cast<String, dynamic>()
         ..addAll(<String, dynamic>{
           'created': createRoom.initMessage.createdAt.toString(),
           "sender": {"username": sender.name},
@@ -91,7 +91,7 @@ void main() {
           createdAt: DateTime.now().toUtc(),
         ),
       );
-      final sender = ChatUser(name: mockUserRepository.data.name);
+      final sender = ChatUser(name: mockUserRepository.data!.name);
       const receiver = ChatUser(name: 'mock receiver');
       final initMessage = Message(
         createdAt: createRoom.initMessage.createdAt,

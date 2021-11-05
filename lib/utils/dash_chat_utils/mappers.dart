@@ -19,11 +19,11 @@ class UserMapper {
 }
 
 class MessagesMapper {
-  static List<dash.ChatMessage> messagesToDashMessages(List<Message> messages) {
+  static List<dash.ChatMessage> messagesToDashMessages(List<Message?> messages) {
     return messages
         .map(
           (message) => dash.ChatMessage(
-            text: message.text,
+            text: message!.text,
             createdAt: message.createdAt,
             user: ChatUserMapper.chatUserToDash(message.sender),
           ),

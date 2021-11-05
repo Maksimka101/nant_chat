@@ -6,13 +6,13 @@ import 'package:nant_client/utils/get_it/get_it.dart';
 /// This widget shows [LinearProgressIndicator] when user creation in progress
 class AuthorizationLoadingWidget extends StatelessWidget {
   const AuthorizationLoadingWidget({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<EditUserBloc, EditUserBlocState>(
-      cubit: getIt.get<EditUserBloc>(),
+      bloc: getIt.get<EditUserBloc>(),
       builder: (context, state) {
         return state.maybeMap(
           userCreationStarted: (_) => const LinearProgressIndicator(),

@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:hive/hive.dart';
 import 'package:nant_client/repository/localization_repository/hive_localization_repository/models.dart' as models;
 import 'package:nant_client/repository/localization_repository/localization_repository.dart';
 import 'package:nant_client/utils/extensions/object.dart';

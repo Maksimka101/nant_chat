@@ -1,6 +1,6 @@
-import 'package:hive/hive.dart';
 import 'package:nant_client/models/app_theme/app_theme.dart';
 import 'package:nant_client/repository/theme_repository/theme_repository.dart';
+import 'package:nant_client/utils/hive/hive_box_utils.dart';
 import 'package:nant_client/utils/logger/logger.dart';
 
 class HiveThemeRepository extends ThemeRepository {
@@ -9,23 +9,13 @@ class HiveThemeRepository extends ThemeRepository {
   }) : super(defaultTheme: defaultTheme);
 
   static const _themeBoxName = "ThemeBox";
-  Box<bool>? _themeBox;
-  var _initialized = false;
-
-  @override
-  Future<void> initialize() async {
-    if (!_initialized) {
-      _themeBox = await Hive.openBox(_themeBoxName);
-      _initialized = true;
-    }
-    return super.initialize();
-  }
+  late final _themeBox = openHiveBox<bool>(_themeBoxName);
 
   @override
   Future<void> loadTheme() async {
-    assertInitialized(_themeBox != null);
+    final box = await _themeBox;
     try {
-      final isDarkTheme = _themeBox!.get(_themeBoxName);
+      final isDarkTheme = box.get(_themeBoxName);
       if (isDarkTheme == null) {
         emit(defaultTheme);
       } else if (isDarkTheme) {
@@ -41,11 +31,11 @@ class HiveThemeRepository extends ThemeRepository {
 
   @override
   Future<void> updateTheme(AppTheme theme) async {
-    assertInitialized(_themeBox != null);
+    final box = await _themeBox;
     try {
       await theme.map(
-        light: (_) => _themeBox!.put(_themeBoxName, false),
-        dark: (_) => _themeBox!.put(_themeBoxName, true),
+        light: (_) => box.put(_themeBoxName, false),
+        dark: (_) => box.put(_themeBoxName, true),
       );
       emit(theme);
     } catch (e, st) {
@@ -56,7 +46,7 @@ class HiveThemeRepository extends ThemeRepository {
 
   @override
   Future<void> dispose() async {
-    await _themeBox?.close();
+    await _themeBox.ifLaunched(() => _themeBox.then((value) => value.close()));
     return super.dispose();
   }
 }

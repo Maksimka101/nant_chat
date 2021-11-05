@@ -23,6 +23,7 @@ import 'package:nant_client/utils/dio/default_dio.dart';
 import 'package:nant_client/utils/get_it/get_it.dart';
 import 'package:nant_client/utils/hive/hive_initializer.dart';
 import 'package:nant_client/utils/isolate_manager/isolate_manager_factory.dart';
+import 'package:nant_client/utils/logger/logger.dart';
 import 'package:nant_client/utils/platform_info/platform_info.dart';
 import 'package:nant_client/utils/platform_info/platform_info_default_implementation.dart';
 
@@ -34,94 +35,102 @@ Future<void> runNantApp() async {
 }
 
 Future<void> initializeRequiredRepositories() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  const appConfig = AppConfig(
-    chatPagination: 30,
-    hostName: "http://127.0.0.1:8080/api",
-    // hostName: "https://nane.tada.team/api",
-    webSocketHostName: "ws://127.0.0.1:8080/ws",
-    // webSocketHostName: "wss://nane.tada.team/ws",
-    defaultLocale: Locale('en'),
-    defaultAppTheme: AppDarkTheme(),
-    supportedLocales: [Locale('ru'), Locale('en')],
-  );
-  final localizationRepository = HiveLocalizationRepository(
-    appConfig.defaultLocale,
-  );
-  final platformInfo = DefaultPlatformInfo();
-  final themeRepository = HiveThemeRepository(
-    defaultTheme: appConfig.defaultAppTheme,
-  );
-  await HiveInitializer.initializeHive(platformInfo);
-  await localizationRepository.initialize();
-  await themeRepository.initialize();
-  getIt
-    ..registerSingleton<PlatformInfo>(platformInfo)
-    ..registerSingleton<AppConfig>(appConfig)
-    ..registerSingletonBloc(
-      LocalizationBloc(
-        localizationRepository: localizationRepository,
-      )..add(const LocalizationLoadStarted()),
-    )
-    ..registerSingletonBloc(
-      ThemeBloc(
-        themeRepository: themeRepository,
-      )..add(const ThemeLoadStarted()),
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    const appConfig = AppConfig(
+      chatPagination: 30,
+      // hostName: "http://127.0.0.1:8080/api",
+      hostName: "https://nane.tada.team/api",
+      // webSocketHostName: "ws://127.0.0.1:8080/ws",
+      webSocketHostName: "wss://nane.tada.team/ws",
+      defaultLocale: Locale('en'),
+      defaultAppTheme: AppDarkTheme(),
+      supportedLocales: [Locale('ru'), Locale('en')],
     );
-  // App must wait until localization and theme will be loaded
-  await themeRepository.loadTheme();
-  await localizationRepository.loadLocale();
+    final localizationRepository = HiveLocalizationRepository(
+      appConfig.defaultLocale,
+    );
+    final platformInfo = DefaultPlatformInfo();
+    final themeRepository = HiveThemeRepository(
+      defaultTheme: appConfig.defaultAppTheme,
+    );
+    await HiveInitializer.initializeHive(platformInfo);
+    await localizationRepository.initialize();
+    await themeRepository.initialize();
+    getIt
+      ..registerSingleton<PlatformInfo>(platformInfo)
+      ..registerSingleton<AppConfig>(appConfig)
+      ..registerSingletonBloc(
+        LocalizationBloc(
+          localizationRepository: localizationRepository,
+        )..add(const LocalizationLoadStarted()),
+      )
+      ..registerSingletonBloc(
+        ThemeBloc(
+          themeRepository: themeRepository,
+        )..add(const ThemeLoadStarted()),
+      );
+    // App must wait until localization and theme will be loaded
+    await themeRepository.loadTheme();
+    await localizationRepository.loadLocale();
+  } catch (e, st) {
+    logger.e("Error in `initializeRequiredRepositories`", e, st);
+  }
 }
 
 Future<void> initializeRepositories() async {
-  final appConfig = getIt.get<AppConfig>();
-  final dio = getDefaultDio();
-  final webSocketFactory = WebSocketChannelRepositoryFactory();
-  final userRepository = HiveUserRepository();
-  final platformInfo = getIt.get<PlatformInfo>();
-  final isolateManager = IsolateManagerFactory(platformInfo).create();
-  final roomsRepository = CommonRoomsRepository(
-    paginationSize: appConfig.chatPagination,
-    webRepository: NaneWebRoomsRepository(
-      isolateManager: isolateManager,
-      dio: dio,
-      host: appConfig.hostName,
-    ),
-    localRepository: HiveLocalRoomsRepository(
+  try {
+    final appConfig = getIt.get<AppConfig>();
+    final dio = getDefaultDio();
+    final webSocketFactory = WebSocketChannelRepositoryFactory();
+    final userRepository = HiveUserRepository();
+    final platformInfo = getIt.get<PlatformInfo>();
+    final isolateManager = IsolateManagerFactory(platformInfo).create();
+    final roomsRepository = CommonRoomsRepository(
       paginationSize: appConfig.chatPagination,
-    ),
-    messagesRepository: NaneMessagesRepository(
-      webSocketFactory: webSocketFactory,
-      wsHost: appConfig.webSocketHostName,
-      userRepository: userRepository,
-    ),
-  );
-  await roomsRepository.initialize();
-  await userRepository.initialize();
-  await isolateManager.initialize();
-
-  final userBloc = UserBloc(userRepository: userRepository);
-  final roomsBloc = RoomsBloc(roomsRepository: roomsRepository);
-
-  getIt
-    ..registerSingletonBloc<UserBloc>(userBloc)
-    ..registerSingletonBloc<RoomsBloc>(roomsBloc)
-    ..registerLazySingletonBloc<InitializeBloc>(
-      () => InitializeBloc(
-        userBloc: userBloc,
-        roomsBloc: roomsBloc,
-      )..add(const InitializationStarted()),
-    )
-    ..registerLazySingletonBloc<EditUserBloc>(
-      () => EditUserBloc(
+      webRepository: NaneWebRoomsRepository(
+        isolateManager: isolateManager,
+        dio: dio,
+        host: appConfig.hostName,
+      ),
+      localRepository: HiveLocalRoomsRepository(
+        paginationSize: appConfig.chatPagination,
+      ),
+      messagesRepository: NaneMessagesRepository(
+        webSocketFactory: webSocketFactory,
+        wsHost: appConfig.webSocketHostName,
         userRepository: userRepository,
       ),
-    )
-    ..registerLazySingletonBloc<EditRoomBloc>(
-      () => EditRoomBloc(
-        roomsRepository: roomsRepository,
-      ),
     );
+    await roomsRepository.initialize();
+    await userRepository.initialize();
+    await isolateManager.initialize();
+
+    final userBloc = UserBloc(userRepository: userRepository);
+    final roomsBloc = RoomsBloc(roomsRepository: roomsRepository);
+
+    getIt
+      ..registerSingletonBloc<UserBloc>(userBloc)
+      ..registerSingletonBloc<RoomsBloc>(roomsBloc)
+      ..registerLazySingletonBloc<InitializeBloc>(
+        () => InitializeBloc(
+          userBloc: userBloc,
+          roomsBloc: roomsBloc,
+        )..add(const InitializationStarted()),
+      )
+      ..registerLazySingletonBloc<EditUserBloc>(
+        () => EditUserBloc(
+          userRepository: userRepository,
+        ),
+      )
+      ..registerLazySingletonBloc<EditRoomBloc>(
+        () => EditRoomBloc(
+          roomsRepository: roomsRepository,
+        ),
+      );
+  } catch (e, st) {
+    logger.e("Error in `initializeRepositories`", e, st);
+  }
 }
 
 /// Приложение может инициализироваться некоторое время.

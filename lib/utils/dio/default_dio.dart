@@ -34,7 +34,7 @@ Dio getDefaultDio({
           logger.log(
             logLevel,
             "On error in default dio\n"
-            "Url: ${error.response!.realUri}, Error: ${error.error}, Body: \n"
+            "Url: ${error.response?.realUri}, Error: ${error.error}, Body: \n"
             "${error.response?.data}",
           );
           handler.next(error);

@@ -6,6 +6,7 @@ import 'package:nant_client/repository/room_repository/local_rooms_repository.da
 import 'package:nant_client/utils/extensions/hive.dart';
 import 'package:nant_client/utils/extensions/messages.dart';
 import 'package:nant_client/utils/extensions/object.dart';
+import 'package:nant_client/utils/hive/hive_box_utils.dart';
 
 class HiveLocalRoomsRepository extends LocalRoomsRepository {
   HiveLocalRoomsRepository({
@@ -15,21 +16,11 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
   static const _roomInfoBoxName = "RoomInfoBox";
 
   /// Store all rooms info
-  Box<HiveRoom>? _roomInfoBox;
-  var _initialized = false;
+  late final _roomInfoBox = openHiveBox<HiveRoom>(_roomInfoBoxName);
   final _roomsMap = <String, Room>{};
 
   /// Boxes with messages of the room
   final _messagesBoxMap = <String, LazyBox<Message?>>{};
-
-  @override
-  Future<void> initialize() async {
-    if (!_initialized) {
-      _roomInfoBox = await Hive.openBox<HiveRoom>(_roomInfoBoxName);
-      _initialized = true;
-    }
-    return super.initialize();
-  }
 
   Future<LazyBox<Message?>> _getMessagesBox(String room) async {
     final box = _messagesBoxMap[room] ??= await Hive.openLazyBox<Message?>(
@@ -45,8 +36,8 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> loadRooms() async {
-    assertInitialized(_roomInfoBox != null);
-    final hiveRooms = _roomInfoBox!.toMap();
+    final box = await _roomInfoBox;
+    final hiveRooms = box.toMap();
     for (final loadedEntry in hiveRooms.entries) {
       final key = loadedEntry.value.name;
       final existingRoom = _roomsMap[key];
@@ -102,7 +93,7 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> loadNextPage(String room) async {
-    assertInitialized(_roomInfoBox != null);
+    final box = await _roomInfoBox;
     final currentRoom = _roomsMap[room];
 
     if (currentRoom == null) {
@@ -110,7 +101,7 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
     }
 
     final currentMessagesCount = currentRoom.messages.length;
-    final hiveRoom = _roomInfoBox!.get(room.toHiveKey())!;
+    final hiveRoom = box.get(room.toHiveKey())!;
     final newMessages = await _loadMessages(
       forRoom: room,
       fromMessage: hiveRoom.messagesCount - paginationSize - currentMessagesCount,
@@ -127,13 +118,13 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> saveMessage({required String room, required Message message}) async {
-    assertInitialized(_roomInfoBox != null);
-    var hiveRoom = _roomInfoBox!.get(room.toHiveKey());
+    final box = await _roomInfoBox;
+    var hiveRoom = box.get(room.toHiveKey());
     hiveRoom = hiveRoom?.copyWith.call(
           messagesCount: hiveRoom.messagesCount + 1,
         ) ??
         HiveRoom(name: room, messagesCount: 1);
-    await _roomInfoBox!.put(room.toHiveKey(), hiveRoom);
+    await box.put(room.toHiveKey(), hiveRoom);
     final messagesBox = await _getMessagesBox(room);
     await messagesBox.add(message);
     _roomsMap[room] = _roomsMap[room]?.let(
@@ -154,13 +145,13 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> saveMessages({required String room, required List<Message> messages}) async {
-    assertInitialized(_roomInfoBox != null);
-    var hiveRoom = _roomInfoBox!.get(room.toHiveKey());
+    final box = await _roomInfoBox;
+    var hiveRoom = box.get(room.toHiveKey());
     hiveRoom = hiveRoom?.copyWith.call(
           messagesCount: hiveRoom.messagesCount + messages.length,
         ) ??
         HiveRoom(name: room, messagesCount: messages.length);
-    await _roomInfoBox!.put(room.toHiveKey(), hiveRoom);
+    await box.put(room.toHiveKey(), hiveRoom);
     final messagesBox = await _getMessagesBox(room);
     await messagesBox.addAll(messages);
     _roomsMap[room] = _roomsMap[room].let(
@@ -179,9 +170,9 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
     required String room,
     required List<Message> messages,
   }) async {
-    assertInitialized(_roomInfoBox != null);
-    final hiveRoom = _roomInfoBox!.get(room);
-    await _roomInfoBox!.put(
+    final box = await _roomInfoBox;
+    final hiveRoom = box.get(room);
+    await box.put(
       room.toHiveKey(),
       HiveRoom(name: room, messagesCount: messages.length),
     );
@@ -201,8 +192,8 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> saveRoom(Room room) async {
-    assertInitialized(_roomInfoBox != null);
-    await _roomInfoBox!.put(
+    final box = await _roomInfoBox;
+    await box.put(
       room.name.toHiveKey(),
       HiveRoom(name: room.name, messagesCount: room.messages.length),
     );
@@ -214,7 +205,7 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> dispose() async {
-    await _roomInfoBox?.close();
+    await _roomInfoBox.ifLaunched(() => _roomInfoBox.then((value) => value.close()));
     return super.dispose();
   }
 }

@@ -10,7 +10,7 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
     _connect();
   }
 
-  late WebSocketChannel _webSocketChannel;
+  WebSocketChannel? _webSocketChannel;
   final StreamController<T> _webSocketDataController = StreamController<T>.broadcast();
   static const _retryDuration = Duration(seconds: 4);
 
@@ -26,18 +26,18 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
     for (final interceptor in interceptors) {
       interceptor.onAdd?.call(data);
     }
-    _webSocketChannel.sink.add(mappedData);
+    _webSocketChannel?.sink.add(mappedData);
   }
 
   void _connect() {
-    _webSocketChannel.sink.close();
+    _webSocketChannel?.sink.close();
     _webSocketChannel = WebSocketChannel.connect(Uri.parse(url!));
 
     _listenForWebSocket();
   }
 
   void _listenForWebSocket() {
-    _webSocketChannel.stream.map<T>((event) {
+    _webSocketChannel?.stream.map<T>((event) {
       if (T == Map && event is String) {
         // convert string from server to json
         return jsonDecode(event) as T;
@@ -64,7 +64,7 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
 
   @override
   Future<void> close() async {
-    await _webSocketChannel.sink.close();
+    await _webSocketChannel?.sink.close();
     await _webSocketDataController.close();
   }
 }

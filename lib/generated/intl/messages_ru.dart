@@ -39,8 +39,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterYourRoomName":
             MessageLookupByLibrary.simpleMessage("Название комнаты"),
         "failedToCreateUserDueToError": m0,
+        "failedToSetHost": MessageLookupByLibrary.simpleMessage(
+            "Не удалось сохранить адрес сервера"),
+        "hostIsTooShort": MessageLookupByLibrary.simpleMessage(
+            "Название сервера должно содержать не менее 4-х символов"),
+        "hostName":
+            MessageLookupByLibrary.simpleMessage("Введите адрес сервера"),
         "looksLikeYouAreHereFirstTime": MessageLookupByLibrary.simpleMessage(
-            "Похоже вы здесь впервые.\nКак вас зовут?"),
+            "Похоже вы здесь впервые.\nКак вас зовут и какой адрес сервера, с которым будет работать приложение?"),
         "nameMustHaveNoMoreThan16Character":
             MessageLookupByLibrary.simpleMessage(
                 "Имя должно содержать не более 16-ти символов"),
@@ -63,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Нажмите для смены языка"),
         "toCreateANewRoomYouNeedTo": MessageLookupByLibrary.simpleMessage(
             "Для создания комнаты определитесь с ее именем и напишите первое сообщение"),
+        "useSecureConnection": MessageLookupByLibrary.simpleMessage(
+            "Использовать защищенное соединение"),
         "userNameMustHaveAtLeast4Character":
             MessageLookupByLibrary.simpleMessage(
                 "Имя должно содержать не менее 4-х символов"),

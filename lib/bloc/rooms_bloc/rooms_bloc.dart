@@ -10,10 +10,9 @@ part 'rooms_bloc.freezed.dart';
 
 @freezed
 class RoomsBlocEvent with _$RoomsBlocEvent {
-  const factory RoomsBlocEvent.roomsLoadStarted() = RoomsLoadStarted;
+  const factory RoomsBlocEvent.initialize() = Initialize;
 
-  const factory RoomsBlocEvent.roomsLoaded(List<Room> rooms) =
-      RoomsLoadedEvent;
+  const factory RoomsBlocEvent.roomsLoaded(List<Room> rooms) = RoomsLoadedEvent;
 }
 
 @freezed
@@ -35,25 +34,20 @@ class RoomsBloc extends Bloc<RoomsBlocEvent, RoomsBlocState> {
   Stream<RoomsBlocState> mapEventToState(RoomsBlocEvent event) async* {
     yield* event.map(
       roomsLoaded: _onRoomsLoadedEvent,
-      roomsLoadStarted: _onRoomsLoadStartedEvent,
+      initialize: _mapInitializeToState,
     );
   }
 
-  Stream<RoomsBlocState> _onRoomsLoadedEvent(
-    RoomsLoadedEvent event,
-  ) async* {
+  Stream<RoomsBlocState> _onRoomsLoadedEvent(RoomsLoadedEvent event) async* {
     yield RoomsLoaded(event.rooms);
   }
 
-  Stream<RoomsBlocState> _onRoomsLoadStartedEvent(
-    RoomsLoadStarted event,
-  ) async* {
+  Stream<RoomsBlocState> _mapInitializeToState(Initialize event) async* {
     try {
       await _roomsSubscription?.cancel();
       _roomsSubscription = roomsRepository.dataStream.listen((event) {
         add(RoomsLoadedEvent(event));
       });
-      await roomsRepository.loadRooms();
     } catch (e, st) {
       logger.d("Failed to load rooms", e, st);
     }

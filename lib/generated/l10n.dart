@@ -90,10 +90,10 @@ class S {
     );
   }
 
-  /// `Looks like you are first time here.\nWhat is your name?`
+  /// `Looks like you are first time here.\nWhat is your name and the address of the server that application will work with?`
   String get looksLikeYouAreHereFirstTime {
     return Intl.message(
-      'Looks like you are first time here.\nWhat is your name?',
+      'Looks like you are first time here.\nWhat is your name and the address of the server that application will work with?',
       name: 'looksLikeYouAreHereFirstTime',
       desc: '',
       args: [],
@@ -110,20 +110,20 @@ class S {
     );
   }
 
-  /// `User name must have at least 4 character`
+  /// `User name must have at least 4 characters`
   String get userNameMustHaveAtLeast4Character {
     return Intl.message(
-      'User name must have at least 4 character',
+      'User name must have at least 4 characters',
       name: 'userNameMustHaveAtLeast4Character',
       desc: '',
       args: [],
     );
   }
 
-  /// `Name must have no more than 16 character`
+  /// `Name must have no more than 16 characters`
   String get nameMustHaveNoMoreThan16Character {
     return Intl.message(
-      'Name must have no more than 16 character',
+      'Name must have no more than 16 characters',
       name: 'nameMustHaveNoMoreThan16Character',
       desc: '',
       args: [],
@@ -210,20 +210,20 @@ class S {
     );
   }
 
-  /// `Room name must have at least 4 character`
+  /// `Room name must have at least 4 characters`
   String get roomNameMustHaveAtLeast4Character {
     return Intl.message(
-      'Room name must have at least 4 character',
+      'Room name must have at least 4 characters',
       name: 'roomNameMustHaveAtLeast4Character',
       desc: '',
       args: [],
     );
   }
 
-  /// `Room must have no more than 25 character`
+  /// `Room must have no more than 25 characters`
   String get roomMustHaveNoMoreThan16Character {
     return Intl.message(
-      'Room must have no more than 25 character',
+      'Room must have no more than 25 characters',
       name: 'roomMustHaveNoMoreThan16Character',
       desc: '',
       args: [],
@@ -295,6 +295,46 @@ class S {
     return Intl.message(
       'Please select room',
       name: 'pleaseSelectRoom',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Server name must have at least 4 characters`
+  String get hostIsTooShort {
+    return Intl.message(
+      'Server name must have at least 4 characters',
+      name: 'hostIsTooShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter server address`
+  String get hostName {
+    return Intl.message(
+      'Enter server address',
+      name: 'hostName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User secure connection`
+  String get useSecureConnection {
+    return Intl.message(
+      'User secure connection',
+      name: 'useSecureConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to save server address`
+  String get failedToSetHost {
+    return Intl.message(
+      'Failed to save server address',
+      name: 'failedToSetHost',
       desc: '',
       args: [],
     );

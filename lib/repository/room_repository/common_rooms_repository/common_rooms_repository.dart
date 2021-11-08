@@ -21,21 +21,8 @@ class CommonRoomsRepository extends RoomsRepository {
           localRepository: localRepository,
           paginationSize: paginationSize,
         );
-  var _initialized = false;
   StreamSubscription<List<Room>>? _localRoomsSubscription;
   StreamSubscription<ReceivedMessage>? _receivedMessagesStream;
-
-  @override
-  Future<void> initialize() async {
-    if (!_initialized) {
-      await webRepository.initialize();
-      await localRepository.initialize();
-      await messagesRepository.initialize();
-
-      _initialized = true;
-    }
-    return super.initialize();
-  }
 
   @override
   Future<void> loadRooms() async {
@@ -50,7 +37,7 @@ class CommonRoomsRepository extends RoomsRepository {
       final localRooms = await localRoomsFuture;
       final localRoomsNameSet = localRooms.map((e) => e.name).toSet();
       final webRooms = await webRepository.loadRooms();
-      for (final webRoom in webRooms) {
+      for (final webRoom in webRooms ?? <Room>[]) {
         if (!localRoomsNameSet.contains(webRoom.name)) {
           await localRepository.saveRoom(webRoom);
         }
@@ -99,14 +86,12 @@ class CommonRoomsRepository extends RoomsRepository {
       final localRoomsFuture = localRepository.dataStream.first;
       await localRepository.loadNextPage(room);
       final localRooms = await localRoomsFuture;
-      final localRoom = localRooms.firstWhereOrNull(
-        (element) => element.name == room,
-      );
+      final localRoom = localRooms.firstWhereOrNull((element) => element.name == room);
       // Messages may loading for about 15 seconds so i need to update localRoom
       final webMessages = await webRepository.loadRoomMessages(room);
 
       // Create room
-      if (localRoom == null) {
+      if (localRoom == null && webMessages != null) {
         await localRepository.saveRoom(
           Room(
             messagesCount: webMessages.length,
@@ -118,8 +103,8 @@ class CommonRoomsRepository extends RoomsRepository {
       }
 
       // Cache new messages
-      if (webMessages.isNotEmpty) {
-        if (webMessages.length > localRoom.messagesCount) {
+      if (webMessages != null && webMessages.isNotEmpty) {
+        if (localRoom == null || webMessages.length > localRoom.messagesCount) {
           await localRepository.removeAllAndSaveMessages(
             room: room,
             messages: webMessages,
@@ -146,7 +131,7 @@ class CommonRoomsRepository extends RoomsRepository {
   }
 
   @override
-  Future<void> sendMessage({String? room, CreateMessage? createMessage}) async {
+  Future<void> sendMessage({required String room, required CreateMessage createMessage}) async {
     try {
       await messagesRepository.sendMessage(
         room: room,

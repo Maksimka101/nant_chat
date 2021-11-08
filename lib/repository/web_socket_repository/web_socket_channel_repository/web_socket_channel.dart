@@ -13,6 +13,7 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
   WebSocketChannel? _webSocketChannel;
   final StreamController<T> _webSocketDataController = StreamController<T>.broadcast();
   static const _retryDuration = Duration(seconds: 4);
+  var _closed = false;
 
   @override
   Stream<T> get stream => _webSocketDataController.stream;
@@ -54,7 +55,7 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
       },
       onError: (e) async {},
       onDone: () async {
-        if (tryToRestoreConnection) {
+        if (tryToRestoreConnection && !_closed) {
           await Future.delayed(_retryDuration);
           _connect();
         }
@@ -64,7 +65,10 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
 
   @override
   Future<void> close() async {
-    await _webSocketChannel?.sink.close();
+    _closed = true;
+
+    // ignore: unawaited_futures
+    _webSocketChannel?.sink.close();
     await _webSocketDataController.close();
   }
 }

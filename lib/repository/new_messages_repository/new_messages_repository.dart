@@ -14,7 +14,7 @@ abstract class MessagesRepository extends BaseRepository<ReceivedMessage> {
 
   /// Send message to web
   Future<Message> sendMessage({
-    required String? room,
-    required CreateMessage? createMessage,
+    required String room,
+    required CreateMessage createMessage,
   });
 }

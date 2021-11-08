@@ -4,6 +4,7 @@ import 'package:nant_client/models/chat_user/chat_user.dart';
 import 'package:nant_client/models/message/message.dart';
 import 'package:nant_client/models/room/room.dart';
 import 'package:nant_client/models/user/user.dart';
+import 'package:nant_client/repository/app_host_repository/mock_app_host_repository.dart';
 import 'package:nant_client/repository/new_messages_repository/nane_new_messages_repository/nane_new_messages_repository.dart';
 import 'package:nant_client/repository/room_repository/common_rooms_repository/common_rooms_repository.dart';
 import 'package:nant_client/repository/room_repository/hive_local_rooms_repository/hive_local_rooms_repository.dart';
@@ -37,7 +38,7 @@ void main() {
         ),
         messagesRepository: NaneMessagesRepository(
           webSocketFactory: mockWebSocketRepositoryFactory,
-          wsHost: '',
+          appHostRepository: MockAppHostRepository(),
           userRepository: mockUserRepository,
         ),
       );

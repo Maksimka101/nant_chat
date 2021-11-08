@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nant_client/bloc/edit_user_bloc/edit_user_bloc.dart';
+import 'package:nant_client/bloc/sign_out_bloc/sign_out_bloc.dart';
 import 'package:nant_client/bloc/user_bloc/user_bloc.dart';
 import 'package:nant_client/generated/l10n.dart';
 import 'package:nant_client/models/user/user.dart';
@@ -30,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
               bloc: getIt.get<UserBloc>(),
               builder: (context, state) {
                 return state.maybeMap(
-                  loaded: (loaded) => _ProfileScreenBody(user: loaded.user),
+                  authorized: (loaded) => _ProfileScreenBody(user: loaded.user),
                   orElse: () => const SizedBox.shrink(),
                 );
               },
@@ -50,7 +50,7 @@ class _ProfileScreenBody extends StatelessWidget {
   final User user;
 
   void _onSignOut() {
-    getIt.get<EditUserBloc>().add(const UserDeleted());
+    getIt<SignOutBloc>().add(const SignOut());
   }
 
   @override

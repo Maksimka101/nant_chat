@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RoomsBlocEventTearOff {
   const _$RoomsBlocEventTearOff();
 
-  RoomsLoadStarted roomsLoadStarted() {
-    return const RoomsLoadStarted();
+  Initialize initialize() {
+    return const Initialize();
   }
 
   RoomsLoadedEvent roomsLoaded(List<Room> rooms) {
@@ -35,38 +35,38 @@ const $RoomsBlocEvent = _$RoomsBlocEventTearOff();
 mixin _$RoomsBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() roomsLoadStarted,
+    required TResult Function() initialize,
     required TResult Function(List<Room> rooms) roomsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? roomsLoadStarted,
+    TResult Function()? initialize,
     TResult Function(List<Room> rooms)? roomsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? roomsLoadStarted,
+    TResult Function()? initialize,
     TResult Function(List<Room> rooms)? roomsLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RoomsLoadStarted value) roomsLoadStarted,
+    required TResult Function(Initialize value) initialize,
     required TResult Function(RoomsLoadedEvent value) roomsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RoomsLoadStarted value)? roomsLoadStarted,
+    TResult Function(Initialize value)? initialize,
     TResult Function(RoomsLoadedEvent value)? roomsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RoomsLoadStarted value)? roomsLoadStarted,
+    TResult Function(Initialize value)? initialize,
     TResult Function(RoomsLoadedEvent value)? roomsLoaded,
     required TResult orElse(),
   }) =>
@@ -91,38 +91,36 @@ class _$RoomsBlocEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $RoomsLoadStartedCopyWith<$Res> {
-  factory $RoomsLoadStartedCopyWith(
-          RoomsLoadStarted value, $Res Function(RoomsLoadStarted) then) =
-      _$RoomsLoadStartedCopyWithImpl<$Res>;
+abstract class $InitializeCopyWith<$Res> {
+  factory $InitializeCopyWith(
+          Initialize value, $Res Function(Initialize) then) =
+      _$InitializeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RoomsLoadStartedCopyWithImpl<$Res>
-    extends _$RoomsBlocEventCopyWithImpl<$Res>
-    implements $RoomsLoadStartedCopyWith<$Res> {
-  _$RoomsLoadStartedCopyWithImpl(
-      RoomsLoadStarted _value, $Res Function(RoomsLoadStarted) _then)
-      : super(_value, (v) => _then(v as RoomsLoadStarted));
+class _$InitializeCopyWithImpl<$Res> extends _$RoomsBlocEventCopyWithImpl<$Res>
+    implements $InitializeCopyWith<$Res> {
+  _$InitializeCopyWithImpl(Initialize _value, $Res Function(Initialize) _then)
+      : super(_value, (v) => _then(v as Initialize));
 
   @override
-  RoomsLoadStarted get _value => super._value as RoomsLoadStarted;
+  Initialize get _value => super._value as Initialize;
 }
 
 /// @nodoc
 
-class _$RoomsLoadStarted implements RoomsLoadStarted {
-  const _$RoomsLoadStarted();
+class _$Initialize implements Initialize {
+  const _$Initialize();
 
   @override
   String toString() {
-    return 'RoomsBlocEvent.roomsLoadStarted()';
+    return 'RoomsBlocEvent.initialize()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is RoomsLoadStarted);
+        (other.runtimeType == runtimeType && other is Initialize);
   }
 
   @override
@@ -131,30 +129,30 @@ class _$RoomsLoadStarted implements RoomsLoadStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() roomsLoadStarted,
+    required TResult Function() initialize,
     required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    return roomsLoadStarted();
+    return initialize();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? roomsLoadStarted,
+    TResult Function()? initialize,
     TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    return roomsLoadStarted?.call();
+    return initialize?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? roomsLoadStarted,
+    TResult Function()? initialize,
     TResult Function(List<Room> rooms)? roomsLoaded,
     required TResult orElse(),
   }) {
-    if (roomsLoadStarted != null) {
-      return roomsLoadStarted();
+    if (initialize != null) {
+      return initialize();
     }
     return orElse();
   }
@@ -162,37 +160,37 @@ class _$RoomsLoadStarted implements RoomsLoadStarted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RoomsLoadStarted value) roomsLoadStarted,
+    required TResult Function(Initialize value) initialize,
     required TResult Function(RoomsLoadedEvent value) roomsLoaded,
   }) {
-    return roomsLoadStarted(this);
+    return initialize(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RoomsLoadStarted value)? roomsLoadStarted,
+    TResult Function(Initialize value)? initialize,
     TResult Function(RoomsLoadedEvent value)? roomsLoaded,
   }) {
-    return roomsLoadStarted?.call(this);
+    return initialize?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RoomsLoadStarted value)? roomsLoadStarted,
+    TResult Function(Initialize value)? initialize,
     TResult Function(RoomsLoadedEvent value)? roomsLoaded,
     required TResult orElse(),
   }) {
-    if (roomsLoadStarted != null) {
-      return roomsLoadStarted(this);
+    if (initialize != null) {
+      return initialize(this);
     }
     return orElse();
   }
 }
 
-abstract class RoomsLoadStarted implements RoomsBlocEvent {
-  const factory RoomsLoadStarted() = _$RoomsLoadStarted;
+abstract class Initialize implements RoomsBlocEvent {
+  const factory Initialize() = _$Initialize;
 }
 
 /// @nodoc
@@ -260,7 +258,7 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() roomsLoadStarted,
+    required TResult Function() initialize,
     required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
     return roomsLoaded(rooms);
@@ -269,7 +267,7 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? roomsLoadStarted,
+    TResult Function()? initialize,
     TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
     return roomsLoaded?.call(rooms);
@@ -278,7 +276,7 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? roomsLoadStarted,
+    TResult Function()? initialize,
     TResult Function(List<Room> rooms)? roomsLoaded,
     required TResult orElse(),
   }) {
@@ -291,7 +289,7 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(RoomsLoadStarted value) roomsLoadStarted,
+    required TResult Function(Initialize value) initialize,
     required TResult Function(RoomsLoadedEvent value) roomsLoaded,
   }) {
     return roomsLoaded(this);
@@ -300,7 +298,7 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(RoomsLoadStarted value)? roomsLoadStarted,
+    TResult Function(Initialize value)? initialize,
     TResult Function(RoomsLoadedEvent value)? roomsLoaded,
   }) {
     return roomsLoaded?.call(this);
@@ -309,7 +307,7 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(RoomsLoadStarted value)? roomsLoadStarted,
+    TResult Function(Initialize value)? initialize,
     TResult Function(RoomsLoadedEvent value)? roomsLoaded,
     required TResult orElse(),
   }) {

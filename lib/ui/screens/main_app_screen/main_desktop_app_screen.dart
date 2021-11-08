@@ -44,7 +44,7 @@ class _MainDesktopAppScreenState extends State<MainDesktopAppScreen> {
                   bloc: getIt.get<UserBloc>(),
                   builder: (context, state) {
                     return state.maybeMap(
-                      loaded: (loaded) => CircleUserAvatar(
+                      authorized: (loaded) => CircleUserAvatar(
                         name: loaded.user.name,
                         radius: 15,
                       ),

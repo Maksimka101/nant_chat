@@ -26,7 +26,14 @@ class HiveAppHostRepository extends AppHostRepository {
     await box.put(_wsHostKey, appHostInfo?.webSocketHostName);
     emit(appHostInfo);
   }
-  
+
+  @override
+  Future<void> clear() async {
+    final box = await _hostInfoBox;
+    await box.clear();
+    emit(null);
+  }
+
   @override
   Future<void> dispose() async {
     await _hostInfoBox.ifLaunched(() => _hostInfoBox.then((value) => value.close()));

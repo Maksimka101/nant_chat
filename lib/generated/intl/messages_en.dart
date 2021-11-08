@@ -39,11 +39,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterYourRoomName":
             MessageLookupByLibrary.simpleMessage("Enter your room name"),
         "failedToCreateUserDueToError": m0,
+        "failedToSetHost": MessageLookupByLibrary.simpleMessage(
+            "Failed to save server address"),
+        "hostIsTooShort": MessageLookupByLibrary.simpleMessage(
+            "Server name must have at least 4 characters"),
+        "hostName":
+            MessageLookupByLibrary.simpleMessage("Enter server address"),
         "looksLikeYouAreHereFirstTime": MessageLookupByLibrary.simpleMessage(
-            "Looks like you are first time here.\nWhat is your name?"),
+            "Looks like you are first time here.\nWhat is your name and the address of the server that application will work with?"),
         "nameMustHaveNoMoreThan16Character":
             MessageLookupByLibrary.simpleMessage(
-                "Name must have no more than 16 character"),
+                "Name must have no more than 16 characters"),
         "nantChat": MessageLookupByLibrary.simpleMessage("Nant Chat"),
         "pleaseEnterRoomName":
             MessageLookupByLibrary.simpleMessage("Please, enter room name"),
@@ -52,10 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "roomMustHaveNoMoreThan16Character":
             MessageLookupByLibrary.simpleMessage(
-                "Room must have no more than 25 character"),
+                "Room must have no more than 25 characters"),
         "roomNameMustHaveAtLeast4Character":
             MessageLookupByLibrary.simpleMessage(
-                "Room name must have at least 4 character"),
+                "Room name must have at least 4 characters"),
         "rooms": MessageLookupByLibrary.simpleMessage("Rooms"),
         "russian": MessageLookupByLibrary.simpleMessage("Russian"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign out"),
@@ -63,9 +69,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tap to change language"),
         "toCreateANewRoomYouNeedTo": MessageLookupByLibrary.simpleMessage(
             "To create a new room, you need to come up with its name and write the first message"),
+        "useSecureConnection":
+            MessageLookupByLibrary.simpleMessage("User secure connection"),
         "userNameMustHaveAtLeast4Character":
             MessageLookupByLibrary.simpleMessage(
-                "User name must have at least 4 character"),
+                "User name must have at least 4 characters"),
         "waitASecondPlease":
             MessageLookupByLibrary.simpleMessage("Wait a second please")
       };

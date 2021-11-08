@@ -6,7 +6,7 @@ import 'package:nant_client/utils/logger/logger.dart';
 class HiveUserRepository extends UserRepository {
   late final _userBox = openHiveBox<User?>(_userBoxName);
   static const _userBoxName = "UserBox";
-  
+
   @override
   Future<void> createUser(CreateUser createUser) async {
     final box = await _userBox;
@@ -55,6 +55,13 @@ class HiveUserRepository extends UserRepository {
       logger.e("Can't delete user", e, st);
       rethrow;
     }
+  }
+
+  @override
+  Future<void> clear() async {
+    final box = await _userBox;
+    await box.clear();
+    emit(null);
   }
 
   @override

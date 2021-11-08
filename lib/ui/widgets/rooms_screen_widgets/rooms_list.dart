@@ -8,8 +8,9 @@ import 'package:nant_client/utils/get_it/get_it.dart';
 
 class RoomsList extends StatelessWidget {
   const RoomsList({
+    Key? key,
     required this.onRoomSelected,
-  });
+  }) : super(key: key);
 
   final void Function(Room room) onRoomSelected;
 

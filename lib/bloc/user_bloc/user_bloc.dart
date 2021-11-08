@@ -5,13 +5,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nant_client/bloc/edit_user_bloc/edit_user_bloc.dart';
 import 'package:nant_client/models/user/user.dart';
 import 'package:nant_client/repository/user_repository/user_repository.dart';
-import 'package:nant_client/utils/logger/logger.dart';
+import 'package:nant_client/utils/extensions/object.dart';
 
 part 'user_bloc.freezed.dart';
 
 @freezed
 class UserBlocEvent with _$UserBlocEvent {
-  const factory UserBlocEvent.loadUserStarted() = LoadUserStarted;
+  /// Initialize [UserBloc] by subscribe on [UserRepository]
+  const factory UserBlocEvent.initialize() = Initialize;
 
   const factory UserBlocEvent.userLoaded(User? user) = UserLoadedEvent;
 }
@@ -20,9 +21,10 @@ class UserBlocEvent with _$UserBlocEvent {
 class UserBlocState with _$UserBlocState {
   const factory UserBlocState.initial() = Initial;
 
-  const factory UserBlocState.loaded(User user) = Loaded;
+  /// Whenever [User] is loaded and authorized
+  const factory UserBlocState.authorized(User user) = Authorized;
 
-  const factory UserBlocState.unAuthorized() = UnAuthrized;
+  const factory UserBlocState.unAuthorized() = UnAuthorized;
 }
 
 /// This bloc is used to get user
@@ -37,29 +39,19 @@ class UserBloc extends Bloc<UserBlocEvent, UserBlocState> {
   Stream<UserBlocState> mapEventToState(UserBlocEvent event) async* {
     yield* event.map(
       userLoaded: _onUserLoadedEvent,
-      loadUserStarted: _onLoadUserEvent,
+      initialize: _mapInitializeToState,
     );
   }
 
   Stream<UserBlocState> _onUserLoadedEvent(UserLoadedEvent event) async* {
-    if (event.user == null) {
-      yield const UnAuthrized();
-    } else {
-      yield Loaded(event.user!);
-    }
+    yield event.user.fold(some: (a) => Authorized(a!), none: () => const UnAuthorized());
   }
 
-  Stream<UserBlocState> _onLoadUserEvent(LoadUserStarted event) async* {
-    try {
-      await _userSubscription?.cancel();
-      _userSubscription = userRepository.dataStream.listen((event) {
-        add(UserLoadedEvent(event));
-      });
-      await userRepository.loadUser();
-    } catch (e, st) {
-      logger.d("Can't load user", e, st);
-      yield const UnAuthrized();
-    }
+  Stream<UserBlocState> _mapInitializeToState(Initialize event) async* {
+    await _userSubscription?.cancel();
+    _userSubscription = userRepository.dataStream.listen((event) {
+      add(UserLoadedEvent(event));
+    });
   }
 
   @override

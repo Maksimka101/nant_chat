@@ -20,7 +20,7 @@ class ChatWidget extends StatelessWidget {
     Key? key,
     required this.roomName,
   }) : super(key: key);
-  final String? roomName;
+  final String roomName;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class ChatWidget extends StatelessWidget {
             final room = loaded.rooms.firstWhere(
               (element) => element.name == roomName,
               orElse: () => Room(
-                name: roomName!,
+                name: roomName,
                 messagesCount: 0,
                 messages: [],
               ),
@@ -62,22 +62,24 @@ class _ChatScreenBody extends StatefulWidget {
 class __ChatScreenBodyState extends State<_ChatScreenBody> {
   var _isDarkTheme = false;
   final _messageNode = FocusNode();
+  final _scrollController = ScrollController();
 
   @override
   void initState() {
     if (widget.room.messages.length < 15) {
       _onNewMessagesRequested();
     }
-    _listenForThemeChanging(Object(), getIt.get<ThemeBloc>().state);
+    _listenForThemeChanging(null, getIt.get<ThemeBloc>().state);
+    _requestKeyboardFocus();
     super.initState();
   }
 
-  @override
-  void didChangeDependencies() {
-    if (LayoutInfo.instance.isDesktopPlatform) {
-      FocusScope.of(context).requestFocus(_messageNode);
-    }
-    super.didChangeDependencies();
+  void _requestKeyboardFocus() {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      if (LayoutInfo.instance.isDesktopPlatform) {
+        FocusScope.of(context).requestFocus(_messageNode);
+      }
+    });
   }
 
   void _onMessageSent(ChatMessage message) {
@@ -99,7 +101,7 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
 
   void _listenForThemeChanging(_, ThemeBlocState state) {
     state.maybeMap(
-      orElse: () => Object(),
+      orElse: () {},
       themeLoaded: (loaded) => loaded.appTheme.map(
         light: (_) => _isDarkTheme = false,
         dark: (_) => _isDarkTheme = true,
@@ -120,8 +122,9 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
         builder: (context, state) {
           return state.maybeMap(
             orElse: () => const SizedBox.shrink(),
-            loaded: (loaded) {
+            authorized: (loaded) {
               return DashChat(
+                scrollController: _scrollController,
                 inverted: true,
                 inputContainerStyle: BoxDecoration(
                   color: theme.dialogBackgroundColor,
@@ -169,5 +172,11 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 }

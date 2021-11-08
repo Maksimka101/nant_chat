@@ -10,8 +10,8 @@ part 'app_config.freezed.dart';
 @freezed
 class AppConfig with _$AppConfig {
   const factory AppConfig({
-    required String hostName,
-    required String webSocketHostName,
+    required String defaultHost,
+    required bool useSecureConnection,
     required Locale defaultLocale,
     required AppTheme defaultAppTheme,
     required List<Locale> supportedLocales,

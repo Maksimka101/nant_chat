@@ -52,12 +52,11 @@ abstract class BaseRepository<T> extends ResourceRepository {
     _data = newData;
     _dataStreamController.add(newData);
   }
-
-  @protected
-  // ignore: avoid_positional_boolean_parameters
-  void assertInitialized(bool assertValue) {
-    assert(assertValue, "Don't forget to call initialize()");
-  }
+  
+  /// Removes all data from the storage
+  /// 
+  /// Used to remove all data on logout
+  Future<void> clear() async {}
 
   /// Функция для очистки ресурсов репозитория. Здесь нужно закрыть соединение с
   /// базой данных

@@ -9,4 +9,8 @@ abstract class ThemeRepository extends BaseRepository<AppTheme> {
   Future<void> loadTheme();
 
   Future<void> updateTheme(AppTheme theme);
+
+  /// There is no need to clean theme on sign out
+  @override
+  Future<void> clear() async {}
 }

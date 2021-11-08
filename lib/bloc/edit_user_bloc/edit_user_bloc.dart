@@ -26,11 +26,9 @@ class EditUserBlocEvent with _$EditUserBlocEvent {
 class EditUserBlocState with _$EditUserBlocState {
   const factory EditUserBlocState.initial() = Initial;
 
-  const factory EditUserBlocState.userUpdatedSuccessfully() =
-      UserUpdatedSuccessfully;
+  const factory EditUserBlocState.userUpdatedSuccessfully() = UserUpdatedSuccessfully;
 
-  const factory EditUserBlocState.userCreatedSuccessfully() =
-      UserCreatedSuccessfully;
+  const factory EditUserBlocState.userCreatedSuccessfully() = UserCreatedSuccessfully;
 
   const factory EditUserBlocState.userCreationStarted() = UserCreationStarted;
 
@@ -59,7 +57,7 @@ class EditUserBloc extends Bloc<EditUserBlocEvent, EditUserBlocState> {
       yield const UserDeletingStarted();
       await userRepository.deleteUser();
     } catch (e, st) {
-      logger.d("Failed to create user", e, st);
+      logger.d("Failed to delete user", e, st);
       yield ErrorUserState(
         S.current.failedToCreateUserDueToError(e.toString()),
       );

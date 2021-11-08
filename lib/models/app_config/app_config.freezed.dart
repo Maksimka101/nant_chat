@@ -18,15 +18,15 @@ class _$AppConfigTearOff {
   const _$AppConfigTearOff();
 
   _AppConfig call(
-      {required String hostName,
-      required String webSocketHostName,
+      {required String defaultHost,
+      required bool useSecureConnection,
       required Locale defaultLocale,
       required AppTheme defaultAppTheme,
       required List<Locale> supportedLocales,
       required int chatPagination}) {
     return _AppConfig(
-      hostName: hostName,
-      webSocketHostName: webSocketHostName,
+      defaultHost: defaultHost,
+      useSecureConnection: useSecureConnection,
       defaultLocale: defaultLocale,
       defaultAppTheme: defaultAppTheme,
       supportedLocales: supportedLocales,
@@ -40,8 +40,8 @@ const $AppConfig = _$AppConfigTearOff();
 
 /// @nodoc
 mixin _$AppConfig {
-  String get hostName => throw _privateConstructorUsedError;
-  String get webSocketHostName => throw _privateConstructorUsedError;
+  String get defaultHost => throw _privateConstructorUsedError;
+  bool get useSecureConnection => throw _privateConstructorUsedError;
   Locale get defaultLocale => throw _privateConstructorUsedError;
   AppTheme get defaultAppTheme => throw _privateConstructorUsedError;
   List<Locale> get supportedLocales => throw _privateConstructorUsedError;
@@ -57,8 +57,8 @@ abstract class $AppConfigCopyWith<$Res> {
   factory $AppConfigCopyWith(AppConfig value, $Res Function(AppConfig) then) =
       _$AppConfigCopyWithImpl<$Res>;
   $Res call(
-      {String hostName,
-      String webSocketHostName,
+      {String defaultHost,
+      bool useSecureConnection,
       Locale defaultLocale,
       AppTheme defaultAppTheme,
       List<Locale> supportedLocales,
@@ -77,22 +77,22 @@ class _$AppConfigCopyWithImpl<$Res> implements $AppConfigCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? hostName = freezed,
-    Object? webSocketHostName = freezed,
+    Object? defaultHost = freezed,
+    Object? useSecureConnection = freezed,
     Object? defaultLocale = freezed,
     Object? defaultAppTheme = freezed,
     Object? supportedLocales = freezed,
     Object? chatPagination = freezed,
   }) {
     return _then(_value.copyWith(
-      hostName: hostName == freezed
-          ? _value.hostName
-          : hostName // ignore: cast_nullable_to_non_nullable
+      defaultHost: defaultHost == freezed
+          ? _value.defaultHost
+          : defaultHost // ignore: cast_nullable_to_non_nullable
               as String,
-      webSocketHostName: webSocketHostName == freezed
-          ? _value.webSocketHostName
-          : webSocketHostName // ignore: cast_nullable_to_non_nullable
-              as String,
+      useSecureConnection: useSecureConnection == freezed
+          ? _value.useSecureConnection
+          : useSecureConnection // ignore: cast_nullable_to_non_nullable
+              as bool,
       defaultLocale: defaultLocale == freezed
           ? _value.defaultLocale
           : defaultLocale // ignore: cast_nullable_to_non_nullable
@@ -127,8 +127,8 @@ abstract class _$AppConfigCopyWith<$Res> implements $AppConfigCopyWith<$Res> {
       __$AppConfigCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String hostName,
-      String webSocketHostName,
+      {String defaultHost,
+      bool useSecureConnection,
       Locale defaultLocale,
       AppTheme defaultAppTheme,
       List<Locale> supportedLocales,
@@ -149,22 +149,22 @@ class __$AppConfigCopyWithImpl<$Res> extends _$AppConfigCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? hostName = freezed,
-    Object? webSocketHostName = freezed,
+    Object? defaultHost = freezed,
+    Object? useSecureConnection = freezed,
     Object? defaultLocale = freezed,
     Object? defaultAppTheme = freezed,
     Object? supportedLocales = freezed,
     Object? chatPagination = freezed,
   }) {
     return _then(_AppConfig(
-      hostName: hostName == freezed
-          ? _value.hostName
-          : hostName // ignore: cast_nullable_to_non_nullable
+      defaultHost: defaultHost == freezed
+          ? _value.defaultHost
+          : defaultHost // ignore: cast_nullable_to_non_nullable
               as String,
-      webSocketHostName: webSocketHostName == freezed
-          ? _value.webSocketHostName
-          : webSocketHostName // ignore: cast_nullable_to_non_nullable
-              as String,
+      useSecureConnection: useSecureConnection == freezed
+          ? _value.useSecureConnection
+          : useSecureConnection // ignore: cast_nullable_to_non_nullable
+              as bool,
       defaultLocale: defaultLocale == freezed
           ? _value.defaultLocale
           : defaultLocale // ignore: cast_nullable_to_non_nullable
@@ -189,17 +189,17 @@ class __$AppConfigCopyWithImpl<$Res> extends _$AppConfigCopyWithImpl<$Res>
 
 class _$_AppConfig implements _AppConfig {
   const _$_AppConfig(
-      {required this.hostName,
-      required this.webSocketHostName,
+      {required this.defaultHost,
+      required this.useSecureConnection,
       required this.defaultLocale,
       required this.defaultAppTheme,
       required this.supportedLocales,
       required this.chatPagination});
 
   @override
-  final String hostName;
+  final String defaultHost;
   @override
-  final String webSocketHostName;
+  final bool useSecureConnection;
   @override
   final Locale defaultLocale;
   @override
@@ -211,7 +211,7 @@ class _$_AppConfig implements _AppConfig {
 
   @override
   String toString() {
-    return 'AppConfig(hostName: $hostName, webSocketHostName: $webSocketHostName, defaultLocale: $defaultLocale, defaultAppTheme: $defaultAppTheme, supportedLocales: $supportedLocales, chatPagination: $chatPagination)';
+    return 'AppConfig(defaultHost: $defaultHost, useSecureConnection: $useSecureConnection, defaultLocale: $defaultLocale, defaultAppTheme: $defaultAppTheme, supportedLocales: $supportedLocales, chatPagination: $chatPagination)';
   }
 
   @override
@@ -219,10 +219,10 @@ class _$_AppConfig implements _AppConfig {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppConfig &&
-            (identical(other.hostName, hostName) ||
-                other.hostName == hostName) &&
-            (identical(other.webSocketHostName, webSocketHostName) ||
-                other.webSocketHostName == webSocketHostName) &&
+            (identical(other.defaultHost, defaultHost) ||
+                other.defaultHost == defaultHost) &&
+            (identical(other.useSecureConnection, useSecureConnection) ||
+                other.useSecureConnection == useSecureConnection) &&
             (identical(other.defaultLocale, defaultLocale) ||
                 other.defaultLocale == defaultLocale) &&
             (identical(other.defaultAppTheme, defaultAppTheme) ||
@@ -236,8 +236,8 @@ class _$_AppConfig implements _AppConfig {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      hostName,
-      webSocketHostName,
+      defaultHost,
+      useSecureConnection,
       defaultLocale,
       defaultAppTheme,
       const DeepCollectionEquality().hash(supportedLocales),
@@ -251,17 +251,17 @@ class _$_AppConfig implements _AppConfig {
 
 abstract class _AppConfig implements AppConfig {
   const factory _AppConfig(
-      {required String hostName,
-      required String webSocketHostName,
+      {required String defaultHost,
+      required bool useSecureConnection,
       required Locale defaultLocale,
       required AppTheme defaultAppTheme,
       required List<Locale> supportedLocales,
       required int chatPagination}) = _$_AppConfig;
 
   @override
-  String get hostName;
+  String get defaultHost;
   @override
-  String get webSocketHostName;
+  bool get useSecureConnection;
   @override
   Locale get defaultLocale;
   @override

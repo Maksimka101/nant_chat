@@ -204,8 +204,25 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
   }
 
   @override
+  Future<void> clear() async {
+    final box = await _roomInfoBox;
+    for (final room in box.values) {
+      final messagesBox = await _getMessagesBox(room.name);
+      await messagesBox.clear();
+      await messagesBox.close();
+    }
+    _messagesBoxMap.clear();
+    await box.clear();
+    emit([]);
+  }
+
+  @override
   Future<void> dispose() async {
     await _roomInfoBox.ifLaunched(() => _roomInfoBox.then((value) => value.close()));
+    for (final messageBox in _messagesBoxMap.values) {
+      await messageBox.close();
+    }
+    _messagesBoxMap.clear();
     return super.dispose();
   }
 }

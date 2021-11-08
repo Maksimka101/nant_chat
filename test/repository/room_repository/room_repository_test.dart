@@ -4,6 +4,7 @@ import 'package:nant_client/models/chat_user/chat_user.dart';
 import 'package:nant_client/models/message/message.dart';
 import 'package:nant_client/models/room/room.dart';
 import 'package:nant_client/models/user/user.dart';
+import 'package:nant_client/repository/app_host_repository/mock_app_host_repository.dart';
 import 'package:nant_client/repository/new_messages_repository/nane_new_messages_repository/nane_new_messages_repository.dart';
 import 'package:nant_client/repository/room_repository/common_rooms_repository/common_rooms_repository.dart';
 import 'package:nant_client/repository/room_repository/hive_local_rooms_repository/hive_local_rooms_repository.dart';
@@ -16,12 +17,12 @@ import 'package:nant_client/utils/hive/hive_initializer.dart';
 
 void main() {
   group("Test room repository", () {
-    RoomsRepository roomsRepository;
-    final mockWebSocketRepository = MockWebSocketRepository<Map>('', false);
+    late RoomsRepository roomsRepository;
+    final mockWebSocketRepository = MockWebSocketRepository<Map?>('', tryToRestoreConnection: true);
     final mockWebSocketRepositoryFactory = MockWebSocketRepositoryFactory(
       mockWebSocketRepository: mockWebSocketRepository,
     );
-    final MockUserRepository mockUserRepository = MockUserRepository();
+    final mockUserRepository = MockUserRepository();
     final mockWebRoomsRepository = MockWebRoomsRepository();
 
     setUp(() async {
@@ -37,7 +38,7 @@ void main() {
         ),
         messagesRepository: NaneMessagesRepository(
           webSocketFactory: mockWebSocketRepositoryFactory,
-          wsHost: '',
+          appHostRepository: MockAppHostRepository(),
           userRepository: mockUserRepository,
         ),
       );
@@ -52,14 +53,14 @@ void main() {
           createdAt: DateTime.now().toUtc(),
         ),
       );
-      final sender = ChatUser(name: mockUserRepository.data.name);
+      final sender = ChatUser(name: mockUserRepository.data!.name);
       final initMessage = Message(
         createdAt: createRoom.initMessage.createdAt,
         text: createRoom.initMessage.text,
         sender: sender,
       );
       mockWebRoomsRepository.onLoadRoomMessages = (room) => [initMessage];
-      mockWebSocketRepository.onAdd = (map) => map.cast<String, dynamic>()
+      mockWebSocketRepository.onAdd = (map) => map!.cast<String, dynamic>()
         ..addAll(<String, dynamic>{
           'created': createRoom.initMessage.createdAt.toString(),
           "sender": {"username": sender.name},
@@ -91,7 +92,7 @@ void main() {
           createdAt: DateTime.now().toUtc(),
         ),
       );
-      final sender = ChatUser(name: mockUserRepository.data.name);
+      final sender = ChatUser(name: mockUserRepository.data!.name);
       const receiver = ChatUser(name: 'mock receiver');
       final initMessage = Message(
         createdAt: createRoom.initMessage.createdAt,

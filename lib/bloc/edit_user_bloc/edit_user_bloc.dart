@@ -10,27 +10,25 @@ import 'package:nant_client/utils/logger/logger.dart';
 part 'edit_user_bloc.freezed.dart';
 
 @freezed
-abstract class EditUserBlocEvent with _$EditUserBlocEvent {
+class EditUserBlocEvent with _$EditUserBlocEvent {
   const factory EditUserBlocEvent.userCreated({
-    @required CreateUser createUser,
+    required CreateUser createUser,
   }) = UserCreated;
 
   const factory EditUserBlocEvent.userUpdated({
-    @required UpdateUser updateUser,
+    required UpdateUser updateUser,
   }) = UserUpdated;
 
   const factory EditUserBlocEvent.userDeleted() = UserDeleted;
 }
 
 @freezed
-abstract class EditUserBlocState with _$EditUserBlocState {
+class EditUserBlocState with _$EditUserBlocState {
   const factory EditUserBlocState.initial() = Initial;
 
-  const factory EditUserBlocState.userUpdatedSuccessfully() =
-      UserUpdatedSuccessfully;
+  const factory EditUserBlocState.userUpdatedSuccessfully() = UserUpdatedSuccessfully;
 
-  const factory EditUserBlocState.userCreatedSuccessfully() =
-      UserCreatedSuccessfully;
+  const factory EditUserBlocState.userCreatedSuccessfully() = UserCreatedSuccessfully;
 
   const factory EditUserBlocState.userCreationStarted() = UserCreationStarted;
 
@@ -42,7 +40,7 @@ abstract class EditUserBlocState with _$EditUserBlocState {
 }
 
 class EditUserBloc extends Bloc<EditUserBlocEvent, EditUserBlocState> {
-  EditUserBloc({@required this.userRepository}) : super(const Initial());
+  EditUserBloc({required this.userRepository}) : super(const Initial());
   final UserRepository userRepository;
 
   @override
@@ -59,7 +57,7 @@ class EditUserBloc extends Bloc<EditUserBlocEvent, EditUserBlocState> {
       yield const UserDeletingStarted();
       await userRepository.deleteUser();
     } catch (e, st) {
-      logger.d("Failed to create user", e, st);
+      logger.d("Failed to delete user", e, st);
       yield ErrorUserState(
         S.current.failedToCreateUserDueToError(e.toString()),
       );

@@ -4,16 +4,16 @@ import 'package:nant_client/repository/web_socket_repository/web_socket_reposito
 
 class MockWebSocketRepository<T> extends WebSocketRepository<T> {
   MockWebSocketRepository(
-    String url,
-    bool tryToReconnect, {
+    String? url, {
+    required bool tryToRestoreConnection,
     this.onAdd,
-  }) : super(url, tryToReconnect);
-  T Function(T data) onAdd;
+  }) : super(url, tryToRestoreConnection: tryToRestoreConnection);
+  T Function(T data)? onAdd;
   final _dataStreamController = StreamController<T>.broadcast();
 
   @override
   void add(T data) {
-    final response = onAdd(data);
+    final response = onAdd!(data);
     if (response != null) {
       _dataStreamController.add(response);
     }

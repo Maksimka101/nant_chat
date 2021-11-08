@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'user_bloc.dart';
 
@@ -9,17 +10,18 @@ part of 'user_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$UserBlocEventTearOff {
   const _$UserBlocEventTearOff();
 
-// ignore: unused_element
-  LoadUserStarted loadUserStarted() {
-    return const LoadUserStarted();
+  Initialize initialize() {
+    return const Initialize();
   }
 
-// ignore: unused_element
-  UserLoadedEvent userLoaded(@nullable User user) {
+  UserLoadedEvent userLoaded(User? user) {
     return UserLoadedEvent(
       user,
     );
@@ -27,33 +29,48 @@ class _$UserBlocEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserBlocEvent = _$UserBlocEventTearOff();
 
 /// @nodoc
 mixin _$UserBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loadUserStarted(),
-    @required TResult userLoaded(@nullable User user),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(User? user) userLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loadUserStarted(),
-    TResult userLoaded(@nullable User user),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(User? user)? userLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loadUserStarted(LoadUserStarted value),
-    @required TResult userLoaded(UserLoadedEvent value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(User? user)? userLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loadUserStarted(LoadUserStarted value),
-    TResult userLoaded(UserLoadedEvent value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(UserLoadedEvent value) userLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(UserLoadedEvent value)? userLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(UserLoadedEvent value)? userLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -74,36 +91,36 @@ class _$UserBlocEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $LoadUserStartedCopyWith<$Res> {
-  factory $LoadUserStartedCopyWith(
-          LoadUserStarted value, $Res Function(LoadUserStarted) then) =
-      _$LoadUserStartedCopyWithImpl<$Res>;
+abstract class $InitializeCopyWith<$Res> {
+  factory $InitializeCopyWith(
+          Initialize value, $Res Function(Initialize) then) =
+      _$InitializeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadUserStartedCopyWithImpl<$Res>
-    extends _$UserBlocEventCopyWithImpl<$Res>
-    implements $LoadUserStartedCopyWith<$Res> {
-  _$LoadUserStartedCopyWithImpl(
-      LoadUserStarted _value, $Res Function(LoadUserStarted) _then)
-      : super(_value, (v) => _then(v as LoadUserStarted));
+class _$InitializeCopyWithImpl<$Res> extends _$UserBlocEventCopyWithImpl<$Res>
+    implements $InitializeCopyWith<$Res> {
+  _$InitializeCopyWithImpl(Initialize _value, $Res Function(Initialize) _then)
+      : super(_value, (v) => _then(v as Initialize));
 
   @override
-  LoadUserStarted get _value => super._value as LoadUserStarted;
+  Initialize get _value => super._value as Initialize;
 }
 
 /// @nodoc
-class _$LoadUserStarted implements LoadUserStarted {
-  const _$LoadUserStarted();
+
+class _$Initialize implements Initialize {
+  const _$Initialize();
 
   @override
   String toString() {
-    return 'UserBlocEvent.loadUserStarted()';
+    return 'UserBlocEvent.initialize()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is LoadUserStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initialize);
   }
 
   @override
@@ -111,57 +128,69 @@ class _$LoadUserStarted implements LoadUserStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loadUserStarted(),
-    @required TResult userLoaded(@nullable User user),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(User? user) userLoaded,
   }) {
-    assert(loadUserStarted != null);
-    assert(userLoaded != null);
-    return loadUserStarted();
+    return initialize();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loadUserStarted(),
-    TResult userLoaded(@nullable User user),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(User? user)? userLoaded,
   }) {
-    assert(orElse != null);
-    if (loadUserStarted != null) {
-      return loadUserStarted();
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(User? user)? userLoaded,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loadUserStarted(LoadUserStarted value),
-    @required TResult userLoaded(UserLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(UserLoadedEvent value) userLoaded,
   }) {
-    assert(loadUserStarted != null);
-    assert(userLoaded != null);
-    return loadUserStarted(this);
+    return initialize(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loadUserStarted(LoadUserStarted value),
-    TResult userLoaded(UserLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(UserLoadedEvent value)? userLoaded,
   }) {
-    assert(orElse != null);
-    if (loadUserStarted != null) {
-      return loadUserStarted(this);
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(UserLoadedEvent value)? userLoaded,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
     }
     return orElse();
   }
 }
 
-abstract class LoadUserStarted implements UserBlocEvent {
-  const factory LoadUserStarted() = _$LoadUserStarted;
+abstract class Initialize implements UserBlocEvent {
+  const factory Initialize() = _$Initialize;
 }
 
 /// @nodoc
@@ -169,9 +198,9 @@ abstract class $UserLoadedEventCopyWith<$Res> {
   factory $UserLoadedEventCopyWith(
           UserLoadedEvent value, $Res Function(UserLoadedEvent) then) =
       _$UserLoadedEventCopyWithImpl<$Res>;
-  $Res call({@nullable User user});
+  $Res call({User? user});
 
-  $UserCopyWith<$Res> get user;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -187,31 +216,35 @@ class _$UserLoadedEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object user = freezed,
+    Object? user = freezed,
   }) {
     return _then(UserLoadedEvent(
-      user == freezed ? _value.user : user as User,
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 
   @override
-  $UserCopyWith<$Res> get user {
+  $UserCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
-    return $UserCopyWith<$Res>(_value.user, (value) {
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
 }
 
 /// @nodoc
+
 class _$UserLoadedEvent implements UserLoadedEvent {
-  const _$UserLoadedEvent(@nullable this.user);
+  const _$UserLoadedEvent(this.user);
 
   @override
-  @nullable
-  final User user;
+  final User? user;
 
   @override
   String toString() {
@@ -221,14 +254,13 @@ class _$UserLoadedEvent implements UserLoadedEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UserLoadedEvent &&
-            (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)));
+        (other.runtimeType == runtimeType &&
+            other is UserLoadedEvent &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+  int get hashCode => Object.hash(runtimeType, user);
 
   @JsonKey(ignore: true)
   @override
@@ -237,23 +269,29 @@ class _$UserLoadedEvent implements UserLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult loadUserStarted(),
-    @required TResult userLoaded(@nullable User user),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(User? user) userLoaded,
   }) {
-    assert(loadUserStarted != null);
-    assert(userLoaded != null);
     return userLoaded(user);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult loadUserStarted(),
-    TResult userLoaded(@nullable User user),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(User? user)? userLoaded,
   }) {
-    assert(orElse != null);
+    return userLoaded?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(User? user)? userLoaded,
+    required TResult orElse(),
+  }) {
     if (userLoaded != null) {
       return userLoaded(user);
     }
@@ -262,23 +300,29 @@ class _$UserLoadedEvent implements UserLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult loadUserStarted(LoadUserStarted value),
-    @required TResult userLoaded(UserLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(UserLoadedEvent value) userLoaded,
   }) {
-    assert(loadUserStarted != null);
-    assert(userLoaded != null);
     return userLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult loadUserStarted(LoadUserStarted value),
-    TResult userLoaded(UserLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(UserLoadedEvent value)? userLoaded,
   }) {
-    assert(orElse != null);
+    return userLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(UserLoadedEvent value)? userLoaded,
+    required TResult orElse(),
+  }) {
     if (userLoaded != null) {
       return userLoaded(this);
     }
@@ -287,68 +331,82 @@ class _$UserLoadedEvent implements UserLoadedEvent {
 }
 
 abstract class UserLoadedEvent implements UserBlocEvent {
-  const factory UserLoadedEvent(@nullable User user) = _$UserLoadedEvent;
+  const factory UserLoadedEvent(User? user) = _$UserLoadedEvent;
 
-  @nullable
-  User get user;
+  User? get user;
   @JsonKey(ignore: true)
-  $UserLoadedEventCopyWith<UserLoadedEvent> get copyWith;
+  $UserLoadedEventCopyWith<UserLoadedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UserBlocStateTearOff {
   const _$UserBlocStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return const Initial();
   }
 
-// ignore: unused_element
-  Loaded loaded(User user) {
-    return Loaded(
+  Authorized authorized(User user) {
+    return Authorized(
       user,
     );
   }
 
-// ignore: unused_element
-  UnAuthrized unAuthorized() {
-    return const UnAuthrized();
+  UnAuthorized unAuthorized() {
+    return const UnAuthorized();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UserBlocState = _$UserBlocStateTearOff();
 
 /// @nodoc
 mixin _$UserBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(User user),
-    @required TResult unAuthorized(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(User user) authorized,
+    required TResult Function() unAuthorized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(User user),
-    TResult unAuthorized(),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loaded(Loaded value),
-    @required TResult unAuthorized(UnAuthrized value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loaded(Loaded value),
-    TResult unAuthorized(UnAuthrized value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authorized value) authorized,
+    required TResult Function(UnAuthorized value) unAuthorized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -385,6 +443,7 @@ class _$InitialCopyWithImpl<$Res> extends _$UserBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -395,7 +454,8 @@ class _$Initial implements Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
@@ -403,26 +463,32 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(User user),
-    @required TResult unAuthorized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(User user) authorized,
+    required TResult Function() unAuthorized,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(unAuthorized != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(User user),
-    TResult unAuthorized(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
   }) {
-    assert(orElse != null);
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial();
     }
@@ -431,26 +497,32 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loaded(Loaded value),
-    @required TResult unAuthorized(UnAuthrized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authorized value) authorized,
+    required TResult Function(UnAuthorized value) unAuthorized,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(unAuthorized != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loaded(Loaded value),
-    TResult unAuthorized(UnAuthrized value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -463,37 +535,38 @@ abstract class Initial implements UserBlocState {
 }
 
 /// @nodoc
-abstract class $LoadedCopyWith<$Res> {
-  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) then) =
-      _$LoadedCopyWithImpl<$Res>;
+abstract class $AuthorizedCopyWith<$Res> {
+  factory $AuthorizedCopyWith(
+          Authorized value, $Res Function(Authorized) then) =
+      _$AuthorizedCopyWithImpl<$Res>;
   $Res call({User user});
 
   $UserCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class _$LoadedCopyWithImpl<$Res> extends _$UserBlocStateCopyWithImpl<$Res>
-    implements $LoadedCopyWith<$Res> {
-  _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
-      : super(_value, (v) => _then(v as Loaded));
+class _$AuthorizedCopyWithImpl<$Res> extends _$UserBlocStateCopyWithImpl<$Res>
+    implements $AuthorizedCopyWith<$Res> {
+  _$AuthorizedCopyWithImpl(Authorized _value, $Res Function(Authorized) _then)
+      : super(_value, (v) => _then(v as Authorized));
 
   @override
-  Loaded get _value => super._value as Loaded;
+  Authorized get _value => super._value as Authorized;
 
   @override
   $Res call({
-    Object user = freezed,
+    Object? user = freezed,
   }) {
-    return _then(Loaded(
-      user == freezed ? _value.user : user as User,
+    return _then(Authorized(
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
     ));
   }
 
   @override
   $UserCopyWith<$Res> get user {
-    if (_value.user == null) {
-      return null;
-    }
     return $UserCopyWith<$Res>(_value.user, (value) {
       return _then(_value.copyWith(user: value));
     });
@@ -501,120 +574,134 @@ class _$LoadedCopyWithImpl<$Res> extends _$UserBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$Loaded implements Loaded {
-  const _$Loaded(this.user) : assert(user != null);
+
+class _$Authorized implements Authorized {
+  const _$Authorized(this.user);
 
   @override
   final User user;
 
   @override
   String toString() {
-    return 'UserBlocState.loaded(user: $user)';
+    return 'UserBlocState.authorized(user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Loaded &&
-            (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)));
+        (other.runtimeType == runtimeType &&
+            other is Authorized &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+  int get hashCode => Object.hash(runtimeType, user);
 
   @JsonKey(ignore: true)
   @override
-  $LoadedCopyWith<Loaded> get copyWith =>
-      _$LoadedCopyWithImpl<Loaded>(this, _$identity);
+  $AuthorizedCopyWith<Authorized> get copyWith =>
+      _$AuthorizedCopyWithImpl<Authorized>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(User user),
-    @required TResult unAuthorized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(User user) authorized,
+    required TResult Function() unAuthorized,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(unAuthorized != null);
-    return loaded(user);
+    return authorized(user);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(User user),
-    TResult unAuthorized(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
   }) {
-    assert(orElse != null);
-    if (loaded != null) {
-      return loaded(user);
+    return authorized?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
+    required TResult orElse(),
+  }) {
+    if (authorized != null) {
+      return authorized(user);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loaded(Loaded value),
-    @required TResult unAuthorized(UnAuthrized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authorized value) authorized,
+    required TResult Function(UnAuthorized value) unAuthorized,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(unAuthorized != null);
-    return loaded(this);
+    return authorized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loaded(Loaded value),
-    TResult unAuthorized(UnAuthrized value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
   }) {
-    assert(orElse != null);
-    if (loaded != null) {
-      return loaded(this);
+    return authorized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
+    required TResult orElse(),
+  }) {
+    if (authorized != null) {
+      return authorized(this);
     }
     return orElse();
   }
 }
 
-abstract class Loaded implements UserBlocState {
-  const factory Loaded(User user) = _$Loaded;
+abstract class Authorized implements UserBlocState {
+  const factory Authorized(User user) = _$Authorized;
 
   User get user;
   @JsonKey(ignore: true)
-  $LoadedCopyWith<Loaded> get copyWith;
+  $AuthorizedCopyWith<Authorized> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnAuthrizedCopyWith<$Res> {
-  factory $UnAuthrizedCopyWith(
-          UnAuthrized value, $Res Function(UnAuthrized) then) =
-      _$UnAuthrizedCopyWithImpl<$Res>;
+abstract class $UnAuthorizedCopyWith<$Res> {
+  factory $UnAuthorizedCopyWith(
+          UnAuthorized value, $Res Function(UnAuthorized) then) =
+      _$UnAuthorizedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UnAuthrizedCopyWithImpl<$Res> extends _$UserBlocStateCopyWithImpl<$Res>
-    implements $UnAuthrizedCopyWith<$Res> {
-  _$UnAuthrizedCopyWithImpl(
-      UnAuthrized _value, $Res Function(UnAuthrized) _then)
-      : super(_value, (v) => _then(v as UnAuthrized));
+class _$UnAuthorizedCopyWithImpl<$Res> extends _$UserBlocStateCopyWithImpl<$Res>
+    implements $UnAuthorizedCopyWith<$Res> {
+  _$UnAuthorizedCopyWithImpl(
+      UnAuthorized _value, $Res Function(UnAuthorized) _then)
+      : super(_value, (v) => _then(v as UnAuthorized));
 
   @override
-  UnAuthrized get _value => super._value as UnAuthrized;
+  UnAuthorized get _value => super._value as UnAuthorized;
 }
 
 /// @nodoc
-class _$UnAuthrized implements UnAuthrized {
-  const _$UnAuthrized();
+
+class _$UnAuthorized implements UnAuthorized {
+  const _$UnAuthorized();
 
   @override
   String toString() {
@@ -623,7 +710,8 @@ class _$UnAuthrized implements UnAuthrized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UnAuthrized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UnAuthorized);
   }
 
   @override
@@ -631,26 +719,32 @@ class _$UnAuthrized implements UnAuthrized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult loaded(User user),
-    @required TResult unAuthorized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(User user) authorized,
+    required TResult Function() unAuthorized,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(unAuthorized != null);
     return unAuthorized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult loaded(User user),
-    TResult unAuthorized(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
   }) {
-    assert(orElse != null);
+    return unAuthorized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(User user)? authorized,
+    TResult Function()? unAuthorized,
+    required TResult orElse(),
+  }) {
     if (unAuthorized != null) {
       return unAuthorized();
     }
@@ -659,26 +753,32 @@ class _$UnAuthrized implements UnAuthrized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult loaded(Loaded value),
-    @required TResult unAuthorized(UnAuthrized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authorized value) authorized,
+    required TResult Function(UnAuthorized value) unAuthorized,
   }) {
-    assert(initial != null);
-    assert(loaded != null);
-    assert(unAuthorized != null);
     return unAuthorized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult loaded(Loaded value),
-    TResult unAuthorized(UnAuthrized value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
   }) {
-    assert(orElse != null);
+    return unAuthorized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authorized value)? authorized,
+    TResult Function(UnAuthorized value)? unAuthorized,
+    required TResult orElse(),
+  }) {
     if (unAuthorized != null) {
       return unAuthorized(this);
     }
@@ -686,6 +786,6 @@ class _$UnAuthrized implements UnAuthrized {
   }
 }
 
-abstract class UnAuthrized implements UserBlocState {
-  const factory UnAuthrized() = _$UnAuthrized;
+abstract class UnAuthorized implements UserBlocState {
+  const factory UnAuthorized() = _$UnAuthorized;
 }

@@ -7,8 +7,8 @@ part 'chat_user.g.dart';
 /// Chat user with name, avatar [not now], and another info
 @HiveType(typeId: 1)
 @freezed
-abstract class ChatUser with _$ChatUser {
+class ChatUser with _$ChatUser {
   const factory ChatUser({
-    @HiveField(0) @required String name,
+    @HiveField(0) required String name,
   }) = _ChatUser;
 }

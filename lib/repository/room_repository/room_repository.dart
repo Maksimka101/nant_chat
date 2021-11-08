@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:nant_client/models/message/message.dart';
 import 'package:nant_client/models/room/room.dart';
 import 'package:nant_client/repository/base_repository.dart';
@@ -8,10 +7,10 @@ import 'package:nant_client/repository/room_repository/web_room_repository.dart'
 
 abstract class RoomsRepository extends BaseRepository<List<Room>> {
   RoomsRepository({
-    @required this.localRepository,
-    @required this.webRepository,
-    @required this.messagesRepository,
-    @required this.paginationSize,
+    required this.localRepository,
+    required this.webRepository,
+    required this.messagesRepository,
+    required this.paginationSize,
   });
 
   final int paginationSize;
@@ -30,8 +29,8 @@ abstract class RoomsRepository extends BaseRepository<List<Room>> {
   Future<void> loadNextPage(String room);
 
   Future<void> sendMessage({
-    @required String room,
-    @required CreateMessage createMessage,
+    required String room,
+    required CreateMessage createMessage,
   });
 
   Future<void> createRoom(CreateRoom createRoom);

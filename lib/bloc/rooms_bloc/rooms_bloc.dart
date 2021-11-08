@@ -9,15 +9,14 @@ import 'package:nant_client/utils/logger/logger.dart';
 part 'rooms_bloc.freezed.dart';
 
 @freezed
-abstract class RoomsBlocEvent with _$RoomsBlocEvent {
-  const factory RoomsBlocEvent.roomsLoadStarted() = RoomsLoadStarted;
+class RoomsBlocEvent with _$RoomsBlocEvent {
+  const factory RoomsBlocEvent.initialize() = Initialize;
 
-  const factory RoomsBlocEvent.roomsLoaded(@nullable List<Room> rooms) =
-      RoomsLoadedEvent;
+  const factory RoomsBlocEvent.roomsLoaded(List<Room> rooms) = RoomsLoadedEvent;
 }
 
 @freezed
-abstract class RoomsBlocState with _$RoomsBlocState {
+class RoomsBlocState with _$RoomsBlocState {
   const factory RoomsBlocState.initial() = Initial;
 
   const factory RoomsBlocState.roomsLoaded(List<Room> rooms) = RoomsLoaded;
@@ -25,35 +24,30 @@ abstract class RoomsBlocState with _$RoomsBlocState {
 
 class RoomsBloc extends Bloc<RoomsBlocEvent, RoomsBlocState> {
   RoomsBloc({
-    @required this.roomsRepository,
+    required this.roomsRepository,
   }) : super(const Initial());
 
   final RoomsRepository roomsRepository;
-  StreamSubscription<List<Room>> _roomsSubscription;
+  StreamSubscription<List<Room>>? _roomsSubscription;
 
   @override
   Stream<RoomsBlocState> mapEventToState(RoomsBlocEvent event) async* {
     yield* event.map(
       roomsLoaded: _onRoomsLoadedEvent,
-      roomsLoadStarted: _onRoomsLoadStartedEvent,
+      initialize: _mapInitializeToState,
     );
   }
 
-  Stream<RoomsBlocState> _onRoomsLoadedEvent(
-    RoomsLoadedEvent event,
-  ) async* {
-    yield RoomsLoaded(event.rooms ?? []);
+  Stream<RoomsBlocState> _onRoomsLoadedEvent(RoomsLoadedEvent event) async* {
+    yield RoomsLoaded(event.rooms);
   }
 
-  Stream<RoomsBlocState> _onRoomsLoadStartedEvent(
-    RoomsLoadStarted event,
-  ) async* {
+  Stream<RoomsBlocState> _mapInitializeToState(Initialize event) async* {
     try {
       await _roomsSubscription?.cancel();
       _roomsSubscription = roomsRepository.dataStream.listen((event) {
         add(RoomsLoadedEvent(event));
       });
-      await roomsRepository.loadRooms();
     } catch (e, st) {
       logger.d("Failed to load rooms", e, st);
     }

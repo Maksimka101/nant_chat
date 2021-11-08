@@ -5,7 +5,7 @@ import 'package:nant_client/utils/platform_info/platform_info.dart';
 
 class PlatformLoading extends StatelessWidget {
   const PlatformLoading({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

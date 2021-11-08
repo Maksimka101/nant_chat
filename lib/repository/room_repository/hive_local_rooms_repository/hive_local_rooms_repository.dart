@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:nant_client/models/message/message.dart';
 import 'package:nant_client/models/room/room.dart';
@@ -7,47 +6,38 @@ import 'package:nant_client/repository/room_repository/local_rooms_repository.da
 import 'package:nant_client/utils/extensions/hive.dart';
 import 'package:nant_client/utils/extensions/messages.dart';
 import 'package:nant_client/utils/extensions/object.dart';
+import 'package:nant_client/utils/hive/hive_box_utils.dart';
 
 class HiveLocalRoomsRepository extends LocalRoomsRepository {
   HiveLocalRoomsRepository({
-    @required int paginationSize,
+    required int paginationSize,
   }) : super(paginationSize: paginationSize);
 
   static const _roomInfoBoxName = "RoomInfoBox";
 
   /// Store all rooms info
-  Box<HiveRoom> _roomInfoBox;
-  var _initialized = false;
+  late final _roomInfoBox = openHiveBox<HiveRoom>(_roomInfoBoxName);
   final _roomsMap = <String, Room>{};
 
   /// Boxes with messages of the room
-  final _messagesBoxMap = <String, LazyBox<Message>>{};
+  final _messagesBoxMap = <String, LazyBox<Message?>>{};
 
-  @override
-  Future<void> initialize() async {
-    if (!_initialized) {
-      _roomInfoBox = await Hive.openBox<HiveRoom>(_roomInfoBoxName);
-      _initialized = true;
-    }
-    return super.initialize();
-  }
-
-  Future<LazyBox<Message>> _getMessagesBox(String room) async {
-    _messagesBoxMap[room] ??= await Hive.openLazyBox<Message>(
+  Future<LazyBox<Message?>> _getMessagesBox(String room) async {
+    final box = _messagesBoxMap[room] ??= await Hive.openLazyBox<Message?>(
       "msgOf$room".hashCode.toString(),
     );
-    if (!_messagesBoxMap[room].isOpen) {
-      _messagesBoxMap[room] = await Hive.openLazyBox<Message>(
+    if (!box.isOpen) {
+      _messagesBoxMap[room] = await Hive.openLazyBox<Message?>(
         "msgOf$room".hashCode.toString(),
       );
     }
-    return _messagesBoxMap[room];
+    return box;
   }
 
   @override
   Future<void> loadRooms() async {
-    assertInitialized(_roomInfoBox != null);
-    final hiveRooms = _roomInfoBox.toMap();
+    final box = await _roomInfoBox;
+    final hiveRooms = box.toMap();
     for (final loadedEntry in hiveRooms.entries) {
       final key = loadedEntry.value.name;
       final existingRoom = _roomsMap[key];
@@ -69,23 +59,23 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   /// Load messages [forRoom] in range [fromMessage]..[toMessage] not inclusive [toMessage]
   Future<List<Message>> _loadMessages({
-    @required String forRoom,
-    @required int fromMessage,
-    @required int toMessage,
+    required String forRoom,
+    required int fromMessage,
+    required int toMessage,
   }) async {
     final messagesBox = await _getMessagesBox(forRoom);
     final messages = <Message>[];
-    for (int i = toMessage - 1;
-        i >= (fromMessage >= 0 ? fromMessage : 0);
-        i--) {
+    for (var i = toMessage - 1; i >= (fromMessage >= 0 ? fromMessage : 0); i--) {
       try {
         final message = await messagesBox.getAt(i);
         if (message == null) {
           break;
         }
-        messages.add(message.copyWith.call(
-          createdAt: message.createdAt.toUtc(),
-        ));
+        messages.add(
+          message.copyWith.call(
+            createdAt: message.createdAt.toUtc(),
+          ),
+        );
       } catch (_) {
         // No more messages in cache
         break;
@@ -103,7 +93,7 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> loadNextPage(String room) async {
-    assertInitialized(_roomInfoBox != null);
+    final box = await _roomInfoBox;
     final currentRoom = _roomsMap[room];
 
     if (currentRoom == null) {
@@ -111,11 +101,10 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
     }
 
     final currentMessagesCount = currentRoom.messages.length;
-    final hiveRoom = _roomInfoBox.get(room.toHiveKey());
+    final hiveRoom = box.get(room.toHiveKey())!;
     final newMessages = await _loadMessages(
       forRoom: room,
-      fromMessage:
-          hiveRoom.messagesCount - paginationSize - currentMessagesCount,
+      fromMessage: hiveRoom.messagesCount - paginationSize - currentMessagesCount,
       toMessage: hiveRoom.messagesCount - currentMessagesCount,
     );
     _roomsMap[room] = currentRoom.copyWith.call(
@@ -128,14 +117,14 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
   }
 
   @override
-  Future<void> saveMessage({String room, Message message}) async {
-    assertInitialized(_roomInfoBox != null);
-    var hiveRoom = _roomInfoBox.get(room.toHiveKey());
-    hiveRoom = hiveRoom?.copyWith?.call(
+  Future<void> saveMessage({required String room, required Message message}) async {
+    final box = await _roomInfoBox;
+    var hiveRoom = box.get(room.toHiveKey());
+    hiveRoom = hiveRoom?.copyWith.call(
           messagesCount: hiveRoom.messagesCount + 1,
         ) ??
         HiveRoom(name: room, messagesCount: 1);
-    await _roomInfoBox.put(room.toHiveKey(), hiveRoom);
+    await box.put(room.toHiveKey(), hiveRoom);
     final messagesBox = await _getMessagesBox(room);
     await messagesBox.add(message);
     _roomsMap[room] = _roomsMap[room]?.let(
@@ -143,7 +132,7 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
             messages: it.messages
               ..add(message)
               ..sortMessages(),
-            messagesCount: hiveRoom.messagesCount,
+            messagesCount: hiveRoom!.messagesCount,
           ),
         ) ??
         Room(
@@ -155,22 +144,22 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
   }
 
   @override
-  Future<void> saveMessages({String room, List<Message> messages}) async {
-    assertInitialized(_roomInfoBox != null);
-    var hiveRoom = _roomInfoBox.get(room.toHiveKey());
-    hiveRoom = hiveRoom?.copyWith?.call(
+  Future<void> saveMessages({required String room, required List<Message> messages}) async {
+    final box = await _roomInfoBox;
+    var hiveRoom = box.get(room.toHiveKey());
+    hiveRoom = hiveRoom?.copyWith.call(
           messagesCount: hiveRoom.messagesCount + messages.length,
         ) ??
         HiveRoom(name: room, messagesCount: messages.length);
-    await _roomInfoBox.put(room.toHiveKey(), hiveRoom);
+    await box.put(room.toHiveKey(), hiveRoom);
     final messagesBox = await _getMessagesBox(room);
     await messagesBox.addAll(messages);
     _roomsMap[room] = _roomsMap[room].let(
-      (it) => it.copyWith.call(
+      (it) => it!.copyWith.call(
         messages: it.messages
           ..addAll(messages)
           ..sortMessages(),
-        messagesCount: hiveRoom.messagesCount,
+        messagesCount: hiveRoom!.messagesCount,
       ),
     );
     _emit();
@@ -178,12 +167,12 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> removeAllAndSaveMessages({
-    String room,
-    List<Message> messages,
+    required String room,
+    required List<Message> messages,
   }) async {
-    assertInitialized(_roomInfoBox != null);
-    final hiveRoom = _roomInfoBox.get(room);
-    await _roomInfoBox.put(
+    final box = await _roomInfoBox;
+    final hiveRoom = box.get(room);
+    await box.put(
       room.toHiveKey(),
       HiveRoom(name: room, messagesCount: messages.length),
     );
@@ -203,8 +192,8 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
 
   @override
   Future<void> saveRoom(Room room) async {
-    assertInitialized(_roomInfoBox != null);
-    await _roomInfoBox.put(
+    final box = await _roomInfoBox;
+    await box.put(
       room.name.toHiveKey(),
       HiveRoom(name: room.name, messagesCount: room.messages.length),
     );
@@ -215,8 +204,25 @@ class HiveLocalRoomsRepository extends LocalRoomsRepository {
   }
 
   @override
+  Future<void> clear() async {
+    final box = await _roomInfoBox;
+    for (final room in box.values) {
+      final messagesBox = await _getMessagesBox(room.name);
+      await messagesBox.clear();
+      await messagesBox.close();
+    }
+    _messagesBoxMap.clear();
+    await box.clear();
+    emit([]);
+  }
+
+  @override
   Future<void> dispose() async {
-    await _roomInfoBox?.close();
+    await _roomInfoBox.ifLaunched(() => _roomInfoBox.then((value) => value.close()));
+    for (final messageBox in _messagesBoxMap.values) {
+      await messageBox.close();
+    }
+    _messagesBoxMap.clear();
     return super.dispose();
   }
 }

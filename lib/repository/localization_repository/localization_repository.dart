@@ -14,4 +14,8 @@ abstract class LocalizationRepository extends BaseRepository<Locale> {
 
   /// This function may throws exceptions
   Future<void> changeLocale(Locale locale);
+
+  /// There is no need to clean locale on sign out
+  @override
+  Future<void> clear() async {}
 }

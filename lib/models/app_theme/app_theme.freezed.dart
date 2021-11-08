@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'app_theme.dart';
 
@@ -9,49 +10,65 @@ part of 'app_theme.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AppThemeTearOff {
   const _$AppThemeTearOff();
 
-// ignore: unused_element
   AppLightTheme light() {
     return const AppLightTheme();
   }
 
-// ignore: unused_element
   AppDarkTheme dark() {
     return const AppDarkTheme();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AppTheme = _$AppThemeTearOff();
 
 /// @nodoc
 mixin _$AppTheme {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult light(),
-    @required TResult dark(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() light,
+    required TResult Function() dark,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult light(),
-    TResult dark(),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult light(AppLightTheme value),
-    @required TResult dark(AppDarkTheme value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult light(AppLightTheme value),
-    TResult dark(AppDarkTheme value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLightTheme value) light,
+    required TResult Function(AppDarkTheme value) dark,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AppLightTheme value)? light,
+    TResult Function(AppDarkTheme value)? dark,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLightTheme value)? light,
+    TResult Function(AppDarkTheme value)? dark,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -88,6 +105,7 @@ class _$AppLightThemeCopyWithImpl<$Res> extends _$AppThemeCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AppLightTheme implements AppLightTheme {
   const _$AppLightTheme();
 
@@ -98,7 +116,8 @@ class _$AppLightTheme implements AppLightTheme {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AppLightTheme);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppLightTheme);
   }
 
   @override
@@ -106,23 +125,29 @@ class _$AppLightTheme implements AppLightTheme {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult light(),
-    @required TResult dark(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() light,
+    required TResult Function() dark,
   }) {
-    assert(light != null);
-    assert(dark != null);
     return light();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult light(),
-    TResult dark(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
   }) {
-    assert(orElse != null);
+    return light?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+    required TResult orElse(),
+  }) {
     if (light != null) {
       return light();
     }
@@ -131,23 +156,29 @@ class _$AppLightTheme implements AppLightTheme {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult light(AppLightTheme value),
-    @required TResult dark(AppDarkTheme value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLightTheme value) light,
+    required TResult Function(AppDarkTheme value) dark,
   }) {
-    assert(light != null);
-    assert(dark != null);
     return light(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult light(AppLightTheme value),
-    TResult dark(AppDarkTheme value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AppLightTheme value)? light,
+    TResult Function(AppDarkTheme value)? dark,
   }) {
-    assert(orElse != null);
+    return light?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLightTheme value)? light,
+    TResult Function(AppDarkTheme value)? dark,
+    required TResult orElse(),
+  }) {
     if (light != null) {
       return light(this);
     }
@@ -178,6 +209,7 @@ class _$AppDarkThemeCopyWithImpl<$Res> extends _$AppThemeCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AppDarkTheme implements AppDarkTheme {
   const _$AppDarkTheme();
 
@@ -188,7 +220,8 @@ class _$AppDarkTheme implements AppDarkTheme {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AppDarkTheme);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppDarkTheme);
   }
 
   @override
@@ -196,23 +229,29 @@ class _$AppDarkTheme implements AppDarkTheme {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult light(),
-    @required TResult dark(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() light,
+    required TResult Function() dark,
   }) {
-    assert(light != null);
-    assert(dark != null);
     return dark();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult light(),
-    TResult dark(),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
   }) {
-    assert(orElse != null);
+    return dark?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? light,
+    TResult Function()? dark,
+    required TResult orElse(),
+  }) {
     if (dark != null) {
       return dark();
     }
@@ -221,23 +260,29 @@ class _$AppDarkTheme implements AppDarkTheme {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult light(AppLightTheme value),
-    @required TResult dark(AppDarkTheme value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLightTheme value) light,
+    required TResult Function(AppDarkTheme value) dark,
   }) {
-    assert(light != null);
-    assert(dark != null);
     return dark(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult light(AppLightTheme value),
-    TResult dark(AppDarkTheme value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AppLightTheme value)? light,
+    TResult Function(AppDarkTheme value)? dark,
   }) {
-    assert(orElse != null);
+    return dark?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLightTheme value)? light,
+    TResult Function(AppDarkTheme value)? dark,
+    required TResult orElse(),
+  }) {
     if (dark != null) {
       return dark(this);
     }

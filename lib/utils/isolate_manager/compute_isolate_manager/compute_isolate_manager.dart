@@ -11,12 +11,12 @@ class ComputeIsolateManager implements IsolateManager {
   Future<void> initialize() async {}
 
   @override
-  Future jsonDecode(String string) {
+  Future jsonDecode(String? string) {
     return compute(_decodeJson, string);
   }
 
-  static dynamic _decodeJson(String string) {
-    return json.decode(string);
+  static dynamic _decodeJson(String? string) {
+    return json.decode(string!);
   }
 
   @override

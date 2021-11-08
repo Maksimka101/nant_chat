@@ -38,13 +38,13 @@ import 'package:nant_client/repository/resource_repository.dart';
 /// ```
 abstract class BaseRepository<T> extends ResourceRepository {
   final _dataStreamController = StreamController<T>.broadcast();
-  T _data;
+  T? _data;
 
   /// Поток данных типа [T]
   Stream<T> get dataStream => _dataStreamController.stream;
 
   /// Последнее значение типа [T], которое попало в valueStream
-  T get data => _data;
+  T? get data => _data;
 
   /// Добавляет [newData] в [dataStream] и обновляет [data]
   @protected
@@ -52,11 +52,11 @@ abstract class BaseRepository<T> extends ResourceRepository {
     _data = newData;
     _dataStreamController.add(newData);
   }
-
-  @protected
-  void assertInitialized(bool assertValue) {
-    assert(assertValue, "Don't forget to call initialize()");
-  }
+  
+  /// Removes all data from the storage
+  /// 
+  /// Used to remove all data on logout
+  Future<void> clear() async {}
 
   /// Функция для очистки ресурсов репозитория. Здесь нужно закрыть соединение с
   /// базой данных

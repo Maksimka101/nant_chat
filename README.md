@@ -19,6 +19,7 @@ Chat client for the [test task](https://github.com/tada-team/nane)
 
 ## Under the hood
 
+- lazy repositories
 - flutter bloc
 - freezed for models
 - hive for cache

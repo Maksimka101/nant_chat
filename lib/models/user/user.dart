@@ -7,22 +7,22 @@ part 'user.g.dart';
 
 @HiveType(typeId: 3)
 @freezed
-abstract class User with _$User {
+class User with _$User {
   const factory User({
-    @HiveField(0) @required String name,
+    @HiveField(0) required String name,
   }) = _User;
 }
 
 @freezed
-abstract class CreateUser with _$CreateUser {
+class CreateUser with _$CreateUser {
   const factory CreateUser({
-    @required String name,
+    required String name,
   }) = _CreateUser;
 }
 
 @freezed
-abstract class UpdateUser with _$UpdateUser {
+class UpdateUser with _$UpdateUser {
   const factory UpdateUser({
-    @required String name,
+    required String name,
   }) = _UpdateUser;
 }

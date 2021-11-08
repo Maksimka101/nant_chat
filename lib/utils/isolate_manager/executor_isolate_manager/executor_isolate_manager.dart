@@ -4,7 +4,7 @@ import 'package:nant_client/utils/isolate_manager/isolate_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 class ExecutorIsolateManager extends IsolateManager {
-  Executor _executor;
+  late Executor _executor;
   var _initialized = false;
 
   @override
@@ -18,14 +18,12 @@ class ExecutorIsolateManager extends IsolateManager {
   }
 
   @override
-  Future jsonDecode(String string) async {
-    assert(_executor != null, "Don't forget to call initialize");
+  Future<dynamic> jsonDecode(String string) async {
     return _executor.execute(arg1: string, fun1: convert.jsonDecode);
   }
 
   @override
   Future<String> jsonEncode(Object object) async {
-    assert(_executor != null, "Don't forget to call initialize");
     return _executor.execute(arg1: object, fun1: convert.jsonEncode);
   }
 }

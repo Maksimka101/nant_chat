@@ -18,7 +18,7 @@ class MessageMapper {
     );
   }
 
-  static Map<String, dynamic> createToJson(Message message, String room) {
+  static Map<String, dynamic> createToJson(Message message, String? room) {
     return {
       'room': room,
       'text': message.text,

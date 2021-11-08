@@ -15,7 +15,7 @@ class DesktopRoomsScreen extends StatefulWidget {
 }
 
 class _DesktopRoomsScreenState extends State<DesktopRoomsScreen> {
-  Room _selectedRoom;
+  Room? _selectedRoom;
 
   void _onCreateNewRoomRequested(BuildContext context) {
     Navigator.pushNamed(context, CreateRoomScreen.routeName);
@@ -29,11 +29,13 @@ class _DesktopRoomsScreenState extends State<DesktopRoomsScreen> {
   @override
   Widget build(BuildContext context) {
     final localization = S.of(context);
+    final selectedRoom = _selectedRoom;
+
     return SafeScaffold(
       body: Column(
         children: [
           AdaptiveAppBar(
-            title: Text(_selectedRoom?.name ?? localization.nantChat),
+            title: Text(selectedRoom?.name ?? localization.nantChat),
             actions: [
               IconButton(
                 icon: const Icon(Icons.add),
@@ -50,9 +52,10 @@ class _DesktopRoomsScreenState extends State<DesktopRoomsScreen> {
                 const VerticalDivider(width: 1),
                 Expanded(
                   flex: 2,
-                  child: _selectedRoom != null
+                  child: selectedRoom != null
                       ? ChatWidget(
-                          roomName: _selectedRoom.name,
+                          key: Key("chat_${selectedRoom.name}"),
+                          roomName: selectedRoom.name,
                         )
                       : const _UnselectedRoom(),
                 )

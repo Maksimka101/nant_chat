@@ -20,6 +20,11 @@ class MockUserRepository extends UserRepository {
   Future<void> updateUser(UpdateUser updateUser) async {
     emit(User(name: updateUser.name));
   }
+  @override
+  Future<void> clear() async {
+    emit(null);
+  }
+
 
   @override
   Future<void> deleteUser() async {

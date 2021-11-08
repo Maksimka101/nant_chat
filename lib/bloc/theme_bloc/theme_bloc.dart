@@ -9,7 +9,7 @@ import 'package:nant_client/utils/logger/logger.dart';
 part 'theme_bloc.freezed.dart';
 
 @freezed
-abstract class ThemeBlocEvent with _$ThemeBlocEvent {
+class ThemeBlocEvent with _$ThemeBlocEvent {
   const factory ThemeBlocEvent.themeLoadStarted() = ThemeLoadStarted;
 
   const factory ThemeBlocEvent.themeSwitched() = ThemeSwitched;
@@ -18,7 +18,7 @@ abstract class ThemeBlocEvent with _$ThemeBlocEvent {
 }
 
 @freezed
-abstract class ThemeBlocState with _$ThemeBlocState {
+class ThemeBlocState with _$ThemeBlocState {
   const factory ThemeBlocState.initial() = Initial;
 
   const factory ThemeBlocState.themeLoaded(AppTheme appTheme) = ThemeLoaded;
@@ -26,10 +26,10 @@ abstract class ThemeBlocState with _$ThemeBlocState {
 
 class ThemeBloc extends Bloc<ThemeBlocEvent, ThemeBlocState> {
   ThemeBloc({
-    @required this.themeRepository,
+    required this.themeRepository,
   }) : super(const Initial());
   final ThemeRepository themeRepository;
-  StreamSubscription<AppTheme> _themeSubscription;
+  StreamSubscription<AppTheme>? _themeSubscription;
 
   @override
   Stream<ThemeBlocState> mapEventToState(ThemeBlocEvent event) async* {
@@ -58,10 +58,12 @@ class ThemeBloc extends Bloc<ThemeBlocEvent, ThemeBlocState> {
     ThemeSwitched event,
   ) async* {
     try {
-      await themeRepository.updateTheme(themeRepository.data.map(
-        light: (_) => const AppDarkTheme(),
-        dark: (_) => const AppLightTheme(),
-      ));
+      await themeRepository.updateTheme(
+        themeRepository.data!.map(
+          light: (_) => const AppDarkTheme(),
+          dark: (_) => const AppLightTheme(),
+        ),
+      );
     } catch (e, st) {
       logger.d("Failed to switch theme", e, st);
     }

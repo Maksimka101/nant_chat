@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'rooms_bloc.dart';
 
@@ -9,17 +10,18 @@ part of 'rooms_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$RoomsBlocEventTearOff {
   const _$RoomsBlocEventTearOff();
 
-// ignore: unused_element
-  RoomsLoadStarted roomsLoadStarted() {
-    return const RoomsLoadStarted();
+  Initialize initialize() {
+    return const Initialize();
   }
 
-// ignore: unused_element
-  RoomsLoadedEvent roomsLoaded(@nullable List<Room> rooms) {
+  RoomsLoadedEvent roomsLoaded(List<Room> rooms) {
     return RoomsLoadedEvent(
       rooms,
     );
@@ -27,33 +29,48 @@ class _$RoomsBlocEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RoomsBlocEvent = _$RoomsBlocEventTearOff();
 
 /// @nodoc
 mixin _$RoomsBlocEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult roomsLoadStarted(),
-    @required TResult roomsLoaded(@nullable List<Room> rooms),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(List<Room> rooms) roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult roomsLoadStarted(),
-    TResult roomsLoaded(@nullable List<Room> rooms),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult roomsLoadStarted(RoomsLoadStarted value),
-    @required TResult roomsLoaded(RoomsLoadedEvent value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult roomsLoadStarted(RoomsLoadStarted value),
-    TResult roomsLoaded(RoomsLoadedEvent value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(RoomsLoadedEvent value) roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(RoomsLoadedEvent value)? roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(RoomsLoadedEvent value)? roomsLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -74,36 +91,36 @@ class _$RoomsBlocEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $RoomsLoadStartedCopyWith<$Res> {
-  factory $RoomsLoadStartedCopyWith(
-          RoomsLoadStarted value, $Res Function(RoomsLoadStarted) then) =
-      _$RoomsLoadStartedCopyWithImpl<$Res>;
+abstract class $InitializeCopyWith<$Res> {
+  factory $InitializeCopyWith(
+          Initialize value, $Res Function(Initialize) then) =
+      _$InitializeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RoomsLoadStartedCopyWithImpl<$Res>
-    extends _$RoomsBlocEventCopyWithImpl<$Res>
-    implements $RoomsLoadStartedCopyWith<$Res> {
-  _$RoomsLoadStartedCopyWithImpl(
-      RoomsLoadStarted _value, $Res Function(RoomsLoadStarted) _then)
-      : super(_value, (v) => _then(v as RoomsLoadStarted));
+class _$InitializeCopyWithImpl<$Res> extends _$RoomsBlocEventCopyWithImpl<$Res>
+    implements $InitializeCopyWith<$Res> {
+  _$InitializeCopyWithImpl(Initialize _value, $Res Function(Initialize) _then)
+      : super(_value, (v) => _then(v as Initialize));
 
   @override
-  RoomsLoadStarted get _value => super._value as RoomsLoadStarted;
+  Initialize get _value => super._value as Initialize;
 }
 
 /// @nodoc
-class _$RoomsLoadStarted implements RoomsLoadStarted {
-  const _$RoomsLoadStarted();
+
+class _$Initialize implements Initialize {
+  const _$Initialize();
 
   @override
   String toString() {
-    return 'RoomsBlocEvent.roomsLoadStarted()';
+    return 'RoomsBlocEvent.initialize()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is RoomsLoadStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initialize);
   }
 
   @override
@@ -111,57 +128,69 @@ class _$RoomsLoadStarted implements RoomsLoadStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult roomsLoadStarted(),
-    @required TResult roomsLoaded(@nullable List<Room> rooms),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    assert(roomsLoadStarted != null);
-    assert(roomsLoaded != null);
-    return roomsLoadStarted();
+    return initialize();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult roomsLoadStarted(),
-    TResult roomsLoaded(@nullable List<Room> rooms),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    assert(orElse != null);
-    if (roomsLoadStarted != null) {
-      return roomsLoadStarted();
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult roomsLoadStarted(RoomsLoadStarted value),
-    @required TResult roomsLoaded(RoomsLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(RoomsLoadedEvent value) roomsLoaded,
   }) {
-    assert(roomsLoadStarted != null);
-    assert(roomsLoaded != null);
-    return roomsLoadStarted(this);
+    return initialize(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult roomsLoadStarted(RoomsLoadStarted value),
-    TResult roomsLoaded(RoomsLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(RoomsLoadedEvent value)? roomsLoaded,
   }) {
-    assert(orElse != null);
-    if (roomsLoadStarted != null) {
-      return roomsLoadStarted(this);
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(RoomsLoadedEvent value)? roomsLoaded,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
     }
     return orElse();
   }
 }
 
-abstract class RoomsLoadStarted implements RoomsBlocEvent {
-  const factory RoomsLoadStarted() = _$RoomsLoadStarted;
+abstract class Initialize implements RoomsBlocEvent {
+  const factory Initialize() = _$Initialize;
 }
 
 /// @nodoc
@@ -169,7 +198,7 @@ abstract class $RoomsLoadedEventCopyWith<$Res> {
   factory $RoomsLoadedEventCopyWith(
           RoomsLoadedEvent value, $Res Function(RoomsLoadedEvent) then) =
       _$RoomsLoadedEventCopyWithImpl<$Res>;
-  $Res call({@nullable List<Room> rooms});
+  $Res call({List<Room> rooms});
 }
 
 /// @nodoc
@@ -185,20 +214,23 @@ class _$RoomsLoadedEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object rooms = freezed,
+    Object? rooms = freezed,
   }) {
     return _then(RoomsLoadedEvent(
-      rooms == freezed ? _value.rooms : rooms as List<Room>,
+      rooms == freezed
+          ? _value.rooms
+          : rooms // ignore: cast_nullable_to_non_nullable
+              as List<Room>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$RoomsLoadedEvent implements RoomsLoadedEvent {
-  const _$RoomsLoadedEvent(@nullable this.rooms);
+  const _$RoomsLoadedEvent(this.rooms);
 
   @override
-  @nullable
   final List<Room> rooms;
 
   @override
@@ -209,14 +241,14 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is RoomsLoadedEvent &&
-            (identical(other.rooms, rooms) ||
-                const DeepCollectionEquality().equals(other.rooms, rooms)));
+        (other.runtimeType == runtimeType &&
+            other is RoomsLoadedEvent &&
+            const DeepCollectionEquality().equals(other.rooms, rooms));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(rooms);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rooms));
 
   @JsonKey(ignore: true)
   @override
@@ -225,23 +257,29 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult roomsLoadStarted(),
-    @required TResult roomsLoaded(@nullable List<Room> rooms),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    assert(roomsLoadStarted != null);
-    assert(roomsLoaded != null);
     return roomsLoaded(rooms);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult roomsLoadStarted(),
-    TResult roomsLoaded(@nullable List<Room> rooms),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return roomsLoaded?.call(rooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (roomsLoaded != null) {
       return roomsLoaded(rooms);
     }
@@ -250,23 +288,29 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult roomsLoadStarted(RoomsLoadStarted value),
-    @required TResult roomsLoaded(RoomsLoadedEvent value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(RoomsLoadedEvent value) roomsLoaded,
   }) {
-    assert(roomsLoadStarted != null);
-    assert(roomsLoaded != null);
     return roomsLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult roomsLoadStarted(RoomsLoadStarted value),
-    TResult roomsLoaded(RoomsLoadedEvent value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(RoomsLoadedEvent value)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return roomsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(RoomsLoadedEvent value)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (roomsLoaded != null) {
       return roomsLoaded(this);
     }
@@ -275,25 +319,22 @@ class _$RoomsLoadedEvent implements RoomsLoadedEvent {
 }
 
 abstract class RoomsLoadedEvent implements RoomsBlocEvent {
-  const factory RoomsLoadedEvent(@nullable List<Room> rooms) =
-      _$RoomsLoadedEvent;
+  const factory RoomsLoadedEvent(List<Room> rooms) = _$RoomsLoadedEvent;
 
-  @nullable
   List<Room> get rooms;
   @JsonKey(ignore: true)
-  $RoomsLoadedEventCopyWith<RoomsLoadedEvent> get copyWith;
+  $RoomsLoadedEventCopyWith<RoomsLoadedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$RoomsBlocStateTearOff {
   const _$RoomsBlocStateTearOff();
 
-// ignore: unused_element
   Initial initial() {
     return const Initial();
   }
 
-// ignore: unused_element
   RoomsLoaded roomsLoaded(List<Room> rooms) {
     return RoomsLoaded(
       rooms,
@@ -302,33 +343,48 @@ class _$RoomsBlocStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RoomsBlocState = _$RoomsBlocStateTearOff();
 
 /// @nodoc
 mixin _$RoomsBlocState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult roomsLoaded(List<Room> rooms),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Room> rooms) roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult roomsLoaded(List<Room> rooms),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult roomsLoaded(RoomsLoaded value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult roomsLoaded(RoomsLoaded value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(RoomsLoaded value) roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -365,6 +421,7 @@ class _$InitialCopyWithImpl<$Res> extends _$RoomsBlocStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -375,7 +432,8 @@ class _$Initial implements Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
@@ -383,23 +441,29 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult roomsLoaded(List<Room> rooms),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    assert(initial != null);
-    assert(roomsLoaded != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult roomsLoaded(List<Room> rooms),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial();
     }
@@ -408,23 +472,29 @@ class _$Initial implements Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult roomsLoaded(RoomsLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(RoomsLoaded value) roomsLoaded,
   }) {
-    assert(initial != null);
-    assert(roomsLoaded != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult roomsLoaded(RoomsLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (initial != null) {
       return initial(this);
     }
@@ -456,17 +526,21 @@ class _$RoomsLoadedCopyWithImpl<$Res> extends _$RoomsBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object rooms = freezed,
+    Object? rooms = freezed,
   }) {
     return _then(RoomsLoaded(
-      rooms == freezed ? _value.rooms : rooms as List<Room>,
+      rooms == freezed
+          ? _value.rooms
+          : rooms // ignore: cast_nullable_to_non_nullable
+              as List<Room>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$RoomsLoaded implements RoomsLoaded {
-  const _$RoomsLoaded(this.rooms) : assert(rooms != null);
+  const _$RoomsLoaded(this.rooms);
 
   @override
   final List<Room> rooms;
@@ -479,14 +553,14 @@ class _$RoomsLoaded implements RoomsLoaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is RoomsLoaded &&
-            (identical(other.rooms, rooms) ||
-                const DeepCollectionEquality().equals(other.rooms, rooms)));
+        (other.runtimeType == runtimeType &&
+            other is RoomsLoaded &&
+            const DeepCollectionEquality().equals(other.rooms, rooms));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(rooms);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rooms));
 
   @JsonKey(ignore: true)
   @override
@@ -495,23 +569,29 @@ class _$RoomsLoaded implements RoomsLoaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult roomsLoaded(List<Room> rooms),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Room> rooms) roomsLoaded,
   }) {
-    assert(initial != null);
-    assert(roomsLoaded != null);
     return roomsLoaded(rooms);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult roomsLoaded(List<Room> rooms),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Room> rooms)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return roomsLoaded?.call(rooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Room> rooms)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (roomsLoaded != null) {
       return roomsLoaded(rooms);
     }
@@ -520,23 +600,29 @@ class _$RoomsLoaded implements RoomsLoaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(Initial value),
-    @required TResult roomsLoaded(RoomsLoaded value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(RoomsLoaded value) roomsLoaded,
   }) {
-    assert(initial != null);
-    assert(roomsLoaded != null);
     return roomsLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(Initial value),
-    TResult roomsLoaded(RoomsLoaded value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
   }) {
-    assert(orElse != null);
+    return roomsLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(RoomsLoaded value)? roomsLoaded,
+    required TResult orElse(),
+  }) {
     if (roomsLoaded != null) {
       return roomsLoaded(this);
     }
@@ -549,5 +635,6 @@ abstract class RoomsLoaded implements RoomsBlocState {
 
   List<Room> get rooms;
   @JsonKey(ignore: true)
-  $RoomsLoadedCopyWith<RoomsLoaded> get copyWith;
+  $RoomsLoadedCopyWith<RoomsLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

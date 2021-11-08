@@ -10,28 +10,43 @@ import 'intl/messages_all.dart';
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
 // ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
-// ignore_for_file: avoid_redundant_argument_values
+// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
 
 class S {
   S();
-  
-  static S current;
-  
-  static const AppLocalizationDelegate delegate =
-    AppLocalizationDelegate();
+
+  static S? _current;
+
+  static S get current {
+    assert(_current != null,
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    return _current!;
+  }
+
+  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name); 
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      S.current = S();
-      
-      return S.current;
+      final instance = S();
+      S._current = instance;
+
+      return instance;
     });
-  } 
+  }
 
   static S of(BuildContext context) {
+    final instance = S.maybeOf(context);
+    assert(instance != null,
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    return instance!;
+  }
+
+  static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
 
@@ -75,10 +90,10 @@ class S {
     );
   }
 
-  /// `Looks like you are first time here.\nWhat is your name?`
+  /// `Looks like you are first time here.\nWhat is your name and the address of the server that application will work with?`
   String get looksLikeYouAreHereFirstTime {
     return Intl.message(
-      'Looks like you are first time here.\nWhat is your name?',
+      'Looks like you are first time here.\nWhat is your name and the address of the server that application will work with?',
       name: 'looksLikeYouAreHereFirstTime',
       desc: '',
       args: [],
@@ -95,20 +110,20 @@ class S {
     );
   }
 
-  /// `User name must have at least 4 character`
+  /// `User name must have at least 4 characters`
   String get userNameMustHaveAtLeast4Character {
     return Intl.message(
-      'User name must have at least 4 character',
+      'User name must have at least 4 characters',
       name: 'userNameMustHaveAtLeast4Character',
       desc: '',
       args: [],
     );
   }
 
-  /// `Name must have no more than 16 character`
+  /// `Name must have no more than 16 characters`
   String get nameMustHaveNoMoreThan16Character {
     return Intl.message(
-      'Name must have no more than 16 character',
+      'Name must have no more than 16 characters',
       name: 'nameMustHaveNoMoreThan16Character',
       desc: '',
       args: [],
@@ -195,20 +210,20 @@ class S {
     );
   }
 
-  /// `Room name must have at least 4 character`
+  /// `Room name must have at least 4 characters`
   String get roomNameMustHaveAtLeast4Character {
     return Intl.message(
-      'Room name must have at least 4 character',
+      'Room name must have at least 4 characters',
       name: 'roomNameMustHaveAtLeast4Character',
       desc: '',
       args: [],
     );
   }
 
-  /// `Room must have no more than 25 character`
+  /// `Room must have no more than 25 characters`
   String get roomMustHaveNoMoreThan16Character {
     return Intl.message(
-      'Room must have no more than 25 character',
+      'Room must have no more than 25 characters',
       name: 'roomMustHaveNoMoreThan16Character',
       desc: '',
       args: [],
@@ -284,6 +299,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Server name must have at least 4 characters`
+  String get hostIsTooShort {
+    return Intl.message(
+      'Server name must have at least 4 characters',
+      name: 'hostIsTooShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter server address`
+  String get hostName {
+    return Intl.message(
+      'Enter server address',
+      name: 'hostName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User secure connection`
+  String get useSecureConnection {
+    return Intl.message(
+      'User secure connection',
+      name: 'useSecureConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to save server address`
+  String get failedToSetHost {
+    return Intl.message(
+      'Failed to save server address',
+      name: 'failedToSetHost',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -304,11 +359,9 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   bool shouldReload(AppLocalizationDelegate old) => false;
 
   bool _isSupported(Locale locale) {
-    if (locale != null) {
-      for (var supportedLocale in supportedLocales) {
-        if (supportedLocale.languageCode == locale.languageCode) {
-          return true;
-        }
+    for (var supportedLocale in supportedLocales) {
+      if (supportedLocale.languageCode == locale.languageCode) {
+        return true;
       }
     }
     return false;

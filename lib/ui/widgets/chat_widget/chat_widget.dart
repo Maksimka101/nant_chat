@@ -17,15 +17,15 @@ import 'package:nant_client/utils/logger/logger.dart';
 /// This widget receives [roomName] and starts watching for updating in this room
 class ChatWidget extends StatelessWidget {
   const ChatWidget({
-    Key key,
-    @required this.roomName,
+    Key? key,
+    required this.roomName,
   }) : super(key: key);
   final String roomName;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RoomsBloc, RoomsBlocState>(
-      cubit: getIt.get<RoomsBloc>(),
+      bloc: getIt.get<RoomsBloc>(),
       builder: (context, state) {
         return state.map(
           initial: (_) => const SizedBox.shrink(),
@@ -50,8 +50,8 @@ class ChatWidget extends StatelessWidget {
 
 class _ChatScreenBody extends StatefulWidget {
   const _ChatScreenBody({
-    Key key,
-    @required this.room,
+    Key? key,
+    required this.room,
   }) : super(key: key);
   final Room room;
 
@@ -62,39 +62,41 @@ class _ChatScreenBody extends StatefulWidget {
 class __ChatScreenBodyState extends State<_ChatScreenBody> {
   var _isDarkTheme = false;
   final _messageNode = FocusNode();
+  final _scrollController = ScrollController();
 
   @override
   void initState() {
     if (widget.room.messages.length < 15) {
       _onNewMessagesRequested();
     }
-    _listenForThemeChanging(Object(), getIt.get<ThemeBloc>().state);
+    _listenForThemeChanging(null, getIt.get<ThemeBloc>().state);
+    _requestKeyboardFocus();
     super.initState();
   }
 
-  @override
-  void didChangeDependencies() {
-    if (LayoutInfo.instance.isDesktopPlatform) {
-      FocusScope.of(context).requestFocus(_messageNode);
-    }
-    super.didChangeDependencies();
+  void _requestKeyboardFocus() {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      if (LayoutInfo.instance.isDesktopPlatform) {
+        FocusScope.of(context).requestFocus(_messageNode);
+      }
+    });
   }
 
   void _onMessageSent(ChatMessage message) {
-    getIt.get<EditRoomBloc>().add(MessageSent(
-          roomName: widget.room.name,
-          createMessage: CreateMessage(
-            text: message.text,
-            createdAt: message.createdAt,
+    getIt.get<EditRoomBloc>().add(
+          MessageSent(
+            roomName: widget.room.name,
+            createMessage: CreateMessage(
+              text: message.text!,
+              createdAt: message.createdAt,
+            ),
           ),
-        ));
+        );
   }
 
   void _onNewMessagesRequested() {
     logger.d("On new message requested");
-    getIt
-        .get<EditRoomBloc>()
-        .add(NextPageRequested(roomName: widget.room.name));
+    getIt.get<EditRoomBloc>().add(NextPageRequested(roomName: widget.room.name));
   }
 
   void _listenForThemeChanging(_, ThemeBlocState state) {
@@ -113,15 +115,16 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
     final localization = S.of(context);
     final messages = widget.room.messages;
     return BlocListener<ThemeBloc, ThemeBlocState>(
-      cubit: getIt.get<ThemeBloc>(),
+      bloc: getIt.get<ThemeBloc>(),
       listener: _listenForThemeChanging,
       child: BlocBuilder<UserBloc, UserBlocState>(
-        cubit: getIt.get<UserBloc>(),
+        bloc: getIt.get<UserBloc>(),
         builder: (context, state) {
           return state.maybeMap(
             orElse: () => const SizedBox.shrink(),
-            loaded: (loaded) {
+            authorized: (loaded) {
               return DashChat(
+                scrollController: _scrollController,
                 inverted: true,
                 inputContainerStyle: BoxDecoration(
                   color: theme.dialogBackgroundColor,
@@ -130,12 +133,12 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
                   if (_isDarkTheme) {
                     return BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
-                      color: isUser ? theme.cardColor : theme.colorScheme.secondary,
+                      color: isUser! ? theme.cardColor : theme.colorScheme.secondary,
                     );
                   } else {
                     return BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
-                      color: isUser ? theme.colorScheme.secondary : theme.cardColor,
+                      color: isUser! ? theme.colorScheme.secondary : theme.cardColor,
                     );
                   }
                 },
@@ -154,6 +157,7 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
                     CupertinoIcons.arrow_right_circle,
                     size: 30,
                   ),
+                  // ignore: avoid_dynamic_calls
                   onPressed: () => onTap(),
                 ),
                 onLoadEarlier: () async => _onNewMessagesRequested(),
@@ -168,5 +172,11 @@ class __ChatScreenBodyState extends State<_ChatScreenBody> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 }

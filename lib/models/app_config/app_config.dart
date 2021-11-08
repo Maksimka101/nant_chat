@@ -8,13 +8,13 @@ part 'app_config.freezed.dart';
 /// Static app config
 /// All information in this config must be changed on app update
 @freezed
-abstract class AppConfig with _$AppConfig {
+class AppConfig with _$AppConfig {
   const factory AppConfig({
-    @required String hostName,
-    @required String webSocketHostName,
-    @required Locale defaultLocale,
-    @required AppTheme defaultAppTheme,
-    @required List<Locale> supportedLocales,
-    @required int chatPagination,
+    required String defaultHost,
+    required bool useSecureConnection,
+    required Locale defaultLocale,
+    required AppTheme defaultAppTheme,
+    required List<Locale> supportedLocales,
+    required int chatPagination,
   }) = _AppConfig;
 }

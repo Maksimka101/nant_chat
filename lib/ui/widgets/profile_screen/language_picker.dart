@@ -8,7 +8,7 @@ import 'package:nant_client/utils/get_it/get_it.dart';
 
 class LanguagePicker extends StatelessWidget {
   const LanguagePicker({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   void _onChangeLanguage(BuildContext context) {
@@ -21,7 +21,7 @@ class LanguagePicker extends StatelessWidget {
       title: Text(S.of(context).currentLanguage),
       subtitle: Text(S.of(context).tapToChangeLanguage),
       trailing: BlocBuilder<LocalizationBloc, LocalizationBlocState>(
-        cubit: getIt.get<LocalizationBloc>(),
+        bloc: getIt.get<LocalizationBloc>(),
         builder: (context, state) {
           return state.map(
             initial: (_) => const Text("?"),
@@ -36,7 +36,7 @@ class LanguagePicker extends StatelessWidget {
   }
 }
 
-void showLanguagePicker({@required BuildContext context}) {
+void showLanguagePicker({required BuildContext context}) {
   void onPick(Locale locale) {
     getIt.get<LocalizationBloc>().add(LocaleChanged(locale: locale));
     Navigator.pop(context);
@@ -54,7 +54,7 @@ void showLanguagePicker({@required BuildContext context}) {
                 (e) => ListTile(
                   onTap: () => onPick(e),
                   title: Text(e.translated),
-                  leading: Image.asset(e.flagPath),
+                  leading: Image.asset(e.flagPath!),
                 ),
               )
               .toList(),

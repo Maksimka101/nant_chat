@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:collection/collection.dart' show IterableExtension;
 import 'package:nant_client/models/message/message.dart';
 import 'package:nant_client/models/room/room.dart';
 import 'package:nant_client/repository/new_messages_repository/new_messages_repository.dart';
@@ -11,31 +11,18 @@ import 'package:nant_client/utils/logger/logger.dart';
 
 class CommonRoomsRepository extends RoomsRepository {
   CommonRoomsRepository({
-    @required WebRoomsRepository webRepository,
-    @required LocalRoomsRepository localRepository,
-    @required MessagesRepository messagesRepository,
-    @required int paginationSize,
+    required WebRoomsRepository webRepository,
+    required LocalRoomsRepository localRepository,
+    required MessagesRepository messagesRepository,
+    required int paginationSize,
   }) : super(
           messagesRepository: messagesRepository,
           webRepository: webRepository,
           localRepository: localRepository,
           paginationSize: paginationSize,
         );
-  var _initialized = false;
-  StreamSubscription<List<Room>> _localRoomsSubscription;
-  StreamSubscription<ReceivedMessage> _receivedMessagesStream;
-
-  @override
-  Future<void> initialize() async {
-    if (!_initialized) {
-      await webRepository.initialize();
-      await localRepository.initialize();
-      await messagesRepository.initialize();
-
-      _initialized = true;
-    }
-    return super.initialize();
-  }
+  StreamSubscription<List<Room>>? _localRoomsSubscription;
+  StreamSubscription<ReceivedMessage>? _receivedMessagesStream;
 
   @override
   Future<void> loadRooms() async {
@@ -43,16 +30,14 @@ class CommonRoomsRepository extends RoomsRepository {
       await _localRoomsSubscription?.cancel();
       await _receivedMessagesStream?.cancel();
       await messagesRepository.subscribeOnWebMessages();
-      _localRoomsSubscription =
-          localRepository.dataStream.listen(_listenForRoomsFromCache);
-      _receivedMessagesStream =
-          messagesRepository.dataStream.listen(_listenForNewMessages);
+      _localRoomsSubscription = localRepository.dataStream.listen(_listenForRoomsFromCache);
+      _receivedMessagesStream = messagesRepository.dataStream.listen(_listenForNewMessages);
       final localRoomsFuture = localRepository.dataStream.first;
       await localRepository.loadRooms();
       final localRooms = await localRoomsFuture;
       final localRoomsNameSet = localRooms.map((e) => e.name).toSet();
       final webRooms = await webRepository.loadRooms();
-      for (final webRoom in webRooms) {
+      for (final webRoom in webRooms ?? <Room>[]) {
         if (!localRoomsNameSet.contains(webRoom.name)) {
           await localRepository.saveRoom(webRoom);
         }
@@ -84,9 +69,11 @@ class CommonRoomsRepository extends RoomsRepository {
       );
 
       // Wait for data appear in cache
-      await localRepository.dataStream.firstWhere((rooms) => rooms.any(
-            (room) => room.name == createRoom.name,
-          ));
+      await localRepository.dataStream.firstWhere(
+        (rooms) => rooms.any(
+          (room) => room.name == createRoom.name,
+        ),
+      );
     } catch (e, st) {
       logger.e("Can't create room", e, st);
       rethrow;
@@ -99,26 +86,25 @@ class CommonRoomsRepository extends RoomsRepository {
       final localRoomsFuture = localRepository.dataStream.first;
       await localRepository.loadNextPage(room);
       final localRooms = await localRoomsFuture;
-      final localRoom = localRooms.firstWhere(
-        (element) => element.name == room,
-        orElse: () => null,
-      );
+      final localRoom = localRooms.firstWhereOrNull((element) => element.name == room);
       // Messages may loading for about 15 seconds so i need to update localRoom
       final webMessages = await webRepository.loadRoomMessages(room);
 
       // Create room
-      if (localRoom == null) {
-        await localRepository.saveRoom(Room(
-          messagesCount: webMessages.length,
-          messages: webMessages,
-          name: room,
-        ));
+      if (localRoom == null && webMessages != null) {
+        await localRepository.saveRoom(
+          Room(
+            messagesCount: webMessages.length,
+            messages: webMessages,
+            name: room,
+          ),
+        );
         return;
       }
 
       // Cache new messages
-      if (webMessages.isNotEmpty) {
-        if (webMessages.length > localRoom.messagesCount) {
+      if (webMessages != null && webMessages.isNotEmpty) {
+        if (localRoom == null || webMessages.length > localRoom.messagesCount) {
           await localRepository.removeAllAndSaveMessages(
             room: room,
             messages: webMessages,
@@ -145,7 +131,7 @@ class CommonRoomsRepository extends RoomsRepository {
   }
 
   @override
-  Future<void> sendMessage({String room, CreateMessage createMessage}) async {
+  Future<void> sendMessage({required String room, required CreateMessage createMessage}) async {
     try {
       await messagesRepository.sendMessage(
         room: room,

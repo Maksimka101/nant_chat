@@ -49,10 +49,10 @@ class _MainMobileAppScreenState extends State<MainMobileAppScreen> {
           ),
           BottomNavigationBarItem(
             icon: BlocBuilder<UserBloc, UserBlocState>(
-              cubit: getIt.get<UserBloc>(),
+              bloc: getIt.get<UserBloc>(),
               builder: (context, state) {
                 return state.maybeMap(
-                  loaded: (loaded) => CircleUserAvatar(
+                  authorized: (loaded) => CircleUserAvatar(
                     name: loaded.user.name,
                     radius: 15,
                   ),

@@ -11,39 +11,42 @@ import 'package:nant_client/utils/layout_info/layout_info.dart';
 /// If [LayoutInfo] will change to the desktop layout this page will be popped
 class ChatScreen extends StatelessWidget {
   const ChatScreen({
-    @required this.roomName,
-  });
+    Key? key,
+    required this.roomName,
+  }) : super(key: key);
 
   static const routeName = "/ChatScreenRoute";
   final String roomName;
 
   void _popChatScreen(BuildContext context) {
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+    SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
       Navigator.popUntil(context, ModalRoute.withName('/'));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return DesktopLayoutBuilder(builder: (context, desktop) {
-      if (desktop) {
-        _popChatScreen(context);
-      }
-      return SafeScaffold(
-        body: Column(
-          children: [
-            AdaptiveAppBar(
-              title: Text(roomName),
-            ),
-            Flexible(
-              child: ChatWidget(
-                roomName: roomName,
+    return DesktopLayoutBuilder(
+      builder: (context, desktop) {
+        if (desktop) {
+          _popChatScreen(context);
+        }
+        return SafeScaffold(
+          body: Column(
+            children: [
+              AdaptiveAppBar(
+                title: Text(roomName),
               ),
-            ),
-          ],
-        ),
-      );
-    });
+              Flexible(
+                child: ChatWidget(
+                  roomName: roomName,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 

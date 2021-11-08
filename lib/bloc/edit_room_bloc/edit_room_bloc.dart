@@ -11,23 +11,23 @@ import 'package:pedantic/pedantic.dart';
 part 'edit_room_bloc.freezed.dart';
 
 @freezed
-abstract class EditRoomBlocEvent with _$EditRoomBlocEvent {
+class EditRoomBlocEvent with _$EditRoomBlocEvent {
   const factory EditRoomBlocEvent.nextPageRequested({
-    @required String roomName,
+    required String roomName,
   }) = NextPageRequested;
 
   const factory EditRoomBlocEvent.messageSent({
-    @required String roomName,
-    @required CreateMessage createMessage,
+    required String roomName,
+    required CreateMessage createMessage,
   }) = MessageSent;
 
   const factory EditRoomBlocEvent.newRoomCreated({
-    @required CreateRoom createRoom,
+    required CreateRoom createRoom,
   }) = NewRoomCreated;
 }
 
 @freezed
-abstract class EditRoomBlocState with _$EditRoomBlocState {
+class EditRoomBlocState with _$EditRoomBlocState {
   const factory EditRoomBlocState.initial() = Initial;
 
   const factory EditRoomBlocState.newRoomCreationStarted() =
@@ -42,7 +42,7 @@ abstract class EditRoomBlocState with _$EditRoomBlocState {
 
 class EditRoomBloc extends Bloc<EditRoomBlocEvent, EditRoomBlocState> {
   EditRoomBloc({
-    @required this.roomsRepository,
+    required this.roomsRepository,
   }) : super(const Initial());
   final RoomsRepository roomsRepository;
 

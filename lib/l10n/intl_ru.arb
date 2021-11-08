@@ -3,7 +3,7 @@
   "waitASecondPlease": "Подождите немного",
   "failedToCreateUserDueToError": "Не удалось создать пользователя: {error}",
   "authorization": "Авторизация",
-  "looksLikeYouAreHereFirstTime": "Похоже вы здесь впервые.\nКак вас зовут?",
+  "looksLikeYouAreHereFirstTime": "Похоже вы здесь впервые.\nКак вас зовут и какой адрес сервера, с которым будет работать приложение?",
   "enterYourName": "Введите свое имя",
   "userNameMustHaveAtLeast4Character": "Имя должно содержать не менее 4-х символов",
   "nameMustHaveNoMoreThan16Character": "Имя должно содержать не более 16-ти символов",
@@ -23,5 +23,9 @@
   "tapToChangeLanguage": "Нажмите для смены языка",
   "english": "Английский",
   "russian": "Русский",
-  "pleaseSelectRoom": "Пожалуйста выберите комнату"
+  "pleaseSelectRoom": "Пожалуйста выберите комнату",
+  "hostIsTooShort": "Название сервера должно содержать не менее 4-х символов",
+  "hostName": "Введите адрес сервера",
+  "useSecureConnection": "Использовать защищенное соединение",
+  "failedToSetHost": "Не удалось сохранить адрес сервера"
 }

@@ -5,13 +5,15 @@ import 'package:nant_client/repository/web_socket_repository/web_socket_reposito
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
-  WebSocketChannelRepository(String url, bool tryToRestoreConnection) : super(url, tryToRestoreConnection) {
+  WebSocketChannelRepository(String? url, {required bool tryToRestoreConnection})
+      : super(url, tryToRestoreConnection: tryToRestoreConnection) {
     _connect();
   }
 
-  WebSocketChannel _webSocketChannel;
-  final _webSocketDataController = StreamController<T>.broadcast();
+  WebSocketChannel? _webSocketChannel;
+  final StreamController<T> _webSocketDataController = StreamController<T>.broadcast();
   static const _retryDuration = Duration(seconds: 4);
+  var _closed = false;
 
   @override
   Stream<T> get stream => _webSocketDataController.stream;
@@ -25,18 +27,18 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
     for (final interceptor in interceptors) {
       interceptor.onAdd?.call(data);
     }
-    _webSocketChannel.sink.add(mappedData);
+    _webSocketChannel?.sink.add(mappedData);
   }
 
   void _connect() {
-    _webSocketChannel?.sink?.close();
-    _webSocketChannel = WebSocketChannel.connect(Uri.parse(url));
+    _webSocketChannel?.sink.close();
+    _webSocketChannel = WebSocketChannel.connect(Uri.parse(url!));
 
     _listenForWebSocket();
   }
 
   void _listenForWebSocket() {
-    _webSocketChannel.stream.map<T>((event) {
+    _webSocketChannel?.stream.map<T>((event) {
       if (T == Map && event is String) {
         // convert string from server to json
         return jsonDecode(event) as T;
@@ -45,24 +47,28 @@ class WebSocketChannelRepository<T> extends WebSocketRepository<T> {
         return event as T;
       }
     }).listen(
-        (data) {
-          for (final interceptor in interceptors) {
-            interceptor.onReceive?.call(data);
-          }
-          _webSocketDataController.add(data);
-        },
-        onError: (e) async {},
-        onDone: () async {
-          if (tryToRestoreConnection) {
-            await Future.delayed(_retryDuration);
-            _connect();
-          }
-        });
+      (data) {
+        for (final interceptor in interceptors) {
+          interceptor.onReceive?.call(data);
+        }
+        _webSocketDataController.add(data);
+      },
+      onError: (e) async {},
+      onDone: () async {
+        if (tryToRestoreConnection && !_closed) {
+          await Future.delayed(_retryDuration);
+          _connect();
+        }
+      },
+    );
   }
 
   @override
   Future<void> close() async {
-    await _webSocketChannel.sink.close();
+    _closed = true;
+
+    // ignore: unawaited_futures
+    _webSocketChannel?.sink.close();
     await _webSocketDataController.close();
   }
 }

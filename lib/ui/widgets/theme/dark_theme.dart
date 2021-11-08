@@ -23,6 +23,9 @@ ThemeData get darkTheme {
       selectedIconTheme: IconThemeData(color: accentColor),
       selectedItemColor: textColor,
     ),
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: accentColor,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       enabledBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: accentColor.withOpacity(0.8)),

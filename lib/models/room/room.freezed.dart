@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'room.dart';
 
@@ -9,15 +10,17 @@ part of 'room.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$RoomTearOff {
   const _$RoomTearOff();
 
-// ignore: unused_element
   _Room call(
-      {@required List<Message> messages,
-      @required int messagesCount,
-      @required String name}) {
+      {required List<Message> messages,
+      required int messagesCount,
+      required String name}) {
     return _Room(
       messages: messages,
       messagesCount: messagesCount,
@@ -27,17 +30,16 @@ class _$RoomTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Room = _$RoomTearOff();
 
 /// @nodoc
 mixin _$Room {
-  List<Message> get messages;
-  int get messagesCount;
-  String get name;
+  List<Message> get messages => throw _privateConstructorUsedError;
+  int get messagesCount => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $RoomCopyWith<Room> get copyWith;
+  $RoomCopyWith<Room> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -57,17 +59,23 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
 
   @override
   $Res call({
-    Object messages = freezed,
-    Object messagesCount = freezed,
-    Object name = freezed,
+    Object? messages = freezed,
+    Object? messagesCount = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      messages:
-          messages == freezed ? _value.messages : messages as List<Message>,
+      messages: messages == freezed
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Message>,
       messagesCount: messagesCount == freezed
           ? _value.messagesCount
-          : messagesCount as int,
-      name: name == freezed ? _value.name : name as String,
+          : messagesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -91,30 +99,34 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object messages = freezed,
-    Object messagesCount = freezed,
-    Object name = freezed,
+    Object? messages = freezed,
+    Object? messagesCount = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Room(
-      messages:
-          messages == freezed ? _value.messages : messages as List<Message>,
+      messages: messages == freezed
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Message>,
       messagesCount: messagesCount == freezed
           ? _value.messagesCount
-          : messagesCount as int,
-      name: name == freezed ? _value.name : name as String,
+          : messagesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Room implements _Room {
   const _$_Room(
-      {@required this.messages,
-      @required this.messagesCount,
-      @required this.name})
-      : assert(messages != null),
-        assert(messagesCount != null),
-        assert(name != null);
+      {required this.messages,
+      required this.messagesCount,
+      required this.name});
 
   @override
   final List<Message> messages;
@@ -131,23 +143,17 @@ class _$_Room implements _Room {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Room &&
-            (identical(other.messages, messages) ||
-                const DeepCollectionEquality()
-                    .equals(other.messages, messages)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Room &&
+            const DeepCollectionEquality().equals(other.messages, messages) &&
             (identical(other.messagesCount, messagesCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.messagesCount, messagesCount)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                other.messagesCount == messagesCount) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(messages) ^
-      const DeepCollectionEquality().hash(messagesCount) ^
-      const DeepCollectionEquality().hash(name);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(messages), messagesCount, name);
 
   @JsonKey(ignore: true)
   @override
@@ -157,9 +163,9 @@ class _$_Room implements _Room {
 
 abstract class _Room implements Room {
   const factory _Room(
-      {@required List<Message> messages,
-      @required int messagesCount,
-      @required String name}) = _$_Room;
+      {required List<Message> messages,
+      required int messagesCount,
+      required String name}) = _$_Room;
 
   @override
   List<Message> get messages;
@@ -169,16 +175,14 @@ abstract class _Room implements Room {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$RoomCopyWith<_Room> get copyWith;
+  _$RoomCopyWith<_Room> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$CreateRoomTearOff {
   const _$CreateRoomTearOff();
 
-// ignore: unused_element
-  _CreateRoom call(
-      {@required String name, @required CreateMessage initMessage}) {
+  _CreateRoom call({required String name, required CreateMessage initMessage}) {
     return _CreateRoom(
       name: name,
       initMessage: initMessage,
@@ -187,16 +191,16 @@ class _$CreateRoomTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateRoom = _$CreateRoomTearOff();
 
 /// @nodoc
 mixin _$CreateRoom {
-  String get name;
-  CreateMessage get initMessage;
+  String get name => throw _privateConstructorUsedError;
+  CreateMessage get initMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CreateRoomCopyWith<CreateRoom> get copyWith;
+  $CreateRoomCopyWith<CreateRoom> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -219,22 +223,23 @@ class _$CreateRoomCopyWithImpl<$Res> implements $CreateRoomCopyWith<$Res> {
 
   @override
   $Res call({
-    Object name = freezed,
-    Object initMessage = freezed,
+    Object? name = freezed,
+    Object? initMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       initMessage: initMessage == freezed
           ? _value.initMessage
-          : initMessage as CreateMessage,
+          : initMessage // ignore: cast_nullable_to_non_nullable
+              as CreateMessage,
     ));
   }
 
   @override
   $CreateMessageCopyWith<$Res> get initMessage {
-    if (_value.initMessage == null) {
-      return null;
-    }
     return $CreateMessageCopyWith<$Res>(_value.initMessage, (value) {
       return _then(_value.copyWith(initMessage: value));
     });
@@ -265,23 +270,26 @@ class __$CreateRoomCopyWithImpl<$Res> extends _$CreateRoomCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object initMessage = freezed,
+    Object? name = freezed,
+    Object? initMessage = freezed,
   }) {
     return _then(_CreateRoom(
-      name: name == freezed ? _value.name : name as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       initMessage: initMessage == freezed
           ? _value.initMessage
-          : initMessage as CreateMessage,
+          : initMessage // ignore: cast_nullable_to_non_nullable
+              as CreateMessage,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_CreateRoom implements _CreateRoom {
-  const _$_CreateRoom({@required this.name, @required this.initMessage})
-      : assert(name != null),
-        assert(initMessage != null);
+  const _$_CreateRoom({required this.name, required this.initMessage});
 
   @override
   final String name;
@@ -296,19 +304,15 @@ class _$_CreateRoom implements _CreateRoom {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CreateRoom &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _CreateRoom &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.initMessage, initMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.initMessage, initMessage)));
+                other.initMessage == initMessage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(initMessage);
+  int get hashCode => Object.hash(runtimeType, name, initMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -318,8 +322,8 @@ class _$_CreateRoom implements _CreateRoom {
 
 abstract class _CreateRoom implements CreateRoom {
   const factory _CreateRoom(
-      {@required String name,
-      @required CreateMessage initMessage}) = _$_CreateRoom;
+      {required String name,
+      required CreateMessage initMessage}) = _$_CreateRoom;
 
   @override
   String get name;
@@ -327,15 +331,15 @@ abstract class _CreateRoom implements CreateRoom {
   CreateMessage get initMessage;
   @override
   @JsonKey(ignore: true)
-  _$CreateRoomCopyWith<_CreateRoom> get copyWith;
+  _$CreateRoomCopyWith<_CreateRoom> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateRoomTearOff {
   const _$UpdateRoomTearOff();
 
-// ignore: unused_element
-  _UpdateRoom call({@required String name, @required Message lastMessage}) {
+  _UpdateRoom call({required String name, required Message lastMessage}) {
     return _UpdateRoom(
       name: name,
       lastMessage: lastMessage,
@@ -344,16 +348,16 @@ class _$UpdateRoomTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateRoom = _$UpdateRoomTearOff();
 
 /// @nodoc
 mixin _$UpdateRoom {
-  String get name;
-  Message get lastMessage;
+  String get name => throw _privateConstructorUsedError;
+  Message get lastMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UpdateRoomCopyWith<UpdateRoom> get copyWith;
+  $UpdateRoomCopyWith<UpdateRoom> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -376,21 +380,23 @@ class _$UpdateRoomCopyWithImpl<$Res> implements $UpdateRoomCopyWith<$Res> {
 
   @override
   $Res call({
-    Object name = freezed,
-    Object lastMessage = freezed,
+    Object? name = freezed,
+    Object? lastMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed ? _value.name : name as String,
-      lastMessage:
-          lastMessage == freezed ? _value.lastMessage : lastMessage as Message,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastMessage: lastMessage == freezed
+          ? _value.lastMessage
+          : lastMessage // ignore: cast_nullable_to_non_nullable
+              as Message,
     ));
   }
 
   @override
   $MessageCopyWith<$Res> get lastMessage {
-    if (_value.lastMessage == null) {
-      return null;
-    }
     return $MessageCopyWith<$Res>(_value.lastMessage, (value) {
       return _then(_value.copyWith(lastMessage: value));
     });
@@ -421,22 +427,26 @@ class __$UpdateRoomCopyWithImpl<$Res> extends _$UpdateRoomCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object lastMessage = freezed,
+    Object? name = freezed,
+    Object? lastMessage = freezed,
   }) {
     return _then(_UpdateRoom(
-      name: name == freezed ? _value.name : name as String,
-      lastMessage:
-          lastMessage == freezed ? _value.lastMessage : lastMessage as Message,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastMessage: lastMessage == freezed
+          ? _value.lastMessage
+          : lastMessage // ignore: cast_nullable_to_non_nullable
+              as Message,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_UpdateRoom implements _UpdateRoom {
-  const _$_UpdateRoom({@required this.name, @required this.lastMessage})
-      : assert(name != null),
-        assert(lastMessage != null);
+  const _$_UpdateRoom({required this.name, required this.lastMessage});
 
   @override
   final String name;
@@ -451,19 +461,15 @@ class _$_UpdateRoom implements _UpdateRoom {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateRoom &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _UpdateRoom &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.lastMessage, lastMessage) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastMessage, lastMessage)));
+                other.lastMessage == lastMessage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(lastMessage);
+  int get hashCode => Object.hash(runtimeType, name, lastMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -473,7 +479,7 @@ class _$_UpdateRoom implements _UpdateRoom {
 
 abstract class _UpdateRoom implements UpdateRoom {
   const factory _UpdateRoom(
-      {@required String name, @required Message lastMessage}) = _$_UpdateRoom;
+      {required String name, required Message lastMessage}) = _$_UpdateRoom;
 
   @override
   String get name;
@@ -481,5 +487,6 @@ abstract class _UpdateRoom implements UpdateRoom {
   Message get lastMessage;
   @override
   @JsonKey(ignore: true)
-  _$UpdateRoomCopyWith<_UpdateRoom> get copyWith;
+  _$UpdateRoomCopyWith<_UpdateRoom> get copyWith =>
+      throw _privateConstructorUsedError;
 }

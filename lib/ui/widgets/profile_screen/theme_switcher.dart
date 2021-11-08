@@ -6,7 +6,7 @@ import 'package:nant_client/utils/get_it/get_it.dart';
 
 class ThemeSwitcher extends StatefulWidget {
   const ThemeSwitcher({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeBloc, ThemeBlocState>(
-      cubit: getIt.get<ThemeBloc>(),
+      bloc: getIt.get<ThemeBloc>(),
       builder: (context, state) {
         return state.maybeMap(
           themeLoaded: (loaded) {

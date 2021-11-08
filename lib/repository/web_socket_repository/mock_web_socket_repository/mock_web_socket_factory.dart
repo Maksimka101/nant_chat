@@ -5,10 +5,14 @@ import 'package:nant_client/repository/web_socket_repository/web_socket_reposito
 class MockWebSocketRepositoryFactory extends WebSocketRepositoryFactory {
   MockWebSocketRepositoryFactory({this.mockWebSocketRepository});
 
-  final MockWebSocketRepository mockWebSocketRepository;
+  final MockWebSocketRepository? mockWebSocketRepository;
 
   @override
-  WebSocketRepository<T> createRepository<T>({String url}) {
-    return mockWebSocketRepository as WebSocketRepository<T> ?? MockWebSocketRepository<T>(url, false);
+  WebSocketRepository<T> createRepository<T>({String? url}) {
+    return mockWebSocketRepository as WebSocketRepository<T>? ??
+        MockWebSocketRepository<T>(
+          url,
+          tryToRestoreConnection: false,
+        );
   }
 }

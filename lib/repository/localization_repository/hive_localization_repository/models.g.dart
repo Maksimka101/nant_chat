@@ -18,7 +18,7 @@ class LocaleAdapter extends TypeAdapter<Locale> {
     };
     return Locale(
       languageCode: fields[0] as String,
-      countryCode: fields[1] as String,
+      countryCode: fields[1] as String?,
     );
   }
 
